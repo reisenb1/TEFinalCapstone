@@ -28,6 +28,12 @@ CREATE TABLE user_deck (
     CONSTRAINT FK_user_deck_user FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
+CREATE TABLE tags (
+    tag_id SERIAL,
+    tag_name varchar(50) NOT NULL,
+    CONSTRAINT PK_tag PRIMARY KEY (tag_id)
+);
+
 CREATE TABLE deck_tag (
     deck_id int NOT NULL,
     tag_id int NOT NULL,
@@ -36,11 +42,6 @@ CREATE TABLE deck_tag (
     CONSTRAINT FK_deck_tag_tag FOREIGN KEY (tag_id) REFERENCES tags(tag_id)
 );
 
-CREATE TABLE tags (
-    tag_id SERIAL,
-    tag_name varchar(50) NOT NULL,
-    CONSTRAINT PK_tag PRIMARY KEY (tag_id)
-);
 
 CREATE TABLE cards (
     card_id SERIAL,
