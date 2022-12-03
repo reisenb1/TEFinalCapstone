@@ -26,8 +26,10 @@ public class JdbcDeckDao implements DeckDao{
     @Override
     public List<Deck> getAllMySavedDecks(int userId) {
         List<Deck> allDecks = new ArrayList<>();
-        String sql = "SELECT * FROM decks WHERE creator_id = ?";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+        String sql = "SELECT * FROM decks\n" +
+                "JOIN user_deck ON user_deck.deck_id= decks.deck_id\n" +
+                "WHERE user_id = ? AND creator_id != ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId, userId);
         while(results.next()) {
             allDecks.add(mapRowToDeck(results));
         }
@@ -36,7 +38,14 @@ public class JdbcDeckDao implements DeckDao{
 
     @Override
     public Deck getDeck(int deckId) {
-        return null;
+        String sql = "SELECT * FROM decks WHERE deck_id = ?;";
+        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql,deckId);
+        if (rowSet.next()) {
+            Deck deck = mapRowToDeck(rowSet);
+            return deck;
+        } else {
+            return null;
+        }
     }
 
     @Override
@@ -45,18 +54,32 @@ public class JdbcDeckDao implements DeckDao{
                 "VALUES(?, ?, ?, ?) RETURNING deck_id;";
         Integer deckId = jdbcTemplate.queryForObject(sql, Integer.class, deck.getDeckId());
         deck.setDeckId(deckId);
+        sql = "INSERT INTO user_deck(deck_id,user_id) VALUES (?,?);";
+        jdbcTemplate.update(sql,deck.getDeckId(),deck.getCreatorId());
         return deck;
     }
 
     @Override
-    public Deck updateDeck(Deck deck) {
-        return null;
+    public boolean updateDeck(Deck deck) {
+        String sql = "UPDATE decks SET deck_name = ?, deck_description = ?, accessible = ?, creator_id = ?" +
+                     "WHERE deck_id = ?;";
+        int count = jdbcTemplate.update(sql, deck.getDeckName(), deck.getDeckDescription(), deck.isAccessible(), deck.getCreatorId(), deck.getDeckId());
+        return count == 1;
     }
 
-    @Override
-    public boolean deleteDeck(int deckId) {
-        return false;
-    }
+
+//    @Override
+//    public boolean deleteDeck(int deckId) {
+//        String sql = "DELETE FROM cards WHERE deck_id = ?;";
+//        jdbcTemplate.update(sql,deckId);
+//        sql = "DELETE FROM deck_tag WHERE deck_id = ?;";
+//        jdbcTemplate.update(sql,deckId);
+//        sql = "DELETE FROM user_deck WHERE deck_id = ?;";
+//        jdbcTemplate.update(sql,deckId);
+//        sql = "DELETE FROM decks WHERE deck_id = ?;";
+//        int count = jdbcTemplate.update(sql,deckId);
+//        return count == 1;
+//    }
 
     private Deck mapRowToDeck(SqlRowSet rowSet) {
         Deck deck = new Deck();

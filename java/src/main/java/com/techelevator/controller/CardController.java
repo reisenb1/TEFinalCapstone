@@ -1,40 +1,45 @@
 package com.techelevator.controller;
 
 
+import com.techelevator.dao.CardDao;
 import com.techelevator.model.Card;
 import com.techelevator.model.Deck;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class CardController {
 
-    public CardController() {
+    private CardDao cardDao;
 
+    public CardController(CardDao cardDao) {
+        this.cardDao = cardDao;
     }
 
-    @RequestMapping(path = "/cards", method = RequestMethod.GET)
-    public void getAllCard() {
-
-    };
+    @RequestMapping(path = "decks/{deckId}/cards", method = RequestMethod.GET)
+    public List<Card> getAllCard(@PathVariable int deckId) {
+        return cardDao.getAllCards(deckId);
+    }
 
     @RequestMapping(path = "/cards/{cardId}", method = RequestMethod.GET)
     public Card getOneCard(@PathVariable int cardId) {
-        return new Card();
-    };
+        return cardDao.getCard(cardId);
+    }
 
-    @RequestMapping(path = "/cards/{cardId}", method = RequestMethod.POST)
-    public Card createCard(@RequestBody Card card, @PathVariable int cardId) {
-        return new Card();
+    @RequestMapping(path = "/cards", method = RequestMethod.POST)
+    public Card createCard(@RequestBody Card card) {
+        return cardDao.createCard(card);
     }
 
     @RequestMapping(path = "/cards/{cardId}", method = RequestMethod.PUT)
-    public Card updateCard(@RequestBody Card card, @PathVariable int cardId) {
-        return new Card();
+    public boolean updateCard(@RequestBody Card card, @PathVariable int cardId) {
+        return cardDao.updateCard(card);
     }
 
     @RequestMapping(path = "/cards/{cardId}", method = RequestMethod.DELETE)
     public boolean deleteCard(@PathVariable int cardId) {
-        return true;
+        return cardDao.deleteCard(cardId);
     }
 
 }

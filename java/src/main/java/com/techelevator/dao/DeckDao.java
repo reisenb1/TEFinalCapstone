@@ -14,9 +14,9 @@ public interface DeckDao {
 
     Deck createDeck(Deck deck);
 
-    Deck updateDeck(Deck deck);
+    boolean updateDeck(Deck deck);
 
-    boolean deleteDeck(int deckId);
+//    boolean deleteDeck(int deckId);
 
 
 

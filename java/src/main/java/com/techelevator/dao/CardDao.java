@@ -12,7 +12,7 @@ public interface CardDao {
 
     Card createCard(Card card);
 
-    Card updateCard(Card card);
+    boolean updateCard(Card card);
 
     boolean deleteCard(int cardId);
 
