@@ -7,11 +7,14 @@
 
     <div id="nav">
       <router-link style="text-decoration: none; color: white" v-bind:to="{ name: 'home' }">Home</router-link>
-      &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">Categories</router-link>
-      &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">About</router-link>
+      &nbsp;|&nbsp;<a style="text-decoration: none; color: white" href="#categories">Categories</a>
+      <!-- &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">Categories</router-link> -->
+      &nbsp;|&nbsp;<a style="text-decoration: none; color: white" href="#about">About</a>
+      <!-- &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">About</router-link> -->
 
 
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+      
       
     </div>
     <router-view />
@@ -56,6 +59,7 @@ body {
   height: 60px;
   /* test header colors. This may need to be put in the header section */
   background-color: rgba(71, 133, 204, 0.7);
+  
 
 }
 

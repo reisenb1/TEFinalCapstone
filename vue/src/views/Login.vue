@@ -35,7 +35,7 @@
       <button type="submit">Sign in</button>
     </form>
 
-    <div class="welcome">
+    <div id="welcome">
       <h1>Welcome!</h1>
        <!-- <img src="images/study-photo.jpg" alt="study"> -->
 
@@ -43,13 +43,13 @@
     </div>
 
 
-    <div class="categories">
+    <div id="categories">
       <h1>Categories</h1>
       <p>Here is more information</p>
     </div>
       
 
-    <div class="about">
+    <div id="about">
       <h1>About</h1>
       <p>Here is more information</p>
 
@@ -104,6 +104,11 @@ export default {
 </script>
 
 <style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+
  .form-sign-in {
    display: flex;
    justify-content: right;
@@ -137,20 +142,20 @@ export default {
     justify-content: flex-end;
   }
 
-  .welcome {
+  #welcome {
     padding-top: 50px;
     color: white;
     height: 750px;
     overflow-y: auto;
   }
 
-  .categories {
+  #categories {
     color: white;
     scroll-behavior: smooth;
     height: 500px;
   }
 
-  .about {
+  #about {
     color: white;
     scroll-behavior: smooth;
     height: 250px;
@@ -169,7 +174,7 @@ export default {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(32, 189, 149);
+  background: rgb(32, 189, 149, 0.7);
   border-radius: 15px;
 }
 </style>
