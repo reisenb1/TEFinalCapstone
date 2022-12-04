@@ -3,14 +3,19 @@ package com.techelevator.dao;
 import com.techelevator.model.Deck;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class JdbcDeckDao implements DeckDao{
 
     private JdbcTemplate jdbcTemplate;
 
+    public JdbcDeckDao(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     @Override
     public List<Deck> getAllMyCreatedDecks(int userId) {
@@ -52,7 +57,7 @@ public class JdbcDeckDao implements DeckDao{
     public Deck createDeck(Deck deck) {
         String sql = "INSERT INTO decks(deck_name, deck_description, accessible, creator_id)\n" +
                 "VALUES(?, ?, ?, ?) RETURNING deck_id;";
-        Integer deckId = jdbcTemplate.queryForObject(sql, Integer.class, deck.getDeckId());
+        Integer deckId = jdbcTemplate.queryForObject(sql, Integer.class, deck.getDeckName(),deck.getDeckDescription(),deck.isAccessible(),deck.getCreatorId());
         deck.setDeckId(deckId);
         sql = "INSERT INTO user_deck(deck_id,user_id) VALUES (?,?);";
         jdbcTemplate.update(sql,deck.getDeckId(),deck.getCreatorId());

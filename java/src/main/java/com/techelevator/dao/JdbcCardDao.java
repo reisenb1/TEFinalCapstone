@@ -5,13 +5,19 @@ import com.techelevator.model.Card;
 import com.techelevator.model.Deck;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class JdbcCardDao implements CardDao {
 
     private JdbcTemplate jdbcTemplate;
+
+    public JdbcCardDao(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     @Override
     public List<Card> getAllCards(int deckId) {
@@ -40,7 +46,7 @@ public class JdbcCardDao implements CardDao {
     public Card createCard(Card card) {
         String sql = "INSERT INTO cards(deck_id, front, back)\n" +
                      "VALUES(?, ?, ?) RETURNING card_id;";
-        Integer cardId = jdbcTemplate.queryForObject(sql, Integer.class, card.getCardId());
+        Integer cardId = jdbcTemplate.queryForObject(sql, Integer.class, card.getDeckId(),card.getFront(),card.getBack());
         card.setCardId(cardId);
         return card;
     }
