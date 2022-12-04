@@ -155,4 +155,21 @@ export default {
     scroll-behavior: smooth;
     height: 250px;
   }
+
+  /* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(32, 189, 149);
+  border-radius: 15px;
+}
 </style>
