@@ -5,7 +5,7 @@
     </div>
 
     <div class="img">
-      <img src="./images/study photo.png" alt="study">
+      <!-- <img src="./images/study photo.png" alt="study"> -->
     </div>
 
     <div id="nav">
