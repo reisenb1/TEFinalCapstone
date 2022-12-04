@@ -37,7 +37,7 @@
 
     <div class="welcome">
       <h1>Welcome!</h1>
-       
+       <!-- <img src="images/study-photo.jpg" alt="study"> -->
 
     <p>The greatest place for your study needs, Emily's flashcards gives you the best opportunity to hone in on and retain the information that you need.</p>
     </div>
@@ -54,7 +54,7 @@
       <p>Here is more information</p>
 
 
-    </div>
+    </div> 
 
 
     

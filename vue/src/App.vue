@@ -16,10 +16,12 @@
     </div>
     <router-view />
 
-    <!-- <div class="img"> -->
+    <!-- <div class="img"> 
       
-      <!-- <img src="./images/study-photo.jpg" alt="study"> -->
-    <!-- </div> -->
+      <img src="./images/study-photo.jpg" alt="study">
+    </div> -->
+
+
 
 
 
