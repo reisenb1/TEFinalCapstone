@@ -6,9 +6,9 @@
     </div>
 
     <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>
-      &nbsp;|&nbsp;<router-link v-bind:to="{ name: '' }">Categories</router-link>
-      &nbsp;|&nbsp;<router-link v-bind:to="{ name: '' }">About</router-link>
+      <router-link style="text-decoration: none; color: white" v-bind:to="{ name: 'home' }">Home</router-link>
+      &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">Categories</router-link>
+      &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">About</router-link>
 
 
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
@@ -63,6 +63,7 @@ body {
   text-decoration: none;
   align-items: center;
   padding: 10px;
+  color: white;
 }
 
 .header {

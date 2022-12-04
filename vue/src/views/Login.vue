@@ -41,6 +41,7 @@
 
     <p>The greatest place for your study needs, Emily's flashcards gives you the best opportunity to hone in on and retain the information that you need.</p>
     </div>
+    
 
 
 
