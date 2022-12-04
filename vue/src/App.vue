@@ -1,9 +1,79 @@
 <template>
   <div id="app">
+    <div class="header">
+      <h2>Emily's FlashCards</h2>
+    </div>
+
+    <div class="img">
+      <img src="./images/study photo.png" alt="study">
+    </div>
+
     <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
+      <router-link v-bind:to="{ name: 'home' }">Home</router-link>
+      &nbsp;|&nbsp;<router-link v-bind:to="{ name: '' }">Categories</router-link>
+      &nbsp;|&nbsp;<router-link v-bind:to="{ name: '' }">About</router-link>
+
+
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+      
     </div>
     <router-view />
+
+    <div>
+      
+    </div>
+
+
+
+
   </div>
+
+
 </template>
+
+<script>
+
+
+export default {
+  
+}
+
+</script>
+
+<style>
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+#app {
+  display: flex;
+  height: 60px;
+  background-color: rgb(224, 75, 75);
+}
+
+#nav {
+  display: flex;
+  justify-content: space-around;
+  text-decoration: none;
+  align-items: center;
+  padding: 10px;
+  
+  
+}
+
+.header {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 10px;
+  color: rgb(233, 216, 64);
+}
+
+.img {
+  
+  max-width: 100%;
+  height: auto;
+}
+</style>

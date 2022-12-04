@@ -10,3 +10,11 @@ export default {
   name: "home"
 };
 </script>
+
+<style scoped>
+  .home {
+     display: flex;
+     justify-content: space-between;
+     align-items: right;
+   }
+</style>

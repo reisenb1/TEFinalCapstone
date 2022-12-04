@@ -1,7 +1,7 @@
 <template>
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+      <h2 class="h3 mb-3 font-weight-normal">Create Account</h2>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -90,4 +90,16 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+ .form-register {
+   display: flex;
+   justify-content: flex-end;
+   align-items: baseline;
+   height: 35px;
+ }
+
+ .text-center > .form-register {
+   display: flex;
+   justify-content: flex-end;
+ }
+</style>
