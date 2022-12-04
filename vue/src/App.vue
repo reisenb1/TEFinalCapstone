@@ -16,10 +16,10 @@
     </div>
     <router-view />
 
-    <div class="img">
+    <!-- <div class="img"> -->
       
       <!-- <img src="./images/study-photo.jpg" alt="study"> -->
-    </div>
+    <!-- </div> -->
 
 
 
@@ -45,7 +45,7 @@ body {
 
     /* placeholder image to test function, will be removed */
     background-image: url("./images/study-photo.jpg");
-    background-size: auto;
+    background-size: auto; 
     
 }
 

@@ -42,10 +42,12 @@
     <p>The greatest place for your study needs, Emily's flashcards gives you the best opportunity to hone in on and retain the information that you need.</p>
     </div>
 
+
     <div class="categories">
       <h1>Categories</h1>
       <p>Here is more information</p>
     </div>
+      
 
     <div class="about">
       <h1>About</h1>
