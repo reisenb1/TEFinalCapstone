@@ -95,6 +95,27 @@ export default {
    height: 35px;
  }
 
+ /* need to figure out how to add modal form to login  */
+ /* .sr-only  {
+   display: flex;
+   justify-items: center;
+   background-size: auto;
+   align-items: center;
+   
+   
+ }
+
+ .form-sign-in, .sr-only {
+   background-color: red;
+   margin: 5px;
+   display: flexbox;
+   align-items:center;
+   width: 300px;
+   padding: 12px 20px;
+   box-sizing: border-box;
+   
+ } */
+
   #id {
     display: flex;
     justify-content: flex-end;
