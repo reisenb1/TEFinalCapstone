@@ -1,10 +1,12 @@
 <template>
+
   <div id="app">
     <div class="header">
       <h2>Emily's FlashCards</h2>
     </div>
 
     <div class="img">
+      
       <!-- <img src="./images/study photo.png" alt="study"> -->
     </div>
 
@@ -19,16 +21,10 @@
     </div>
     <router-view />
 
-    <div>
-      
-    </div>
-
 
 
 
   </div>
-
-
 </template>
 
 <script>
@@ -45,12 +41,17 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    background-image: url("./images/study-photo.jpg");
+    background-size: auto;
+    
 }
 
 #app {
   display: flex;
   height: 60px;
-  background-color: rgb(224, 75, 75);
+  background-color: rgba(71, 133, 204, 0.7);
+
 }
 
 #nav {
@@ -59,8 +60,6 @@ body {
   text-decoration: none;
   align-items: center;
   padding: 10px;
-  
-  
 }
 
 .header {
@@ -71,9 +70,9 @@ body {
   color: rgb(233, 216, 64);
 }
 
-.img {
+/* .img {
   
   max-width: 100%;
   height: auto;
-}
+} */
 </style>

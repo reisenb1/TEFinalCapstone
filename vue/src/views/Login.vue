@@ -34,6 +34,25 @@
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
       <button type="submit">Sign in</button>
     </form>
+
+    <div class="welcome">
+      <h1>Welcome!</h1>
+
+    <p>The greatest place for your study needs, Emily's flashcards gives you the best opportunity to hone in on and retain the information that you need.</p>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    
   </div>
 </template>
 
@@ -86,5 +105,12 @@ export default {
 #id {
   display: flex;
   justify-content: flex-end;
+}
+
+.welcome {
+  padding-top: 50px;
+  
+  
+  
 }
 </style>
