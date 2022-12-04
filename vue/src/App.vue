@@ -5,11 +5,6 @@
       <h2>Emily's FlashCards</h2>
     </div>
 
-    <div class="img">
-      
-      <!-- <img src="./images/study photo.png" alt="study"> -->
-    </div>
-
     <div id="nav">
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>
       &nbsp;|&nbsp;<router-link v-bind:to="{ name: '' }">Categories</router-link>
@@ -20,6 +15,12 @@
       
     </div>
     <router-view />
+
+    <div class="img">
+      
+      <!-- <img src="./images/study-photo.jpg" alt="study"> -->
+    </div>
+
 
 
 
@@ -42,6 +43,7 @@ body {
     'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
+    /* placeholder image to test function, will be removed */
     background-image: url("./images/study-photo.jpg");
     background-size: auto;
     
@@ -50,6 +52,7 @@ body {
 #app {
   display: flex;
   height: 60px;
+  /* test header colors. This may need to be put in the header section */
   background-color: rgba(71, 133, 204, 0.7);
 
 }

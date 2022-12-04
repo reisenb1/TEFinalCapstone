@@ -37,18 +37,10 @@
 
     <div class="welcome">
       <h1>Welcome!</h1>
+       
 
     <p>The greatest place for your study needs, Emily's flashcards gives you the best opportunity to hone in on and retain the information that you need.</p>
-
-
     </div>
-
-
-
-
-
-
-
 
 
 
@@ -102,15 +94,14 @@ export default {
    height: 35px;
  }
 
-#id {
-  display: flex;
-  justify-content: flex-end;
-}
+  #id {
+    display: flex;
+    justify-content: flex-end;
+  }
 
-.welcome {
-  padding-top: 50px;
+  .welcome {
+    padding-top: 50px;
+    color: white;
   
-  
-  
-}
+  }
 </style>
