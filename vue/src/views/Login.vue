@@ -54,6 +54,9 @@
       <p>Here is more information</p>
 
 
+
+      <a id="top" href="#">Back to top</a>
+
     </div> 
 
 
@@ -159,6 +162,13 @@ export default {
     color: white;
     scroll-behavior: smooth;
     height: 250px;
+  }
+
+  #top {
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
   }
 
   /* width */
