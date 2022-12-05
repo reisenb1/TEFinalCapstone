@@ -7,8 +7,8 @@ const http = axios.create({
 
 export default {
 
-    getCards() {
-        return http.get('decks/deckId/cards');
+    getCards(deckId) {
+        return http.get(`decks/${deckId}/cards`);
     },
 
     getCardById(id) {

@@ -27,14 +27,22 @@
         Add Deck
       </button>
       <form v-if="showAddDeck">
-        Deck Title:
-        <input type="text" class="form-control" v-model="newDeck.deckName" />
-        Background Color:
-        <input
-          type="text"
-          class="form-control"
-          v-model="newDeck.backgroundColor"
-        />
+
+        <div>
+          <label for="deck-name">Deck Name:</label>
+          <input type="text" class="form-control" name="deck-name" v-model="newDeck.deckName" />
+        </div>
+       
+        <div>
+          <label for="deck-description">Description:</label>
+          <input type="text" class="form-control" name="deck-description" v-model="newDeck.deckDescription"/>
+        </div>
+
+        <div>
+          <label for="accessible">Check this box if you would like to make your deck public</label>
+          <input id="checkbox" type="checkbox" name="accessible" v-model="newDeck.accessible" />
+        </div>
+        
         <button class="btn btn-submit" v-on:click.prevent="saveNewDeck">
           Save
         </button>
@@ -57,7 +65,8 @@ export default {
       newDeck: {
           deckName: '',
           deckDescription: '',
-          // creatorId: this.state.$store.user,
+          //have to fix this
+          creatorId: 1,
           accessible: false,
       },
       errorMsg: ''
@@ -77,13 +86,8 @@ export default {
         this.$store.commit("SET_DECKS", response.data);
         this.isLoading = false;
 
-        // only handle active deck logic if there are boards
         if (this.$store.state.decks.length > 0) {
-
-          // select first deck
           const deckId = response.data[0].deckId;
-
-          // update active deck so it is highlighted in nav
           this.$store.commit("SET_ACTIVE_DECK", deckId);
 
           // forward to correct deck to display cards for active deck
@@ -96,14 +100,15 @@ export default {
     saveNewDeck() {
       this.isLoading = true;
       DeckService.addDeck(this.newDeck).then( (response) => {
-        if (response.status === 201) {
+        if (response.status === 200) {
           this.retrieveDecks();
           this.showAddDeck = false;
           this.newDeck = {
             deckName: '',
           deckDescription: '',
-          creatorId: this.state.$store.user,
-          accessible: false,
+          //also would have to fix creator id here
+          creatorId: 1,
+          accessible: false
           }
         }
       }).catch( (error) => {
