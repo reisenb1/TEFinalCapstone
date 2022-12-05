@@ -54,6 +54,21 @@ public class JdbcDeckDao implements DeckDao{
     }
 
     @Override
+    public Deck getDeckWithTagName(String tagName) {
+        String sql = "SELECT * FROM decks\n" +
+                "JOIN deck_tag ON deck_tag.deck_id = decks.deck_id\n" +
+                "JOIN tags ON tags.tag_id = deck_tag.tag_id\n" +
+                "WHERE tag_name = ?;\n";
+        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, tagName);
+        if (rowSet.next()) {
+            Deck deck = mapRowToDeck(rowSet);
+            return deck;
+        } else {
+            return null;
+        }
+    }
+
+    @Override
     public Deck createDeck(Deck deck) {
         String sql = "INSERT INTO decks(deck_name, deck_description, accessible, creator_id)\n" +
                 "VALUES(?, ?, ?, ?) RETURNING deck_id;";

@@ -12,9 +12,12 @@ public interface DeckDao {
 
     Deck getDeck(int deckId);
 
+    Deck getDeckWithTagName(String tagName);
+
     Deck createDeck(Deck deck);
 
     boolean updateDeck(Deck deck);
+
 
 //    boolean deleteDeck(int deckId);
 

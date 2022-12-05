@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Card;
+import com.techelevator.model.Deck;
 
 import java.util.List;
 
@@ -15,5 +16,7 @@ public interface CardDao {
     boolean updateCard(Card card);
 
     boolean deleteCard(int cardId);
+
+
 
 }
