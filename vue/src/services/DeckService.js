@@ -15,11 +15,11 @@ export default {
     },
 
     addDeck(deck) {
-        return http.post(`/decks/${deck}`)
+        return http.post(`/decks`, deck)
     },
 
     updateDeck(deck) {
-        return http.put(`/decks/${deck.id}`);
+        return http.put(`/decks/${deck.deckId}`);
     },
 
     // deleteDeck(deckId) {
