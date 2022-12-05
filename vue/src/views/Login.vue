@@ -112,6 +112,18 @@ export default {
     scroll-behavior: smooth;
   }
 
+  /* #login {
+    background-color: rgb(122, 120, 120, 0.7);
+    height: 60px;
+    padding: 10px;
+
+  } */
+
+  #id {
+    display: flexbox;
+    width: 100%;
+  }
+
 
  .form-sign-in {
    display: flex;
@@ -147,22 +159,41 @@ export default {
   }
 
   #welcome {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  
     padding-top: 50px;
     color: white;
     height: 750px;
     overflow-y: auto;
+
   }
 
   #categories {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     color: white;
     scroll-behavior: smooth;
-    height: 500px;
+    background-color: rgba(110, 101, 238, 0.89);
+    height: 750px;
+    width: 100%;
   }
 
   #about {
+    display: flex;
     color: white;
-    scroll-behavior: smooth;
+    background-color: rgb(235, 83, 109, 0.89);
     height: 250px;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #about p {
+    display: flex;
+    align-items: baseline;
+    justify-content: baseline;
   }
 
   #top {

@@ -1,11 +1,14 @@
 <template>
 
   <div id="app">
-    <div class="header">
-      <h2>Emily's FlashCards</h2>
-    </div>
+    
 
     <div id="nav">
+      <div class="header">
+      <h2>Emily's FlashCards</h2>
+      </div>
+
+
       <router-link style="text-decoration: none; color: white" v-bind:to="{ name: 'home' }">Home</router-link>
       &nbsp;|&nbsp;<a style="text-decoration: none; color: white" href="#categories">Categories</a>
       <!-- &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">Categories</router-link> -->
@@ -14,21 +17,9 @@
 
 
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-      
-      
+
     </div>
     <router-view />
-
-    <!-- <div class="img"> 
-      
-      <img src="./images/study-photo.jpg" alt="study">
-    </div> -->
-
-
-
-
-
-
 
   </div>
 </template>
@@ -50,26 +41,33 @@ body {
 
     /* placeholder image to test function, will be removed */
     background-image: url("./images/study-photo.jpg");
-    background-size: auto; 
+  
+
     
 }
 
 #app {
-  display: flex;
-  height: 60px;
+  /* display: flex;
+  height: 60px; */
   /* test header colors. This may need to be put in the header section */
-  background-color: rgba(71, 133, 204, 0.7);
+  /* background-color: rgba(71, 13, 204, 0.7);
+  position: fixed;
+  width: 100%; */
   
 
 }
 
 #nav {
   display: flex;
-  justify-content: space-around;
   text-decoration: none;
   align-items: center;
   padding: 10px;
   color: white;
+  display: flex;
+  height: 60px;
+  background-color: rgb(122, 120, 120, 0.7);
+  position: fixed;
+  
 }
 
 .header {
@@ -82,7 +80,7 @@ body {
 
 /* .img {
   
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 750px;
 } */
 </style>

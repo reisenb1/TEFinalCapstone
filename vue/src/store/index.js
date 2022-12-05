@@ -12,7 +12,7 @@ Vue.use(Vuex)
 const currentToken = localStorage.getItem('token')
 const currentUser = JSON.parse(localStorage.getItem('user'));
 
-if(currentToken != null) {
+if (currentToken != null) {
   axios.defaults.headers.common['Authorization'] = `Bearer ${currentToken}`;
 }
 
@@ -20,6 +20,11 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {}
+  },
+  getters: {
+    user(state) {
+      return state.user;
+    }
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -29,7 +34,7 @@ export default new Vuex.Store({
     },
     SET_USER(state, user) {
       state.user = user;
-      localStorage.setItem('user',JSON.stringify(user));
+      localStorage.setItem('user', JSON.stringify(user));
     },
     LOGOUT(state) {
       localStorage.removeItem('token');
@@ -37,6 +42,22 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
-    }
+    },
+    SET_DECKS(state, data) {
+      state.decks = data;
+    },
+    SET_ACTIVE_BOARD(state, deckId) {
+      state.activeDeckId = deckId;
+    },
+    SET_DECK_CARDS(state, data) {
+      state.deckCards = data;
+    },
+    SET_CURRENT_CARD(state, data) {
+      state.card = data;
+    },
+    // DELETE_DECK(state, deckIdToDelete) {
+    //   state.decks = state.decks.filter((deck) => {
+    //     return deck.id !== deckIdToDelete;
+    //   });
   }
 })
