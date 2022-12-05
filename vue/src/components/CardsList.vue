@@ -32,7 +32,7 @@ export default {
               "Deck cards not available."
             );
             this.$router.push({ name: "Home" });
-          }
+          } 
         });
     }
   },
