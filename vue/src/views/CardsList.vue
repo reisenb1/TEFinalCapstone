@@ -1,14 +1,18 @@
 <template>
+<div>
 <cards-list></cards-list>
-  
+<add-card-form></add-card-form>
+</div>
 </template>
 
 <script>
 import CardsList from '../components/CardsList';
+import AddCardForm from '../components/AddCardForm';
 
 export default {
       components: {
-    CardsList
+    CardsList,
+    AddCardForm
   },
   data() {
     return {
