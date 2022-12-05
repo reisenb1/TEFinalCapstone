@@ -1,4 +1,6 @@
 <template>
+
+ 
   <div id="sideNav">
     <h1>My Decks</h1>
     <div class="Decks">
@@ -85,7 +87,7 @@ export default {
           this.$store.commit("SET_ACTIVE_DECK", deckId);
 
           // forward to correct deck to display cards for active deck
-          this.$router.push({ name: "Deck", params: { deckId: deckId } });
+          //this.$router.push({ name: "Deck", params: { deckId: deckId } });
         } else {
           this.$store.commit("SET_ACTIVE_DECK", null);
         }
