@@ -67,6 +67,8 @@ body {
   height: 60px;
   background-color: rgb(122, 120, 120, 0.7);
   position: fixed;
+  top: 0;
+
   
 }
 

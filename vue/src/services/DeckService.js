@@ -6,8 +6,8 @@ const http = axios.create({
 
 
 export default {
-    getDecks(saved) {
-        return http.get('userId/decks', {params: { saved }});
+    getDecks(userId, saved) {
+        return http.get(`/${userId}/decks`, {params: { saved }});
     },
 
     getDeckById(deckId) {

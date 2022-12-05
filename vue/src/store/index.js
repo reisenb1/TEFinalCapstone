@@ -19,7 +19,15 @@ if (currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    decks: [],
+    activeDeckId: null,
+    deckCards: [],
+    card: {
+      front: '',
+      back: ''
+    }
+    
   },
   getters: {
     user(state) {
@@ -46,7 +54,7 @@ export default new Vuex.Store({
     SET_DECKS(state, data) {
       state.decks = data;
     },
-    SET_ACTIVE_BOARD(state, deckId) {
+    SET_ACTIVE_DECK(state, deckId) {
       state.activeDeckId = deckId;
     },
     SET_DECK_CARDS(state, data) {

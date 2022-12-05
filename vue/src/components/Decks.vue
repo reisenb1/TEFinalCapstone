@@ -9,16 +9,16 @@
         <img src="../images/eye-blink.gif" />
       </div>
       <router-link
-        :to="{ name: 'Deck', params: { id: deck.id } }"
+        :to="{ name: 'Deck', params: { deckId: deck.deckId } }"
         class="deck"
-        :class="{ 'deck-active': deck.id == activeDeckId }"
+        :class="{ 'deck-active': deck.deckId == activeDeckId }"
         v-for="deck in this.$store.state.decks"
-        v-bind:key="deck.id"
+        v-bind:key="deck.deckId"
       >
-        {{ deck.name }}
+        {{ deck.deckName }}
       </router-link>
       <button
-        class="btn addBoard"
+        class="btn addDeck"
         v-if="!isLoading && !showAddDeck"
         v-on:click="showAddDeck = !showAddDeck"
       >
@@ -26,12 +26,12 @@
       </button>
       <form v-if="showAddDeck">
         Deck Title:
-        <input type="text" class="form-control" v-model="newDeck.nsmr" />
+        <input type="text" class="form-control" v-model="newDeck.deckName" />
         Background Color:
         <input
           type="text"
           class="form-control"
-          v-model="newBoard.backgroundColor"
+          v-model="newDeck.backgroundColor"
         />
         <button class="btn btn-submit" v-on:click.prevent="saveNewDeck">
           Save
@@ -55,7 +55,7 @@ export default {
       newDeck: {
           deckName: '',
           deckDescription: '',
-          creatorId: this.state.$store.user,
+          // creatorId: this.state.$store.user,
           accessible: false,
       },
       errorMsg: ''
@@ -71,7 +71,7 @@ export default {
   },
   methods: {
     retrieveDecks() {
-     DeckService.getDecks().then(response => {
+     DeckService.getDecks(1, false).then(response => {
         this.$store.commit("SET_DECKS", response.data);
         this.isLoading = false;
 
@@ -79,13 +79,13 @@ export default {
         if (this.$store.state.decks.length > 0) {
 
           // select first deck
-          const deckId = response.data[0].id;
+          const deckId = response.data[0].deckId;
 
           // update active deck so it is highlighted in nav
           this.$store.commit("SET_ACTIVE_DECK", deckId);
 
           // forward to correct deck to display cards for active deck
-          this.$router.push({ name: "Deck", params: { id: deckId } });
+          this.$router.push({ name: "Deck", params: { deckId: deckId } });
         } else {
           this.$store.commit("SET_ACTIVE_DECK", null);
         }
@@ -115,7 +115,7 @@ export default {
         this.isLoading = false;
       });
    
-  }
+    }
   }
 }
 </script>
@@ -133,6 +133,7 @@ div#sideNav {
   border-right: solid lightgrey 1px;
   display: flex;
   flex-direction: column;
+  margin-top: 80px;
 
   
 }
@@ -141,13 +142,13 @@ h1 {
   text-align: center;
 }
 
-.boards {
+.decks {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
-.board {
+.deck {
   color: #f7fafc;
   border-radius: 10px;
   padding: 40px;
@@ -158,7 +159,7 @@ h1 {
   cursor: pointer;
   width: 60%;
 }
-.addBoard {
+.addDeck {
     display: flex;
     justify-content: center;
   color: #f7fafc;
@@ -177,10 +178,10 @@ h1 {
 .loading {
   flex: 3;
 }
-.board:hover:not(.router-link-active), .addBoard:hover {
+.deck:hover:not(.router-link-active), .addDeck:hover {
   font-weight: bold;
 }
-.board-active {
+.deck-active {
   font-weight: bold;
   border: solid blue 5px;
 }
