@@ -5,6 +5,8 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
+import AddCard from '../views/AddCard.vue'
+import EditCard from '../views/EditCard.vue'
 // import Deck from '../views/Deck';
 import CardsList from '../views/CardsList';
 
@@ -59,6 +61,22 @@ const router = new Router({
       path: '/deck/:deckId',
       name: 'Deck',
       component: CardsList,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/deck/:deckId/addCard',
+      name: 'AddCard',
+      component: AddCard,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/deck/:deckId/:cardId/edit',
+      name: 'EditCard',
+      component: EditCard,
       meta: {
         requiresAuth: true
       }

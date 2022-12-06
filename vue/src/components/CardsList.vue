@@ -3,9 +3,12 @@
   <div class="card" v-for="card in cards" v-bind:key="card.cardId" >
     <div>Front: {{card.front}}</div>
     <div>Back: {{card.back}}</div>
+    <div>
+      <router-link :to="{name: 'EditCard', params:{cardId:card.cardId}}">Edit</router-link>
+    </div>
   </div>
 
-  
+
 
   </div>
 </template>
