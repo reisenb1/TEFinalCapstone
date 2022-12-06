@@ -43,10 +43,18 @@ public class JdbcCardDaoTest extends BaseDaoTests{
 
     @Test
     public void updateCard() {
+        //not done
         CardDao cardDao = new JdbcCardDao(new JdbcTemplate(dataSource));
+        Card card = new Card();
+        cardDao.updateCard(card);
     }
 
     @Test
     public void deleteCard() {
+        CardDao cardDao = new JdbcCardDao(new JdbcTemplate(dataSource));
+        Card card = new Card();
+        cardDao.deleteCard(card.getCardId());
+        Assert.assertTrue(true);
+
     }
 }

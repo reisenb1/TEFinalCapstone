@@ -18,4 +18,6 @@ INSERT INTO tags (tag_name) VALUES ('math');
 
 INSERT INTO deck_tag (deck_id, tag_id) VALUES (4, 1);
 
+INSERT INTO user_deck (deck_id, user_id) VALUES (1, 2);
+
 COMMIT TRANSACTION;
