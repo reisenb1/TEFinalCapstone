@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div id="main-grid" class="container">
     <nav id="topBar">
       <div class="header">
         <h2>Emily's FlashCards</h2>
@@ -68,10 +68,18 @@
           required
         />
         <router-link :to="{ name: 'register' }">Need an account?</router-link>
-        <button type="submit">Sign in</button>
+        <button id="submit" type="submit">Sign in</button>
       </form>
 
-      <div id="main-grid">
+      <div id="login-about">
+        <h1>This is a Title</h1>
+        <p>This is a paragraph with some stuff and more stuff<br>
+          This is going to allow me to space out the content of the login
+        </p>
+
+      </div>
+
+      <!-- <div id="main-grid">
         <div id="welcome">
           <h1>Welcome!</h1>
 
@@ -93,7 +101,7 @@
 
           <a id="top" href="#">Back to top</a>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -141,50 +149,98 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  background-image: url("../images/study-photo.jpg");
+ 
+}
+
 .container {
   display: grid;
 }
 
 #topBar {
-  grid-area: navi;
+  grid-area: topBar;
 }
 
 #login {
-  margin-top: 150px;
+  grid-area: login;
+  margin-top: 20px;
+}
+
+#login-about {
+  grid-area: login-about;
+  color: white;
+  margin-left: 75px;
+}
+
+.text-center {
+  display: flex;
+  height: 500px;
+  
 }
 
 #main-grid {
   display: grid;
   grid-template-areas:
-    "welcome"
-    "categories"
-    "about";
-  grid-template-columns: 1fr;
-  grid-template-rows: 2fr 2fr 1fr;
+    "topBar topBar"
+    "login  login-about"
+    ;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 3fr;
 
   align-items: center;
 
-  row-gap: 0px;
-  column-gap: 10px;
+  row-gap: 20px;
+  column-gap: 50px;
 }
 
-/* #login {
+ /* #login { 
     background-color: rgb(122, 120, 120, 0.7);
     height: 60px;
     padding: 10px;
 
-  } */
+}  */
 
 #id {
   display: flexbox;
   width: 100%;
 }
 
+#submit {
+ background-color: rgb(31, 51, 235, 0.8);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.form-sign-in #submit:hover {
+  opacity: 1;
+  
+}
+
 .form-sign-in {
+
+
+}
+
+.form-control {
+  padding: 14px 20px;
+  margin: 8px 0;
+
+}
+
+.text-center .form-sign-in {
   display: flex;
-  justify-content: right;
-  align-items: baseline;
-  height: 35px;
+  flex-direction: column;
+  background-color: lavender;
+  width: 600px;
+  padding: 25px;
+  border: 5px solid rgb(218, 107, 218);
+  border-radius: 5px;
+  margin-right: 75px;
 }
 
 /* need to figure out how to add modal form to login  */
@@ -194,7 +250,7 @@ html {
   justify-content: flex-end;
 }
 
-#welcome {
+/* #welcome {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -226,13 +282,13 @@ html {
   align-items: center;
   flex-direction: column;
   width: 100%;
-}
+} */
 
-#about p {
+/* #about p {
   display: flex;
   align-items: baseline;
   justify-content: baseline;
-}
+} */
 
 #top {
   display: flex;
