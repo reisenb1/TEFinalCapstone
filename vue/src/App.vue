@@ -2,7 +2,6 @@
 
   <div id="app">
     
-
     <div id="nav">
       <div class="header">
       <h2>Emily's FlashCards</h2>
@@ -18,8 +17,15 @@
 
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
 
+
     </div>
+
+    
     <router-view />
+
+  
+
+    
 
   </div>
 </template>
@@ -46,17 +52,6 @@ body {
     
 }
 
-#app {
-  /* display: flex;
-  height: 60px; */
-  /* test header colors. This may need to be put in the header section */
-  /* background-color: rgba(71, 13, 204, 0.7);
-  position: fixed;
-  width: 100%; */
-  
-
-}
-
 #nav {
   display: flex;
   text-decoration: none;
@@ -80,9 +75,9 @@ body {
   color: rgb(233, 216, 64);
 }
 
-/* .img {
-  
+#welcome-span {
+  margin-top: 80px;
   width: 100%;
   height: 750px;
-} */
+}
 </style>

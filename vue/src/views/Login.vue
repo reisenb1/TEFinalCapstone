@@ -2,16 +2,16 @@
   <div id="login" class="text-center">
     <form class="form-sign-in" @submit.prevent="login">
       <h2 class="h3 mb-3 font-weight-normal">Please Sign In</h2>
-      <div
-        class="alert alert-danger"
-        role="alert"
-        v-if="invalidCredentials"
-      >Invalid username and password!</div>
+      <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
+        Invalid username and password!
+      </div>
       <div
         class="alert alert-success"
         role="alert"
         v-if="this.$route.query.registration"
-      >Thank you for registering, please sign in.</div>
+      >
+        Thank you for registering, please sign in.
+      </div>
       <label for="username" class="sr-only">Username</label>
       <input
         type="text"
@@ -35,37 +35,29 @@
       <button type="submit">Sign in</button>
     </form>
 
-    <div id="welcome">
-      <h1>Welcome!</h1>
-       <!-- <img src="images/study-photo.jpg" alt="study"> -->
+    <div id="main-grid">
+      <div id="welcome">
+        <h1>Welcome!</h1>
 
-    <p>The greatest place for your study needs, Emily's flashcards gives you the best opportunity to hone in on and retain the information that you need.</p>
+        <p>
+          The greatest place for your study needs, Emily's flashcards gives you
+          the best opportunity to hone in on and retain the information that you
+          need.
+        </p>
+      </div>
+
+      <div id="categories">
+        <h1>Categories</h1>
+        <p>Here is more information</p>
+      </div>
+
+      <div id="about">
+        <h1>About</h1>
+        <p>Here is more information</p>
+
+        <a id="top" href="#">Back to top</a>
+      </div>
     </div>
-
-
-    <div id="categories">
-      <h1>Categories</h1>
-      <p>Here is more information</p>
-    </div>
-      
-
-    <div id="about">
-      <h1>About</h1>
-      <p>Here is more information</p>
-
-
-
-      <a id="top" href="#">Back to top</a>
-      
-
-    </div> 
-
-
-    
-
-
-
-    
   </div>
 </template>
 
@@ -79,131 +71,131 @@ export default {
     return {
       user: {
         username: "",
-        password: ""
+        password: "",
       },
-      invalidCredentials: false
+      invalidCredentials: false,
     };
   },
   methods: {
     login() {
       authService
         .login(this.user)
-        .then(response => {
+        .then((response) => {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
             this.$router.push("/");
           }
         })
-        .catch(error => {
+        .catch((error) => {
           const response = error.response;
 
           if (response.status === 401) {
             this.invalidCredentials = true;
           }
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style>
-  html {
-    scroll-behavior: smooth;
-  }
+html {
+  scroll-behavior: smooth;
+}
 
-  /* #login {
+#main-grid {
+    display: grid;
+    grid-template-areas: 
+        "welcome"
+        "categories"
+        "about"
+        
+        ;
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 2fr 1fr;
+
+        align-items: center;
+        
+        
+        row-gap: 5px;
+        column-gap: 10px;
+}
+
+
+/* #login {
     background-color: rgb(122, 120, 120, 0.7);
     height: 60px;
     padding: 10px;
 
   } */
 
-  #id {
-    display: flexbox;
-    width: 100%;
-  }
+#id {
+  display: flexbox;
+  width: 100%;
+}
+
+.form-sign-in {
+  display: flex;
+  justify-content: right;
+  align-items: baseline;
+  height: 35px;
+}
+
+/* need to figure out how to add modal form to login  */
 
 
- .form-sign-in {
-   display: flex;
-   justify-content: right;
-   align-items: baseline;
-   height: 35px;
- }
+#id {
+  display: flex;
+  justify-content: flex-end;
+}
 
- /* need to figure out how to add modal form to login  */
- /* .sr-only  {
-   display: flex;
-   justify-items: center;
-   background-size: auto;
-   align-items: center;
-   
-   
- }
+#welcome {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
- .form-sign-in, .sr-only {
-   background-color: red;
-   margin: 5px;
-   display: flexbox;
-   align-items:center;
-   width: 300px;
-   padding: 12px 20px;
-   box-sizing: border-box;
-   
- } */
+  padding-top: 50px;
+  color: white;
+  height: 750px;
+  overflow-y: auto;
+}
 
-  #id {
-    display: flex;
-    justify-content: flex-end;
-  }
+#categories {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  scroll-behavior: smooth;
+  background-color: rgba(110, 101, 238, 0.89);
+  height: 750px;
+  width: 100%;
+}
 
-  #welcome {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  
-    padding-top: 50px;
-    color: white;
-    height: 750px;
-    overflow-y: auto;
+#about {
+  display: flex;
+  color: white;
+  background-color: rgb(235, 83, 109, 0.89);
+  height: 500px;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
 
-  }
+#about p {
+  display: flex;
+  align-items: baseline;
+  justify-content: baseline;
+}
 
-  #categories {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    color: white;
-    scroll-behavior: smooth;
-    background-color: rgba(110, 101, 238, 0.89);
-    height: 750px;
-    width: 100%;
-  }
+#top {
+  display: flex;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+}
 
-  #about {
-    display: flex;
-    color: white;
-    background-color: rgb(235, 83, 109, 0.89);
-    height: 250px;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  #about p {
-    display: flex;
-    align-items: baseline;
-    justify-content: baseline;
-  }
-
-  #top {
-    display: flex;
-    justify-content: center;
-    color: white;
-    text-decoration: none;
-  }
-
-  /* width */
+/* width */
 ::-webkit-scrollbar {
   width: 15px;
 }
