@@ -9,6 +9,7 @@ import AddCard from '../views/AddCard.vue'
 import EditCard from '../views/EditCard.vue'
 // import Deck from '../views/Deck';
 import CardsList from '../views/CardsList';
+import LoggedInHome from '../views/LoggedInHome.vue'
 
 Vue.use(Router)
 
@@ -39,6 +40,14 @@ const router = new Router({
       component: Login,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: "/loggedinhome",
+      name: "loggedInHome",
+      component: LoggedInHome,
+      meta: {
+        requiresAuth: true
       }
     },
     {

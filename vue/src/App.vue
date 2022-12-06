@@ -1,66 +1,62 @@
 <template>
-
   <div id="app">
-    
-    <div id="nav">
+    <nav id="topBar">
       <div class="header">
-      <h2>Emily's FlashCards</h2>
+        <h2>Emily's FlashCards</h2>
       </div>
 
-
-      <router-link style="text-decoration: none; color: blue" v-bind:to="{ name: 'home' }">Home</router-link>
-      &nbsp;|&nbsp;<a style="text-decoration: none; color: blue" href="#categories">Categories</a>
+      <router-link
+        style="text-decoration: none; color: blue"
+        v-bind:to="{ name: 'home' }"
+        >Home</router-link
+      >
+      &nbsp;|&nbsp;<a
+        style="text-decoration: none; color: blue"
+        href="#categories"
+        >Categories</a
+      >
       <!-- &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">Categories</router-link> -->
-      &nbsp;|&nbsp;<a style="text-decoration: none; color: blue" href="#about">About</a>
+      &nbsp;|&nbsp;<a style="text-decoration: none; color: blue" href="#about"
+        >About</a
+      >
       <!-- &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">About</router-link> -->
+      &nbsp;|&nbsp;<router-link
+        v-bind:to="{ name: 'login' }"
+        v-show="$store.state.token == ''"
+        >Sign In</router-link
+      >
+       &nbsp;|&nbsp;<router-link
+        v-bind:to="{ name: 'register' }"
+        v-show="$store.state.token == ''"
+        >Register</router-link
+      >
 
-      <div>
-        <router-link v-bind:to="{ name: 'login' }" v-show="$store.state.token == ''">Sign In</router-link>
-      </div>
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+      <router-link
+        v-bind:to="{ name: 'logout' }"
+        v-if="$store.state.token != ''"
+        >Logout</router-link
+      >
+    </nav>
 
-
-    </div>
-
-    
     <router-view />
-
-  
-
-    
-
   </div>
 </template>
 
 <script>
-
-
-
-
-export default {
-
-  components: {
-
-  }
-  
-}
-
+export default {};
 </script>
 
 <style>
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-    /* placeholder image to test function, will be removed */
-    
-  
-
-    
+  /* placeholder image to test function, will be removed */
 }
 
-#nav {
+
+nav {
   display: flex;
   text-decoration: none;
   align-items: center;
@@ -68,16 +64,14 @@ body {
   color: blue;
   display: flex;
   height: 60px;
-  background-color:green;
+  /* background-color:green; */
   position: fixed;
   top: 0;
-
-  
-
-  
+  width: 100%;
 }
 
-#app {}
+/* #app {
+} */
 
 .header {
   display: flex;
