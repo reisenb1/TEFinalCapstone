@@ -83,7 +83,7 @@ nav {
   display: flex;
   width: 82%;
   /* margin-left: 73%; */
-  justify-content: right;
+  justify-content: flex-end;
 }
 
 #app {
