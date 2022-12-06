@@ -20,10 +20,12 @@ public class JdbcDeckDaoTest extends BaseDaoTests {
     }
 
     @Test
-    //come back to
     public void getAllMySavedDecks() {
         DeckDao deckDao = new JdbcDeckDao(new JdbcTemplate(dataSource));
-        deckDao.getAllMySavedDecks(2);
+        List<Deck> decks = deckDao.getAllMySavedDecks(2);
+        Assert.assertEquals(1, decks.size());
+        Deck firstDeck = decks.get(0);
+        Assert.assertEquals(1, firstDeck.getDeckId());
     }
 
     @Test
@@ -51,12 +53,19 @@ public class JdbcDeckDaoTest extends BaseDaoTests {
         Deck result = deckDao.createDeck(deck);
         Assert.assertTrue(result.getDeckId() > 0);
         Assert.assertEquals("TestDeck", result.getDeckName());
-
-
+        Assert.assertEquals("Omg this is a deck", result.getDeckDescription());
+        Assert.assertEquals(false, result.isAccessible());
+        Assert.assertEquals(1, result.getCreatorId());
     }
 
     @Test
     public void updateDeck() {
+        //not done
         DeckDao deckDao = new JdbcDeckDao(new JdbcTemplate(dataSource));
+        Deck deck = deckDao.getDeck(1);
+        deck.setDeckName("new name");
+        boolean result = deckDao.updateDeck(deck);
+        Assert.assertEquals("new name", deck.getDeckName());
+        Assert.assertEquals(result, true);
     }
 }
