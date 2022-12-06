@@ -63,20 +63,29 @@ nav {
   /* padding: 10px; */
   color: blue;
   height: 60px;
-  /* background-color:green; */
+  background-color: green;
   position: fixed;
   top: 0;
   width: 100%;
   flex-direction: row;
   grid-area: head;
+  margin-bottom: 5px;
 }
 
 #mainSection {
   grid-area: content;
+  margin-top: 20px;
 }
 
 #bottomBar {
+  /* display: flex; */
   grid-area: foot;
+  position: fixed;
+  left: 3;
+  bottom: 0;
+  width: 100%;
+  /* position: fixed;
+  align-items: bottom; */
 }
 
 #registerLogin {
@@ -90,9 +99,9 @@ nav {
   display: grid;
   grid-template-areas:
     "head"
-    "main"
+    "content"
     "foot";
-  grid-template-rows: 7% 1fr 3%;
+  grid-template-rows: 0.5fr 8fr 0.1fr;
 }
 
 .header {
