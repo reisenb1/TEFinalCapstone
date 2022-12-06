@@ -74,16 +74,19 @@ nav {
 
 #mainSection {
   grid-area: content;
-  margin-top: 20px;
+  margin-top: 60px;
+  height: 100vh;
 }
 
 #bottomBar {
   /* display: flex; */
   grid-area: foot;
   position: fixed;
-  left: 3;
+  left: 0;
   bottom: 0;
   width: 100%;
+  background-color: brown;
+  text-indent: 0.5%;
   /* position: fixed;
   align-items: bottom; */
 }
@@ -96,12 +99,12 @@ nav {
 }
 
 #app {
-  display: grid;
+  /* display: grid;
   grid-template-areas:
     "head"
     "content"
-    "foot";
-  grid-template-rows: 0.5fr 8fr 0.1fr;
+    "foot"; */
+  /* grid-template-rows: 0.5fr 8fr 0.1fr; */
 }
 
 .header {

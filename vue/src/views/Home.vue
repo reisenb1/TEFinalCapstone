@@ -1,6 +1,19 @@
 <template>
   <div class="home">
-    <img src="../images/study-photo.jpg" />
+    <!-- <img src="../images/study-photo.jpg" /> -->
+    <div id="firstTextArea">
+      <h2>Hello!</h2>
+      <h3>Test your knowledge with flashcards from YEGET!</h3>
+      <p>"Ye get cards, you get it??"</p>
+    </div>
+    <div id="signInLink">
+      <router-link
+        v-bind:to="{ name: 'login' }"
+        v-show="$store.state.token == ''"
+        >Sign In</router-link
+      >
+    </div>
+    <hr />
   </div>
 </template>
 
@@ -12,10 +25,27 @@ export default {
 
 <style scoped>
 .home {
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
   /* color: ivory; */
+  background-color: cadetblue;
+}
+h2,
+h3,
+p {
+  padding-top: 30px;
+  text-align: center;
+}
+
+#signInLink {
+  font-weight: bold;
+  border: solid rgb(185, 68, 68) 5px;
+  background-color: rgb(185, 68, 68);
+  margin: auto;
+  width: 5vw;
+  text-align: center;
+  border-radius: 6px;
 }
 </style>
