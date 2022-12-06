@@ -1,7 +1,7 @@
 <template>
   <div>
-      <h1>Add New Deck</h1>
-      <deck-form></deck-form>
+      <h1>Edit Deck</h1>
+      <deck-form v-bind:deckId="parseInt($route.params.deckId)"></deck-form>
   </div>
 </template>
 

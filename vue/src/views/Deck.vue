@@ -1,5 +1,6 @@
 <template>
   <div>
+    <deck-header></deck-header>
     <div>
       <router-link :to="{ name: 'AddCard' }">Add Card</router-link>
     </div>
@@ -9,10 +10,12 @@
 
 <script>
 import CardsList from "../components/CardsList";
+import DeckHeader from "../components/DeckHeader.vue"
 
 export default {
   components: {
     CardsList,
+    DeckHeader
   },
   data() {
     return {

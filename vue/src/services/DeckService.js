@@ -19,7 +19,7 @@ export default {
     },
 
     updateDeck(deck) {
-        return http.put(`/decks/${deck.deckId}`);
+        return http.put(`/decks/${deck.deckId}`, deck);
     },
 
     // deleteDeck(deckId) {

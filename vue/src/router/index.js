@@ -9,7 +9,8 @@ import AddCard from '../views/AddCard.vue'
 import EditCard from '../views/EditCard.vue'
 import Deck from '../views/Deck';
 import LoggedInHome from '../views/LoggedInHome.vue'
-import DeckForm from '../views/DeckForm.vue'
+import AddDeck from '../views/AddDeck.vue'
+import EditDeck from '../views/EditDeck.vue'
 
 Vue.use(Router)
 
@@ -43,7 +44,7 @@ const router = new Router({
       }
     },
     {
-      path: "/loggedInHome",
+      path: '/loggedInHome',
       name: "loggedInHome",
       component: LoggedInHome,
       meta: {
@@ -67,9 +68,17 @@ const router = new Router({
       }
     },
     {
-      path: '/decks',
-      name: 'DeckForm',
-      component: DeckForm,
+      path: '/decks/addDeck',
+      name: 'AddDeck',
+      component: AddDeck,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/decks/:deckId/editDeck',
+      name: 'EditDeck',
+      component: EditDeck,
       meta: {
         requiresAuth: true
       }

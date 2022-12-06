@@ -1,13 +1,13 @@
 <template>
   <div>
-    <form v-on:submit.prevent="saveNewDeck">
+    <form v-on:submit.prevent="submitForm">
       <div>
         <label for="deck-name">Deck Name:</label>
         <input
           type="text"
           class="form-control"
           name="deck-name"
-          v-model="newDeck.deckName"
+          v-model="deck.deckName"
         />
       </div>
 
@@ -17,7 +17,7 @@
           type="text"
           class="form-control"
           name="deck-description"
-          v-model="newDeck.deckDescription"
+          v-model="deck.deckDescription"
         />
       </div>
 
@@ -29,7 +29,7 @@
           id="checkbox"
           type="checkbox"
           name="accessible"
-          v-model="newDeck.accessible"
+          v-model="deck.accessible"
         />
       </div>
 
@@ -45,9 +45,26 @@
 <script>
 import DeckService from "../services/DeckService";
 export default {
+  props: {
+    deckId: {}
+  },
+  created(){
+    if(this.deckId != 0){
+      DeckService.getDeckById(this.deckId)
+        .then( response => {
+          this.deck = response.data;
+        })
+        .catch(error => {
+          if(error.response && error.response.status == 404){
+            alert("Could not find deck");
+          }
+          this.$router.push({ name: 'Deck', params: { deckId: this.deckId } })
+        });
+    }
+  },
   data() {
     return {
-      newDeck: {
+      deck: {
         deckName: "",
         deckDescription: "",
         //have to fix this
@@ -57,29 +74,49 @@ export default {
     };
   },
   methods: {
-    saveNewDeck() {
-      this.isLoading = true;
-      DeckService.addDeck(this.newDeck)
-        .then((response) => {
-          if (response.status === 200) {
-            this.showAddDeck = false;
-            this.newDeck = {
-              deckName: "",
-              deckDescription: "",
-              //also would have to fix creator id here
-              creatorId: 1,
-              accessible: false,
-            };
-           this.$router.push({ name: 'Deck', params: { deckId: response.data.deckId } })
-          }
-        })
-        .catch((error) => {
+    submitForm() {
+      if(this.deckId == 0){
+        this.isLoading = true;
+        DeckService.addDeck(this.newDeck)
+          .then((response) => {
+            if (response.status === 200) {
+              this.showAddDeck = false;
+              this.newDeck = {
+                deckName: "",
+                deckDescription: "",
+                //also would have to fix creator id here
+                creatorId: 1,
+                accessible: false,
+              };
+            this.$router.push({ name: 'Deck', params: { deckId: response.data.deckId } })
+            }
+          })
+          .catch((error) => {
+              console.log(error);
+              this.isLoading = false;
+          });
+      } else {
+         const newDeck = {
+          deckId: this.deckId,
+          deckName: this.deck.deckName,
+          deckDescription: this.deck.deckDescription,
+          //have to fix this
+          creatorId: 1,
+          accessible: this.deck.accessible,
+        };
+        DeckService.updateDeck(newDeck)
+          .then( response => {
+            if (response.status === 200){
+              this.$router.push({ name: 'Deck', params: { deckId: this.deckId } })
+            }
+          })
+          .catch(error => {
             console.log(error);
-            this.isLoading = false;
-        });
+          })
+      }
     },
     cancelDeck() {
-        this.$router.push({ name: 'loggedInHome'});
+        this.$router.push({ name: 'Deck', params: { deckId: this.deckId } });
     }
   },
 };
