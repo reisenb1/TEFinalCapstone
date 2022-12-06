@@ -8,13 +8,15 @@
       </div>
 
 
-      <router-link style="text-decoration: none; color: white" v-bind:to="{ name: 'home' }">Home</router-link>
-      &nbsp;|&nbsp;<a style="text-decoration: none; color: white" href="#categories">Categories</a>
+      <router-link style="text-decoration: none; color: blue" v-bind:to="{ name: 'home' }">Home</router-link>
+      &nbsp;|&nbsp;<a style="text-decoration: none; color: blue" href="#categories">Categories</a>
       <!-- &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">Categories</router-link> -->
-      &nbsp;|&nbsp;<a style="text-decoration: none; color: white" href="#about">About</a>
+      &nbsp;|&nbsp;<a style="text-decoration: none; color: blue" href="#about">About</a>
       <!-- &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">About</router-link> -->
 
-
+      <div>
+        <router-link v-bind:to="{ name: 'login' }" v-show="$store.state.token == ''">Sign In</router-link>
+      </div>
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
 
 
@@ -33,7 +35,13 @@
 <script>
 
 
+
+
 export default {
+
+  components: {
+
+  }
   
 }
 
@@ -46,7 +54,7 @@ body {
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
     /* placeholder image to test function, will be removed */
-    background-image: url("./images/study-photo.jpg");
+    
   
 
     
@@ -57,15 +65,19 @@ body {
   text-decoration: none;
   align-items: center;
   padding: 10px;
-  color: white;
+  color: blue;
   display: flex;
   height: 60px;
-  background-color: rgb(122, 120, 120, 0.7);
+  background-color:green;
   position: fixed;
   top: 0;
 
   
+
+  
 }
+
+#app {}
 
 .header {
   display: flex;
@@ -75,9 +87,10 @@ body {
   color: rgb(233, 216, 64);
 }
 
-#welcome-span {
+/* #welcome-span {
   margin-top: 80px;
   width: 100%;
   height: 750px;
-}
+  
+} */
 </style>

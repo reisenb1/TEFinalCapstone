@@ -118,7 +118,7 @@ html {
         align-items: center;
         
         
-        row-gap: 5px;
+        row-gap: 0px;
         column-gap: 10px;
 }
 
@@ -159,6 +159,8 @@ html {
   color: white;
   height: 750px;
   overflow-y: auto;
+
+  background-image: url("../images/study-photo.jpg");
 }
 
 #categories {
