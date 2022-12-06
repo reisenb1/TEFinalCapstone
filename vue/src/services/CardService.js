@@ -8,11 +8,11 @@ const http = axios.create({
 export default {
 
     getCards(deckId) {
-        return http.get(`decks/${deckId}/cards`);
+        return http.get(`/decks/${deckId}/cards`);
     },
 
     getCardById(id) {
-        return http.get(`cards/${id}`);
+        return http.get(`/cards/${id}`);
     },
 
     addCard(card) {
@@ -20,7 +20,7 @@ export default {
     },
 
     updateCard(card) {
-        return http.put(`/cards/${card.id}`);
+        return http.put(`/cards/${card.cardId}`);
     },
 
     deleteCard(cardID) {
