@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form v-on:submit="saveNewDeck">
+    <form v-on:submit.prevent="saveNewDeck">
       <div>
         <label for="deck-name">Deck Name:</label>
         <input
@@ -34,10 +34,11 @@
       </div>
 
       <button type="submit">Save</button>
+      <button v-on:click.prevent="cancelDeck" type="cancel">Cancel</button>
       
     </form>
 
-    <button v-on:click="cancelDeck()">Cancel</button>
+   
   </div>
 </template>
 
@@ -78,7 +79,7 @@ export default {
         });
     },
     cancelDeck() {
-        this.$router.push({name: 'loggedInHome'});
+        this.$router.push({ name: 'loggedInHome'});
     }
   },
 };

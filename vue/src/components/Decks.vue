@@ -9,9 +9,7 @@
       </div>
       <router-link
         :to="{ name: 'Deck', params: { deckId: deck.deckId } }"
-        class="deck"
-        :class="{ 'deck-active': deck.deckId == activeDeckId }"
-        v-for="deck in this.$store.state.decks"
+        v-for="deck in this.decks"
         v-bind:key="deck.deckId"
       >
         {{ deck.deckName }}
@@ -28,13 +26,7 @@ export default {
  data() {
     return {
       isLoading: true,
-      newDeck: {
-          deckName: '',
-          deckDescription: '',
-          //have to fix this
-          creatorId: 1,
-          accessible: false,
-      },
+      decks: []
     };
   },
   created() {
@@ -48,18 +40,9 @@ export default {
   methods: {
     retrieveDecks() {
      DeckService.getDecks(1, false).then(response => {
-        this.$store.commit("SET_DECKS", response.data);
+        this.decks = response.data;
         this.isLoading = false;
-
-        if (this.$store.state.decks.length > 0) {
-          const deckId = response.data[0].deckId;
-          this.$store.commit("SET_ACTIVE_DECK", deckId);
-
-          // forward to correct deck to display cards for active deck
-          //this.$router.push({ name: "Deck", params: { deckId: deckId } });
-        } else {
-          this.$store.commit("SET_ACTIVE_DECK", null);
-        }
+  
       });
     },
 
@@ -96,7 +79,7 @@ h1 {
   align-items: center;
 }
 .deck {
-  color: #f7fafc;
+  color: #010303;
   border-radius: 10px;
   padding: 40px;
   flex: 1;
