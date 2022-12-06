@@ -2,7 +2,7 @@
   <div id="app">
     <nav id="topBar">
       <div class="header">
-        <h2>Emily's FlashCards</h2>
+        <h2>YEGET</h2>
       </div>
 
       <router-link
@@ -36,7 +36,10 @@
       >
     </nav>
 
-    <router-view />
+    <router-view id="mainSection" />
+    <div id="bottomBar">
+      <p>Copyright 2022</p>
+    </div>
   </div>
 </template>
 
@@ -65,15 +68,32 @@ nav {
   top: 0;
   width: 100%;
   flex-direction: row;
+  grid-area: head;
+}
+
+#mainSection {
+  grid-area: content;
+}
+
+#bottomBar {
+  grid-area: foot;
 }
 
 #registerLogin {
   display: flex;
-  margin-left: 73%;
+  width: 82%;
+  /* margin-left: 73%; */
+  justify-content: right;
 }
 
-/* #app {
-} */
+#app {
+  display: grid;
+  grid-template-areas:
+    "head"
+    "main"
+    "foot";
+  grid-template-rows: 7% 1fr 3%;
+}
 
 .header {
   display: flex;
