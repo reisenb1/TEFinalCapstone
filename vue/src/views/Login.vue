@@ -1,61 +1,98 @@
 <template>
-  <div id="login" class="text-center">
-    <form class="form-sign-in" @submit.prevent="login">
-      <h2 class="h3 mb-3 font-weight-normal">Please Sign In</h2>
-      <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
-        Invalid username and password!
+  <div class="container">
+    <nav id="topBar">
+      <div class="header">
+        <h2>Emily's FlashCards</h2>
       </div>
-      <div
-        class="alert alert-success"
-        role="alert"
-        v-if="this.$route.query.registration"
+
+      <router-link
+        style="text-decoration: none; color: blue"
+        v-bind:to="{ name: 'home' }"
+        >Home</router-link
       >
-        Thank you for registering, please sign in.
-      </div>
-      <label for="username" class="sr-only">Username</label>
-      <input
-        type="text"
-        id="username"
-        class="form-control"
-        placeholder="Username"
-        v-model="user.username"
-        required
-        autofocus
-      />
-      <label for="password" class="sr-only">Password</label>
-      <input
-        type="password"
-        id="password"
-        class="form-control"
-        placeholder="Password"
-        v-model="user.password"
-        required
-      />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
-    </form>
-
-    <div id="main-grid">
-      <div id="welcome">
-        <h1>Welcome!</h1>
-
-        <p>
-          The greatest place for your study needs, Emily's flashcards gives you
-          the best opportunity to hone in on and retain the information that you
-          need.
-        </p>
+      &nbsp;|&nbsp;<a
+        style="text-decoration: none; color: blue"
+        href="#categories"
+        >Categories</a
+      >
+      <!-- &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">Categories</router-link> -->
+      &nbsp;|&nbsp;<a style="text-decoration: none; color: blue" href="#about"
+        >About</a
+      >
+      <!-- &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">About</router-link> -->
+      &nbsp;|&nbsp;
+      <div id="registerLogin">
+        <router-link
+          v-bind:to="{ name: 'login' }"
+          v-show="$store.state.token == ''"
+          >Sign In</router-link
+        >
       </div>
 
-      <div id="categories">
-        <h1>Categories</h1>
-        <p>Here is more information</p>
-      </div>
+      <router-link
+        v-bind:to="{ name: 'logout' }"
+        v-if="$store.state.token != ''"
+        >Logout</router-link
+      >
+    </nav>
+    <div id="login" class="text-center">
+      <form class="form-sign-in" @submit.prevent="login">
+        <h2 class="h3 mb-3 font-weight-normal">Please Sign In</h2>
+        <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
+          Invalid username and password!
+        </div>
+        <div
+          class="alert alert-success"
+          role="alert"
+          v-if="this.$route.query.registration"
+        >
+          Thank you for registering, please sign in.
+        </div>
+        <label for="username" class="sr-only">Username</label>
+        <input
+          type="text"
+          id="username"
+          class="form-control"
+          placeholder="Username"
+          v-model="user.username"
+          required
+          autofocus
+        />
+        <label for="password" class="sr-only">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          placeholder="Password"
+          v-model="user.password"
+          required
+        />
+        <router-link :to="{ name: 'register' }">Need an account?</router-link>
+        <button type="submit">Sign in</button>
+      </form>
 
-      <div id="about">
-        <h1>About</h1>
-        <p>Here is more information</p>
+      <div id="main-grid">
+        <div id="welcome">
+          <h1>Welcome!</h1>
 
-        <a id="top" href="#">Back to top</a>
+          <p>
+            The greatest place for your study needs, Emily's flashcards gives
+            you the best opportunity to hone in on and retain the information
+            that you need.
+          </p>
+        </div>
+
+        <div id="categories">
+          <h1>Categories</h1>
+          <p>Here is more information</p>
+        </div>
+
+        <div id="about">
+          <h1>About</h1>
+          <p>Here is more information</p>
+
+          <a id="top" href="#">Back to top</a>
+        </div>
       </div>
     </div>
   </div>
@@ -104,24 +141,32 @@ html {
   scroll-behavior: smooth;
 }
 
-#main-grid {
-    display: grid;
-    grid-template-areas: 
-        "welcome"
-        "categories"
-        "about"
-        
-        ;
-        grid-template-columns: 1fr;
-        grid-template-rows: 2fr 2fr 1fr;
-
-        align-items: center;
-        
-        
-        row-gap: 0px;
-        column-gap: 10px;
+.container {
+  display: grid;
 }
 
+#topBar {
+  grid-area: navi;
+}
+
+#login {
+  margin-top: 150px;
+}
+
+#main-grid {
+  display: grid;
+  grid-template-areas:
+    "welcome"
+    "categories"
+    "about";
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 2fr 1fr;
+
+  align-items: center;
+
+  row-gap: 0px;
+  column-gap: 10px;
+}
 
 /* #login {
     background-color: rgb(122, 120, 120, 0.7);
@@ -143,7 +188,6 @@ html {
 }
 
 /* need to figure out how to add modal form to login  */
-
 
 #id {
   display: flex;

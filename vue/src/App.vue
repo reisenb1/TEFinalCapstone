@@ -27,11 +27,6 @@
           v-show="$store.state.token == ''"
           >Sign In</router-link
         >
-        &nbsp;|&nbsp;<router-link
-          v-bind:to="{ name: 'register' }"
-          v-show="$store.state.token == ''"
-          >Register</router-link
-        >
       </div>
 
       <router-link
@@ -58,12 +53,11 @@ body {
   /* placeholder image to test function, will be removed */
 }
 
-
 nav {
   display: flex;
   text-decoration: none;
   align-items: center;
-  padding: 10px;
+  /* padding: 10px; */
   color: blue;
   height: 60px;
   /* background-color:green; */
@@ -75,10 +69,8 @@ nav {
 
 #registerLogin {
   display: flex;
-  margin-left: auto;
+  margin-left: 73%;
 }
-
-
 
 /* #app {
 } */
