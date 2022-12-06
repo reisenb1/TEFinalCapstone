@@ -26,30 +26,6 @@
       >
         Add Deck
       </button>
-      <form v-if="showAddDeck">
-
-        <div>
-          <label for="deck-name">Deck Name:</label>
-          <input type="text" class="form-control" name="deck-name" v-model="newDeck.deckName" />
-        </div>
-       
-        <div>
-          <label for="deck-description">Description:</label>
-          <input type="text" class="form-control" name="deck-description" v-model="newDeck.deckDescription"/>
-        </div>
-
-        <div>
-          <label for="accessible">Check this box if you would like to make your deck public</label>
-          <input id="checkbox" type="checkbox" name="accessible" v-model="newDeck.accessible" />
-        </div>
-        
-        <button class="btn btn-submit" v-on:click.prevent="saveNewDeck">
-          Save
-        </button>
-        <button class="btn btn-cancel" v-on:click="showAddDeck = !showAddDeck">
-          Cancel
-        </button>
-      </form>
     </div>
   </div>
 </template>

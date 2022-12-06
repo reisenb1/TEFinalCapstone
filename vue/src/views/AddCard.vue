@@ -1,6 +1,6 @@
 <template>
   <div>
-      <hi>Add New Card</hi>
+      <h1>Add New Card</h1>
       <card-form v-bind:cardId=0></card-form>
   </div>
 </template>

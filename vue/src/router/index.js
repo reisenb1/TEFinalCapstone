@@ -10,6 +10,7 @@ import EditCard from '../views/EditCard.vue'
 // import Deck from '../views/Deck';
 import CardsList from '../views/CardsList';
 import LoggedInHome from '../views/LoggedInHome.vue'
+import DeckForm from '../views/DeckForm.vue'
 
 Vue.use(Router)
 
@@ -67,11 +68,19 @@ const router = new Router({
       }
     },
     {
+      path: '/decks',
+      name: 'DeckForm',
+      component: DeckForm,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
       path: '/deck/:deckId',
       name: 'Deck',
       component: CardsList,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     },
     {

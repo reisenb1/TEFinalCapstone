@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
 <div>
     <div>
         <router-link :to="{name: 'AddCard'}">Add Card</router-link>
@@ -32,3 +32,4 @@ export default {
 <style>
 
 </style>
+-->
