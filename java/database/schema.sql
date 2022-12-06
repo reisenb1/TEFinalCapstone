@@ -48,8 +48,26 @@ CREATE TABLE cards (
     deck_id int NOT NULL,
     front varchar(500) NOT NULL,
     back varchar(500) NOT NULL,
+    User_Id int NOT NULL,
+    Confidence int NOT NULL,
     CONSTRAINT PK_card PRIMARY KEY (card_id),
-    CONSTRAINT FK_card_deck FOREIGN KEY (deck_id) REFERENCES decks(deck_id)
+    CONSTRAINT FK_card_deck FOREIGN KEY (deck_id) REFERENCES decks(deck_id),
+    CONSTRAINT FK_card_user FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+CREATE TABLE study_session (
+    study_session_id SERIAL,
+    user_id int NOT NULL,
+    deck_id int NOT NULL,
+    Number_of_cards int NOT NULL,
+    Number_correct int NOT NULL,
+    Number_green int NOT NULL,
+    Number_yellow int NOT NULL,
+    Number_red int NOT NULL,
+    Confidence int NOT NULL,
+    CONSTRAINT PK_study_session PRIMARY KEY (study_session_id),
+    CONSTRAINT FK_study_session_user FOREIGN KEY (user_id) REFERENCES users(user_id),
+    CONSTRAINT FK_study_session_deck FOREIGN KEY (deck_id) REFERENCES decks(deck_id)
 );
 
 COMMIT TRANSACTION;
