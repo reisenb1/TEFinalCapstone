@@ -6,6 +6,24 @@ public class Card {
     private int deckId;
     private String front;
     private String back;
+    private int userId;
+    private int confidence;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getConfidence() {
+        return confidence;
+    }
+
+    public void setConfidence(int confidence) {
+        this.confidence = confidence;
+    }
 
     public int getCardId() {
         return cardId;

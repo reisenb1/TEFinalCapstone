@@ -64,8 +64,11 @@ public class JdbcDeckDaoTest extends BaseDaoTests {
         DeckDao deckDao = new JdbcDeckDao(new JdbcTemplate(dataSource));
         Deck deck = deckDao.getDeck(1);
         deck.setDeckName("new name");
+        deck.setDeckDescription("new deck description");
+        deck.setAccessible(true);
+        deck.setCreatorId(1);
         boolean result = deckDao.updateDeck(deck);
         Assert.assertEquals("new name", deck.getDeckName());
-        Assert.assertEquals(result, true);
+        Assert.assertEquals(1, result);
     }
 }

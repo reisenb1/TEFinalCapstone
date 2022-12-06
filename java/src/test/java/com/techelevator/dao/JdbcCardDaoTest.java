@@ -45,8 +45,10 @@ public class JdbcCardDaoTest extends BaseDaoTests{
     public void updateCard() {
         //not done
         CardDao cardDao = new JdbcCardDao(new JdbcTemplate(dataSource));
-        Card card = new Card();
+        Card card = cardDao.getCard(1);
+        card.setFront("new result");
         cardDao.updateCard(card);
+        Assert.assertEquals("new result", card.getFront());
     }
 
     @Test
