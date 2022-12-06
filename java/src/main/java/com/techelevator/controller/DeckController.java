@@ -42,9 +42,9 @@ public class DeckController {
         return deckDao.updateDeck(deck);
     }
 
-    @RequestMapping(path = "/decks/{deckId}", method = RequestMethod.GET)
-    public Deck getDeckWithTagId(@PathVariable int tagId) {
-        return deckDao.getDeck(tagId);
+    @RequestMapping(path = "/decks/tags/{tagName}", method = RequestMethod.GET)
+    public Deck getDeckWithTagName(@PathVariable String tagName) {
+        return deckDao.getDeckWithTagName(tagName);
     };
 
 //    @RequestMapping(path = "/decks/{deckId}", method = RequestMethod.DELETE)
