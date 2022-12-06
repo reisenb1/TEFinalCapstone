@@ -1,7 +1,9 @@
 <template>
 <div>
-<cards-list></cards-list>
-
+    <div>
+        <router-link :to="{name: 'AddCard'}">Add Card</router-link>
+    </div>
+    <cards-list></cards-list>
 </div>
 </template>
 

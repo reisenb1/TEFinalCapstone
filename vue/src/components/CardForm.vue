@@ -11,7 +11,7 @@
         <input type="text" name="back" v-model="card.back" />
       </div>
 
-      <button>Submit</button>
+      <button input type="submit">Submit</button>
 
       <button
         v-on:click.prevent="cancelForm"

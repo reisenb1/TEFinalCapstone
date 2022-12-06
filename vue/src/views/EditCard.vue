@@ -1,6 +1,6 @@
 <template>
   <div>
-      <hi>Edit Card</hi>
+      <h1>Edit Card</h1>
       <card-form v-bind:cardId="parseInt($route.params.cardId)"></card-form>
   </div>
 </template>
