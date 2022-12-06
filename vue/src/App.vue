@@ -20,16 +20,19 @@
         >About</a
       >
       <!-- &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">About</router-link> -->
-      &nbsp;|&nbsp;<router-link
-        v-bind:to="{ name: 'login' }"
-        v-show="$store.state.token == ''"
-        >Sign In</router-link
-      >
-       &nbsp;|&nbsp;<router-link
-        v-bind:to="{ name: 'register' }"
-        v-show="$store.state.token == ''"
-        >Register</router-link
-      >
+      &nbsp;|&nbsp;
+      <div id="registerLogin">
+        <router-link
+          v-bind:to="{ name: 'login' }"
+          v-show="$store.state.token == ''"
+          >Sign In</router-link
+        >
+        &nbsp;|&nbsp;<router-link
+          v-bind:to="{ name: 'register' }"
+          v-show="$store.state.token == ''"
+          >Register</router-link
+        >
+      </div>
 
       <router-link
         v-bind:to="{ name: 'logout' }"
@@ -62,13 +65,20 @@ nav {
   align-items: center;
   padding: 10px;
   color: blue;
-  display: flex;
   height: 60px;
   /* background-color:green; */
   position: fixed;
   top: 0;
   width: 100%;
+  flex-direction: row;
 }
+
+#registerLogin {
+  display: flex;
+  margin-left: auto;
+}
+
+
 
 /* #app {
 } */
