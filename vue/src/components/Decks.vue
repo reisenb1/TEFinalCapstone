@@ -4,9 +4,6 @@
   <div id="sideNav">
     <h1>My Decks</h1>
     <div class="Decks">
-      <div class="status-message error" v-show="errorMsg !== ''">
-        {{ errorMsg }}
-      </div>
       <div class="loading" v-if="isLoading">
         <img src="../images/eye-blink.gif" />
       </div>
@@ -19,14 +16,8 @@
       >
         {{ deck.deckName }}
       </router-link>
-      <button
-        class="btn addDeck"
-        v-if="!isLoading && !showAddDeck"
-        v-on:click="showAddDeck = !showAddDeck"
-      >
-        Add Deck
-      </button>
     </div>
+    <router-link :to="{name:'DeckForm'}">Add a New Deck!!!!!!</router-link>
   </div>
 </template>
 
@@ -37,7 +28,6 @@ export default {
  data() {
     return {
       isLoading: true,
-      showAddDeck: false,
       newDeck: {
           deckName: '',
           deckDescription: '',
@@ -45,7 +35,6 @@ export default {
           creatorId: 1,
           accessible: false,
       },
-      errorMsg: ''
     };
   },
   created() {
@@ -73,32 +62,7 @@ export default {
         }
       });
     },
-    saveNewDeck() {
-      this.isLoading = true;
-      DeckService.addDeck(this.newDeck).then( (response) => {
-        if (response.status === 200) {
-          this.retrieveDecks();
-          this.showAddDeck = false;
-          this.newDeck = {
-            deckName: '',
-          deckDescription: '',
-          //also would have to fix creator id here
-          creatorId: 1,
-          accessible: false
-          }
-        }
-      }).catch( (error) => {
-        if (error.response) {
-          this.errorMsg = "Error submitting deck. Response was " + error.response.statusText;
-        } else if (error.request) {
-          this.errorMsg = "Error submitting deck.  Server could not be reached."
-        } else {
-          this.errorMsg = "Request could not be created."
-        }
-        this.isLoading = false;
-      });
-   
-    }
+
   }
 }
 </script>
