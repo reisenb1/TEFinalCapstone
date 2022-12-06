@@ -38,21 +38,10 @@ export default {
     };
   },
 
+
+
   methods: {
-    created(){
-      if(this.cardId != 0){
-        CardService.getCardById(this.cardId)
-          .then( response => {
-            this.card = response.data;
-          })
-          .catch(error => {
-            if(error.response && error.response.status == 404){
-              alert("Could not find card");
-            }
-            this.$router.push(`/deck/${this.deckId}`);
-          });
-      }
-    },
+  
     submitForm() {
       if(this.cardId == 0){
         const newCard = {
@@ -63,7 +52,7 @@ export default {
         CardService.addCard(newCard)
           .then((response) => {
             if (response.status === 200) {
-              this.$router.push(`/deck/${this.deckId}`)
+              this.$router.push({ name: 'Deck', params: { deckId: this.deckId } })
             }
           })
           .catch((error) => {
@@ -80,7 +69,7 @@ export default {
         CardService.updateCard(newCard)
           .then( response => {
             if (response.status === 200){
-              this.$router.push(`deck/${this.deckId}`);
+              this.$router.push({ name: 'Deck', params: { deckId: this.deckId } })
             }
           })
           .catch(error => {
@@ -90,9 +79,25 @@ export default {
     },
 
     cancelForm() {
-      this.$router.push(`deck/${this.deckId}`);
+      this.$router.push({ name: 'Deck', params: { deckId: this.deckId } })
     },
   },
+
+
+    created(){
+      if(this.cardId != 0){
+        CardService.getCardById(this.cardId)
+          .then( response => {
+            this.card = response.data;
+          })
+          .catch(error => {
+            if(error.response && error.response.status == 404){
+              alert("Could not find card");
+            }
+            this.$router.push({ name: 'Deck', params: { deckId: this.deckId } })
+          });
+      }
+    },
 };
 </script>
 

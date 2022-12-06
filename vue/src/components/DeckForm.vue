@@ -34,8 +34,10 @@
       </div>
 
       <button type="submit">Save</button>
-      <button v-on:click="cancelDeck">Cancel</button>
+      
     </form>
+
+    <button v-on:click="cancelDeck()">Cancel</button>
   </div>
 </template>
 
@@ -67,7 +69,7 @@ export default {
               creatorId: 1,
               accessible: false,
             };
-            this.$router.push(`/deck/${response.data.deckId}`)
+           this.$router.push({ name: 'Deck', params: { deckId: response.data.deckId } })
           }
         })
         .catch((error) => {

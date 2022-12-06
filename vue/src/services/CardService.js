@@ -20,7 +20,7 @@ export default {
     },
 
     updateCard(card) {
-        return http.put(`/cards/${card.cardId}`);
+        return http.put(`/cards/${card.cardId}`,card);
     },
 
     deleteCard(cardID) {

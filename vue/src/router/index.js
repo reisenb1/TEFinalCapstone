@@ -7,8 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import AddCard from '../views/AddCard.vue'
 import EditCard from '../views/EditCard.vue'
-// import Deck from '../views/Deck';
-import CardsList from '../views/CardsList';
+import Deck from '../views/Deck';
 import LoggedInHome from '../views/LoggedInHome.vue'
 import DeckForm from '../views/DeckForm.vue'
 
@@ -44,7 +43,7 @@ const router = new Router({
       }
     },
     {
-      path: "/loggedinhome",
+      path: "/loggedInHome",
       name: "loggedInHome",
       component: LoggedInHome,
       meta: {
@@ -78,7 +77,7 @@ const router = new Router({
     {
       path: '/deck/:deckId',
       name: 'Deck',
-      component: CardsList,
+      component: Deck,
       meta: {
         requiresAuth: false
       }
