@@ -12,9 +12,9 @@
           <input id="text" type="text" name="back" v-model="card.back" />
         </div>
 
-        <button input type="submit">Submit</button>
+        <button class="submit" input type="submit">Submit</button>
 
-        <button v-on:click.prevent="cancelForm" type="cancel">Cancel</button>
+        <button class="cancel" v-on:click.prevent="cancelForm" type="cancel">Cancel</button>
       </form>
     </div>
   <!-- </div> -->
@@ -153,6 +153,46 @@ export default {
 #text {
   border: none;
   border-bottom: 1px solid black;
+}
+
+.submit {
+  background-color: rgb(31, 51, 235, 0.6);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 25%;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transition-duration: 1s;
+}
+
+.cancel {
+  background-color: rgb(255, 0, 0, 0.6);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 25%;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transition-duration: 1s;
+  margin-left: 10px;
+}
+
+.submit:hover {
+  background-color: blue;
+  opacity: 1;
+}
+
+.cancel:hover {
+  background-color:red;
+  opacity: 1;
+}
+
+.cancel, .submit {
+  margin-top: 15px;
+  border-radius: 5px;
 }
 
 /* #main-grid {
