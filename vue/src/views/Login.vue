@@ -72,10 +72,8 @@
       </form>
 
       <div id="login-about">
-        <h1>This is a Title</h1>
-        <p>This is a paragraph with some stuff and more stuff<br>
-          This is going to allow me to space out the content of the login
-        </p>
+        <h1>Ye Got It!</h1>
+        <h2>Sign in and let's get started!</h2>
 
       </div>
 
@@ -222,7 +220,7 @@ body {
 
 #submit:hover {
   background-color: rgb(31, 51, 235);
-  opacity: 1;
+  opacity: 0.8;
   
 }
 
@@ -234,6 +232,8 @@ body {
 .form-control {
   padding: 14px 20px;
   margin: 8px 0;
+  border: none;
+  border-bottom: 2px solid black;
   
 
 }
@@ -242,9 +242,10 @@ body {
   display: flex;
   flex-direction: column;
   background-color: lavender;
-  width: 600px;
+  width: 500px;
   padding: 25px;
-  border: 5px solid rgb(218, 107, 218);
+  border: 15px solid rgb(218, 107, 218);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   border-radius: 5px;
   margin-right: 75px;
 }
