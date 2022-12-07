@@ -1,14 +1,18 @@
 <template>
-  <div>
+  <div class="deck-header-page">
 
       <router-link :to="{name: 'loggedInHome'}">Back to Home Page</router-link>
 
+
       <h1>{{deck.deckName}}</h1>
+
+
+      <div class="description-edit">
 
       <p>{{deck.deckDescription}}</p>
 
-      <router-link :to="{name:'EditDeck', params:{deckId:this.$route.params.deckId}}">Edit</router-link>
-
+      <router-link :to="{name:'EditDeck', params:{deckId:this.$route.params.deckId}}" class="deck-edit">Edit Deck</router-link>
+    </div>
 
 
   </div>
@@ -38,5 +42,18 @@ export default {
 </script>
 
 <style>
+.deck-header-page{
+    margin-left: 315px;
+    margin-right: 315px;
+
+}
+
+.description-edit{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+}
+
 
 </style>
