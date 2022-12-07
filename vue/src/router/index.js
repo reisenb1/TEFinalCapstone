@@ -11,6 +11,7 @@ import Deck from '../views/Deck';
 import LoggedInHome from '../views/LoggedInHome.vue'
 import AddDeck from '../views/AddDeck.vue'
 import EditDeck from '../views/EditDeck.vue'
+import StudySession from '../views/StudySession.vue'
 
 Vue.use(Router)
 
@@ -107,6 +108,14 @@ const router = new Router({
         requiresAuth: true
       }
     },
+    {
+      path: '/deck/:deckId/studySession/:cardId',
+      name: 'StudySession',
+      component: StudySession,
+      meta: {
+        requiresAuth: true
+      }
+    }
 
     
   ]

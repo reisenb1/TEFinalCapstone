@@ -32,7 +32,7 @@ export default {
         .catch((error) => {
           if (error.response && error.response.status === 404) {
             alert("Deck cards not available.");
-            this.$router.push({ name: "Home" });
+            this.$router.push({ name: "loggedInHome" });
           }
         });
     },
