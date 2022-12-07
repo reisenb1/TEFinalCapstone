@@ -39,7 +39,7 @@ public class DeckController {
 
     @RequestMapping(path = "/decks/{deckId}", method = RequestMethod.PUT)
     public boolean updateDeck(@RequestBody Deck deck, @PathVariable int deckId) {
-        return deckDao.updateDeck(deck);
+        return deckDao.updateDeck(deck, deckId);
     }
 
     @RequestMapping(path = "/decks/tags/{tagName}", method = RequestMethod.GET)
