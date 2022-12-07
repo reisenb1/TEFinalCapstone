@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div id="study-session-component">
     <h1>Deck Name Study Session</h1>
     <div v-for="card in cards" v-bind:key="card.cardId">
       <div v-show="card.cardId == currentCardId">
 
-        <button v-on:click="flipCard" v-show="showFront">{{ card.front }}</button>
-        <button v-show="showBack">{{ card.back }}</button>
+        <button id="card-front-study" v-on:click="flipCard" v-show="showFront">{{ card.front }}</button>
+        <button id="card-back-study" v-show="showBack">{{ card.back }}</button>
 
         <div v-show="showCorrectIncorrectForm">
           <button v-on:click.prevent="submitCorrectIncorrect('correct')">Correct</button>
@@ -148,4 +148,33 @@ export default {
 </script>
 
 <style>
+
+#card-front-study {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 400px;
+  padding: 25px;
+  border-style: solid;
+  border-color:rgb(223, 223, 223);
+  height: 200px;
+  /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  margin-right: 50px;
+  align-content: center;
+  justify-items: center;
+}
+
+#card-back-study {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 400px;
+  padding: 25px;
+  border-style: solid;
+  border-color:rgb(223, 223, 223);
+  height: 200px;
+  /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  margin-right: 50px;
+}
+
 </style>
