@@ -80,10 +80,10 @@ public class JdbcDeckDao implements DeckDao{
     }
 
     @Override
-    public boolean updateDeck(Deck deck) {
+    public boolean updateDeck(Deck deck, int deckId) {
         String sql = "UPDATE decks SET deck_name = ?, deck_description = ?, accessible = ?, creator_id = ?" +
                      "WHERE deck_id = ?;";
-        int count = jdbcTemplate.update(sql, deck.getDeckName(), deck.getDeckDescription(), deck.isAccessible(), deck.getCreatorId(), deck.getDeckId());
+        int count = jdbcTemplate.update(sql, deck.getDeckName(), deck.getDeckDescription(), deck.isAccessible(), deck.getCreatorId(), deckId);
         return count == 1;
     }
 
