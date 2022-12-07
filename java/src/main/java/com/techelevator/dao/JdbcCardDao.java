@@ -2,7 +2,6 @@ package com.techelevator.dao;
 
 
 import com.techelevator.model.Card;
-import com.techelevator.model.Deck;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -52,10 +51,10 @@ import java.util.List;
     }
 
     @Override
-    public boolean updateCard(Card card) {
+    public boolean updateCard(Card card, int cardId) {
         String sql = "UPDATE cards SET deck_id = ?, front = ?, back = ?, user_id = ?" +
                      "WHERE card_id = ?;";
-        int count = jdbcTemplate.update(sql, card.getDeckId(), card.getFront(), card.getBack(), card.getCardId(), card.getUserId());
+        int count = jdbcTemplate.update(sql, card.getDeckId(), card.getFront(), card.getBack(), card.getUserId(), cardId);
         return count == 1;
     }
 
