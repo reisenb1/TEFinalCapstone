@@ -15,7 +15,7 @@
         {{ deck.deckName }}
       </router-link>
     </div>
-    <router-link :to="{name:'DeckForm'}">Add a New Deck!!!!!!</router-link>
+    <router-link :to="{name:'AddDeck'}">Add a New Deck!!!!!!</router-link>
   </div>
 </template>
 
