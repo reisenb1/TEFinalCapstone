@@ -1,8 +1,8 @@
 <template>
-  <div id="main-grid">
-    <div id="sideNav">
+  
+    <div class="scroll" id="sideNav">
       <h1 id="h1">My Decks</h1>
-      <div class="Decks">
+      <div class="decks">
         <div class="loading" v-if="isLoading">
           <img src="../images/eye-blink.gif" />
         </div>
@@ -16,7 +16,7 @@
       </div>
       <router-link :to="{ name: 'AddDeck' }">Add a New Deck!!!!!!</router-link>
     </div>
-  </div>
+  
 </template>
 
 <script>
@@ -67,6 +67,7 @@ export default {
 
 #sideNav {
   grid-area: sideNav;
+  
 }
 
 #sideNav > #h1 {
@@ -82,7 +83,6 @@ div#sideNav {
   top: 0;
   padding-top: 75px;
   padding-bottom: 20px;
-  overflow-x: hidden;
   border-right: solid lightgrey 1px;
   display: flex;
   flex-direction: column;
@@ -91,8 +91,9 @@ div#sideNav {
   text-align: center;
   justify-content: space-evenly;
   align-items: center;
-
-  
+  /* overflow: auto; */
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 h1 {
@@ -104,6 +105,9 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   align-items: center; */
+  overflow: auto;
+  overflow-y: auto;
+  overflow-x:hidden;
 }
 .deck {
   color: #010303;
@@ -154,16 +158,36 @@ h1 {
      align-items: center;
      color: black;
      grid-area: home;
+     overflow-y: auto;
+  overflow-x:hidden;
 }
 
 #activeDeck {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   width: 150px;
   border: 15px solid rgb(128, 0, 0);
+  border-radius: 5px;
   padding: 50px;
   margin: 20px;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  overflow-x:hidden;
+  /* overflow-y: auto; */
+  overflow-x:hidden;
 
 }
+
+  /* div.scroll {
+                margin:4px, 4px;
+                padding:4px;
+                background-color: green;
+                width: 500px;
+                height: 110px;
+                overflow-x: hidden;
+                overflow-y: auto;
+                text-align:justify;
+            } */
+
+
 </style>
