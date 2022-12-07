@@ -76,26 +76,27 @@ header {
 
 #mainSection {
   /* grid-area: content; */
-  /* margin-top: 60px; */
+  margin-top: 60px;
   margin-bottom: 50px;
   /* margin-left: 0px; */
   height: 100vh;
   width: 100vw;
   left: 0;
-  position: relative;
-  top: 40px;
+  position: static;
+  /* top: 40px; */
+  background-color: rgb(230, 227, 227);
 }
 
 footer {
   /* display: flex; */
   /* grid-area: foot; */
-  position: fixed;
+  /* position: fixed; */
   left: 0; /*keep*/
   bottom: 0; /*keep*/
   width: 100vw; /*keep*/
   background-color: brown;
   text-indent: 0.5%;
-  height: 50px;
+  /* height: 50px; */
   /* position: fixed;
   align-items: bottom; */
 }
