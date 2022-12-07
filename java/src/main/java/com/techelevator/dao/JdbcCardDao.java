@@ -44,18 +44,18 @@ import java.util.List;
 
     @Override
     public Card createCard(Card card) {
-        String sql = "INSERT INTO cards(deck_id, front, back)\n" +
-                     "VALUES(?, ?, ?) RETURNING card_id;";
-        Integer cardId = jdbcTemplate.queryForObject(sql, Integer.class, card.getDeckId(),card.getFront(),card.getBack());
+        String sql = "INSERT INTO cards(deck_id, front, back, user_id)\n" +
+                     "VALUES(?, ?, ?, ?) RETURNING card_id;";
+        Integer cardId = jdbcTemplate.queryForObject(sql, Integer.class, card.getDeckId(),card.getFront(),card.getBack(),card.getUserId());
         card.setCardId(cardId);
         return card;
     }
 
     @Override
     public boolean updateCard(Card card) {
-        String sql = "UPDATE cards SET deck_id = ?, front = ?, back = ?" +
+        String sql = "UPDATE cards SET deck_id = ?, front = ?, back = ?, user_id = ?" +
                      "WHERE card_id = ?;";
-        int count = jdbcTemplate.update(sql, card.getDeckId(), card.getFront(), card.getBack(), card.getCardId());
+        int count = jdbcTemplate.update(sql, card.getDeckId(), card.getFront(), card.getBack(), card.getCardId(), card.getUserId());
         return count == 1;
     }
 
@@ -73,6 +73,8 @@ import java.util.List;
         card.setDeckId(rowSet.getInt("deck_id"));
         card.setFront(rowSet.getString("front"));
         card.setBack(rowSet.getString("back"));
+        card.setUserId(rowSet.getInt("user_id"));
+        card.setConfidence(rowSet.getInt("confidence"));
         return card;
     }
 }

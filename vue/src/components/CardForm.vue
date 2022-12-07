@@ -48,6 +48,8 @@ export default {
           deckId: this.deckId,
           front: this.card.front,
           back: this.card.back,
+          //fix
+          userId: 1
         };
         CardService.addCard(newCard)
           .then((response) => {
@@ -65,6 +67,8 @@ export default {
           deckId: this.deckId,
           front: this.card.front,
           back: this.card.back,
+          //fix
+          userId: 1
         };
         CardService.updateCard(newCard)
           .then( response => {
