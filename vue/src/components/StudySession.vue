@@ -4,8 +4,8 @@
     <div v-for="card in cards" v-bind:key="card.cardId">
       <div v-show="card.cardId == currentCardId">
 
-        <button v-on:click="showCorrectIncorrectForm=true">Front: {{ card.front }}</button>
-        <div>Back: {{ card.back }}</div>
+        <button v-on:click="flipCard" v-show="showFront">{{ card.front }}</button>
+        <button v-show="showBack">{{ card.back }}</button>
 
         <div v-show="showCorrectIncorrectForm">
           <button v-on:click.prevent="submitCorrectIncorrect('correct')">Correct</button>
@@ -52,7 +52,9 @@ export default {
         numberYellow: 0,
         numberRed: 0
       },
-      allCardsUpdated: true
+      allCardsUpdated: true,
+      showFront: true,
+      showBack: false
     };
   },
   created() {
@@ -118,12 +120,25 @@ export default {
       this.showConfidenceForm = false;
       this.position = this.position + 1;
       this.currentCardId = this.cards[this.position].cardId;
+      this.showFront = true;
+      this.showBack = false;
 
     },
 
     goBackToDeckPage(){
         this.$router.push({ name: 'Deck', params: { deckId: this.deckId } })
-    }
+    },
+
+    flipCard(){
+      this.showCorrectIncorrectForm=true;
+      this.showFront=false;
+      this.showBack = true;
+    },
+
+    // flipBackToFront(){
+    //   this.showFront=true;
+    //   this.showBack = false;
+    // }
 
 
 
