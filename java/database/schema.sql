@@ -64,8 +64,8 @@ CREATE TABLE study_session (
     number_green int NOT NULL,
     number_yellow int NOT NULL,
     number_red int NOT NULL,
-    confidencePercent double(3,0) NOT NULL,
-    correctPercent double (3,0) NOT NULL,
+    confidencePercent decimal(3,0) NOT NULL,
+    correctPercent decimal (3,0) NOT NULL,
 
     CONSTRAINT PK_study_session PRIMARY KEY (study_session_id),
     CONSTRAINT FK_study_session_user FOREIGN KEY (user_id) REFERENCES users(user_id),
