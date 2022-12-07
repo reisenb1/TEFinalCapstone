@@ -17,7 +17,7 @@ public class JdbcStudySessionDaoTest extends BaseDaoTests {
 
         StudySessionDao studySessionDao = new JdbcStudySessionDao(new JdbcTemplate(dataSource));
         List<StudySession> studySessions = studySessionDao.getAllMyStudySessions(1);
-        Assert.assertEquals(1, studySessions.);
+        Assert.assertEquals(1, studySessions);
 
     }
 
@@ -25,7 +25,7 @@ public class JdbcStudySessionDaoTest extends BaseDaoTests {
     public void getStudySession() {
         StudySessionDao studySessionDao = new JdbcStudySessionDao(new JdbcTemplate(dataSource));
         StudySession studySession = studySessionDao.getStudySession(1);
-        Assert.assertEquals(60, studySession.getCorrectPercent());
+        Assert.assertEquals(10, studySession.getNumberOfCards());
     }
 
     @Test
