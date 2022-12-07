@@ -26,11 +26,11 @@ export default {
 </script>
 
 <style scoped>
-  .home {
+  /* .home {
      display: flex;
      justify-content: space-between;
      flex-direction: column;
      align-items: center;
      color: ivory;
-   }
+   } */
 </style>
