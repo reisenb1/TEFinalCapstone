@@ -10,9 +10,9 @@ INSERT INTO decks (deck_name, deck_description, accessible, creator_id) VALUES (
 INSERT INTO decks (deck_name, deck_description, accessible, creator_id) VALUES ('myDeck3', 'deck', true, 1);
 INSERT INTO decks (deck_name, deck_description, accessible, creator_id) VALUES ('myDeck4', 'deck', true, 2);
 
-INSERT INTO cards (deck_id, front, back) VALUES (1, 'this is the front', 'this is the back');
-INSERT INTO cards (deck_id, front, back) VALUES (1, 'front2', 'back2');
-INSERT INTO cards (deck_id, front, back) VALUES (1, 'front3', 'back3');
+INSERT INTO cards (deck_id, front, back, user_id, confidence) VALUES (1, 'this is the front', 'this is the back', 1, 10);
+INSERT INTO cards (deck_id, front, back, user_id, confidence) VALUES (1, 'front2', 'back2', 1, 10);
+INSERT INTO cards (deck_id, front, back, user_id, confidence) VALUES (1, 'front3', 'back3', 1, 10);
 
 INSERT INTO tags (tag_name) VALUES ('math');
 

@@ -1,6 +1,5 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.Deck;
 import com.techelevator.model.StudySession;
 import org.junit.Assert;
 import org.junit.Test;
@@ -17,7 +16,7 @@ public class JdbcStudySessionDaoTest extends BaseDaoTests {
 
         StudySessionDao studySessionDao = new JdbcStudySessionDao(new JdbcTemplate(dataSource));
         List<StudySession> studySessions = studySessionDao.getAllMyStudySessions(1);
-        Assert.assertEquals(1, studySessions);
+        Assert.assertEquals(10, studySessions.get(0).getNumberOfCards());
 
     }
 
@@ -47,5 +46,6 @@ public class JdbcStudySessionDaoTest extends BaseDaoTests {
 
     @Test
     public void updateStudySession() {
+
     }
 }

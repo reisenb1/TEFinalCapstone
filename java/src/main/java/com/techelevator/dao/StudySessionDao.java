@@ -11,8 +11,8 @@ public interface StudySessionDao {
 
     StudySession getStudySession(int studySessionId);
 
-    StudySession createStudySession(StudySession StudySession);
+    StudySession createStudySession(StudySession studySession);
 
-    boolean updateStudySession(StudySession StudySession);
+    boolean updateStudySession(StudySession studySession);
 
 }

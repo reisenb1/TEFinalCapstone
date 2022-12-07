@@ -43,7 +43,7 @@ public class JdbcStudySessionDao implements StudySessionDao{
 
     @Override
     public StudySession createStudySession(StudySession studySession) {
-        String sql = "INSERT INTO study_session(user_id, deck_id, number_of_cards, number_correct" +
+        String sql = "INSERT INTO study_session(user_id, deck_id, number_of_cards, number_correct," +
                 "number_green, number_yellow, number_red, confidence_percent, correct_percent) \n" +
                 "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING study_session_id;";
         Integer studySessionId = jdbcTemplate.queryForObject(sql, Integer.class, studySession.getUserId(),
