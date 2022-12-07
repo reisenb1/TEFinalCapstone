@@ -10,6 +10,25 @@ public class StudySession {
     private int numberGreen;
     private int numberYellow;
     private int numberRed;
+    private double confidencePercent;
+
+    public double getConfidencePercent() {
+        return confidencePercent;
+    }
+
+    public void setConfidencePercent(double confidencePercent) {
+        this.confidencePercent = confidencePercent;
+    }
+
+    public double getCorrectPercent() {
+        return correctPercent;
+    }
+
+    public void setCorrectPercent(double correctPercent) {
+        this.correctPercent = correctPercent;
+    }
+
+    private double correctPercent;
 
     public int getStudySessionId() {
         return studySessionId;
