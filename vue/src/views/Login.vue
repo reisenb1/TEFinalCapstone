@@ -150,12 +150,13 @@ html {
 }
 
 body {
-  background-image: url("../images/study-photo.jpg");
+  
  
 }
 
 .container {
   display: grid;
+  background-image: url("../images/study-photo.jpg");
 }
 
 #topBar {
@@ -165,6 +166,7 @@ body {
 #login {
   grid-area: login;
   margin-top: 20px;
+  
 }
 
 #login-about {
@@ -207,16 +209,19 @@ body {
 }
 
 #submit {
- background-color: rgb(31, 51, 235, 0.8);
+  background-color: rgb(31, 51, 235, 0.6);
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 100%;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transition-duration: 1s;
 }
 
-.form-sign-in #submit:hover {
+#submit:hover {
+  background-color: rgb(31, 51, 235);
   opacity: 1;
   
 }
@@ -229,6 +234,7 @@ body {
 .form-control {
   padding: 14px 20px;
   margin: 8px 0;
+  
 
 }
 

@@ -1,6 +1,42 @@
 <template>
-<div id="main-grid">
+<div id="main-grid" class="container">
     <nav id="topBar">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </nav>
+
+
+
+
+
+
   <div id="register" class="text-center2">
     <form class="form-register" @submit.prevent="register">
       <h2 class="h3 mb-3 font-weight-normal">Create Account</h2>
@@ -48,7 +84,7 @@
 
       </div>
   </div>
-  </nav>
+  
   </div>
 </template>
 
@@ -115,10 +151,14 @@ export default {
    justify-content: flex-end;
  } */
 
+ .container {
+     background-image: url("../images/study-photo.jpg");
+ }
+
  #main-grid {
   display: grid;
   grid-template-areas:
-    "topBar topBar"
+    "topBar    topBar"
     "register  register-about"
     ;
   grid-template-columns: 1fr 1fr;
@@ -154,7 +194,7 @@ export default {
 
 #register {
   grid-area: register;
-  margin-top: 75px;
+  margin-top: 20px;
 }
 
 #register-about {
@@ -170,16 +210,19 @@ export default {
 }
 
 #create-button {
- background-color: rgb(31, 51, 235, 0.8);
+ background-color: rgb(31, 51, 235, 0.6);
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 100%;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transition-duration: 1s;
 }
 
-.form-register #create-button:hover {
+#create-button:hover {
+   background-color: rgb(31, 51, 235);
   opacity: 1;
 }
 </style>
