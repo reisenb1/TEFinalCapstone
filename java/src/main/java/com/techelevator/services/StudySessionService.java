@@ -1,11 +1,15 @@
 package com.techelevator.services;
 
 import com.techelevator.model.StudySession;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class StudySessionService {
 
 
     public StudySessionService(){
+
 
     }
 
