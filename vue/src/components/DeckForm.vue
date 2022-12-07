@@ -77,7 +77,7 @@ export default {
     submitForm() {
       if(this.deckId == 0){
         this.isLoading = true;
-        DeckService.addDeck(this.newDeck)
+        DeckService.addDeck(this.deck)
           .then((response) => {
             if (response.status === 200) {
               this.showAddDeck = false;
