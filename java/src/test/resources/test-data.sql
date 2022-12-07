@@ -20,4 +20,8 @@ INSERT INTO deck_tag (deck_id, tag_id) VALUES (4, 1);
 
 INSERT INTO user_deck (deck_id, user_id) VALUES (1, 2);
 
+INSERT INTO study_session(user_id, deck_id, number_of_cards, number_correct, number_green,
+						  number_yellow, number_red, confidence_percent, correct_percent)
+VALUES(1, 1, 10, 6, 5, 5, 0, 50, 60);
+
 COMMIT TRANSACTION;
