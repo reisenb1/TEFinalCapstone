@@ -48,8 +48,8 @@ CREATE TABLE cards (
     deck_id int NOT NULL,
     front varchar(500) NOT NULL,
     back varchar(500) NOT NULL,
-    User_Id int NOT NULL,
-    Confidence int NOT NULL,
+    user_id int NOT NULL,
+    confidence int,
     CONSTRAINT PK_card PRIMARY KEY (card_id),
     CONSTRAINT FK_card_deck FOREIGN KEY (deck_id) REFERENCES decks(deck_id),
     CONSTRAINT FK_card_user FOREIGN KEY (user_id) REFERENCES users(user_id)
@@ -64,8 +64,8 @@ CREATE TABLE study_session (
     number_green int NOT NULL,
     number_yellow int NOT NULL,
     number_red int NOT NULL,
-    confidencePercent decimal(3,0) NOT NULL,
-    correctPercent decimal (3,0) NOT NULL,
+    confidence_percent int NOT NULL,
+    correct_percent int NOT NULL,
 
     CONSTRAINT PK_study_session PRIMARY KEY (study_session_id),
     CONSTRAINT FK_study_session_user FOREIGN KEY (user_id) REFERENCES users(user_id),

@@ -179,6 +179,7 @@ export default {
   column-gap: 50px;
 }
 
+
  /* #login { 
     background-color: rgb(122, 120, 120, 0.7);
     height: 60px;

@@ -35,7 +35,7 @@ public class CardController {
 
     @RequestMapping(path = "/cards/{cardId}", method = RequestMethod.PUT)
     public boolean updateCard(@RequestBody Card card, @PathVariable int cardId) {
-        return cardDao.updateCard(card);
+        return cardDao.updateCard(card,cardId);
     }
 
     @RequestMapping(path = "/cards/{cardId}", method = RequestMethod.DELETE)
