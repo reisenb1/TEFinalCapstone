@@ -29,23 +29,22 @@ public class StudySessionController {
     }
 
     @RequestMapping(path = "/studySessions/{studySessionId}", method = RequestMethod.GET)
-    public Deck getDeck(@PathVariable int deckId) {
-        return deckDao.getDeck(deckId);
+    public StudySession getStudySession(@PathVariable int studySessionId) {
+        return studySessionDao.getStudySession(studySessionId);
+
     };
 
-    @RequestMapping(path = "/decks", method = RequestMethod.POST)
-    public Deck createDeck(@RequestBody Deck deck) {
-        return deckDao.createDeck(deck);
+    @RequestMapping(path = "/StudySessions", method = RequestMethod.POST)
+    public StudySession createStudySession(@RequestBody StudySession studySession) {
+        return studySessionDao.createStudySession(studySession);
     }
 
-    @RequestMapping(path = "/decks/{deckId}", method = RequestMethod.PUT)
-    public boolean updateDeck(@RequestBody Deck deck, @PathVariable int deckId) {
-        return deckDao.updateDeck(deck);
+    @RequestMapping(path = "/StudySessions/{StudySessionId}", method = RequestMethod.PUT)
+    public boolean updateStudySession(@RequestBody StudySession studySession, @PathVariable int studySessionId) {
+        return studySessionDao.updateStudySession(studySession);
+
     }
 
-    @RequestMapping(path = "/decks/tags/{tagName}", method = RequestMethod.GET)
-    public Deck getDeckWithTagName(@PathVariable String tagName) {
-        return deckDao.getDeckWithTagName(tagName);
-    };
+
 
 }
