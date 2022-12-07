@@ -32,7 +32,7 @@ public class JdbcStudySessionDao implements StudySessionDao{
 
     @Override
     public StudySession getStudySession(int studySessionId) {
-        String sql = "SELECT * FROM study_session WHERE studySessionId = ?;";
+        String sql = "SELECT * FROM study_session WHERE study_session_id = ?;";
         SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, studySessionId);
         if (rowSet.next()) {
             StudySession studySession = mapRowToStudySession(rowSet);
@@ -59,7 +59,7 @@ public class JdbcStudySessionDao implements StudySessionDao{
     @Override
     public boolean updateStudySession(StudySession studySession) {
         String sql = "UPDATE study_session SET user_id = ?, deck_id = ?, number_of_cards = ?, number_correct = ? +\n" +
-                                "number_green = ?, number_yellow = ?, number_red = ?, confidence_percent = ?, correct_percent =?)" +
+                                "number_green = ?, number_yellow = ?, number_red = ?, confidence_percent = ?, correct_percent =?" +
                 "WHERE study_session_id = ?;";
         int count = jdbcTemplate.update(sql,studySession.getUserId(),
                 studySession.getDeckId(), studySession.getNumberOfCards(), studySession.getNumberCorrect(),

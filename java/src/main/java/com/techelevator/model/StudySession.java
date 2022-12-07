@@ -11,6 +11,7 @@ public class StudySession {
     private int numberYellow;
     private int numberRed;
     private double confidencePercent;
+    private double correctPercent;
 
     public double getConfidencePercent() {
         return confidencePercent;
@@ -28,7 +29,6 @@ public class StudySession {
         this.correctPercent = correctPercent;
     }
 
-    private double correctPercent;
 
     public int getStudySessionId() {
         return studySessionId;
