@@ -77,10 +77,9 @@
     </form>
 
     <div id="register-about">
-        <h1>This is a Title</h1>
-        <p>This is a paragraph with some stuff and more stuff<br>
-          This is going to allow me to space out the content of the login
-        </p>
+        <h1>Yer Getting There!</h1>
+        <h2>Create an account, and enjoy<br> all the benefits
+        YEGET has to offer!</h2>
 
       </div>
   </div>
@@ -151,6 +150,16 @@ export default {
    justify-content: flex-end;
  } */
 
+ .form-control {
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border: none;
+  border-bottom: 1px solid black;
+  
+
+}
+
  .container {
      background-image: url("../images/study-photo.jpg");
  }
@@ -181,9 +190,11 @@ export default {
   display: flex;
   flex-direction: column;
   background-color: lavender;
-  width: 600px;
+  width: 500px;
   padding: 25px;
-  border: 5px solid rgb(218, 107, 218);
+  border: 15px solid rgb(218, 107, 218);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
   border-radius: 5px;
   margin-right: 50px;
 }
@@ -200,12 +211,12 @@ export default {
 #register-about {
   grid-area: register-about;
   color: white;
-  margin-left: 50px;
+  margin-left: 75px;
 }
 
 .text-center2 {
   display: flex;
-  align-items: center;
+  
   height: 500px;
 }
 
@@ -223,6 +234,6 @@ export default {
 
 #create-button:hover {
    background-color: rgb(31, 51, 235);
-  opacity: 1;
+  opacity: 0.8;
 }
 </style>
