@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <main>
     <!-- <img src="../images/study-photo.jpg" /> -->
     <div id="firstTextArea">
       <h2>Hello!</h2>
@@ -14,7 +14,7 @@
       >
     </div>
     <hr />
-  </div>
+  </main>
 </template>
 
 <script>
@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style scoped>
-.home {
+main {
   /* display: flex;
   justify-content: space-between;
   flex-direction: column;

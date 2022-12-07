@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav id="topBar">
+    <header>
       <div class="header">
         <h2>YEGET</h2>
       </div>
@@ -34,12 +34,13 @@
         v-if="$store.state.token != ''"
         >Logout</router-link
       >
-    </nav>
+    </header>
 
     <router-view id="mainSection" />
-    <div id="bottomBar">
-      <p>Copyright 2022</p>
-    </div>
+
+    <footer>
+      <p>Copyright &copy;2022</p>
+    </footer>
   </div>
 </template>
 
@@ -56,37 +57,45 @@ body {
   /* placeholder image to test function, will be removed */
 }
 
-nav {
+header {
   display: flex;
   text-decoration: none;
   align-items: center;
   /* padding: 10px; */
   color: blue;
-  height: 60px;
+  height: 60px; /*keep*/
   background-color: green;
-  position: fixed;
-  top: 0;
-  width: 100%;
+  position: fixed; /*keep*/
+  top: 0; /*keep*/
+  left: 0; /*keep*/
+  width: 100vw; /*keep*/
   flex-direction: row;
-  grid-area: head;
-  margin-bottom: 5px;
+  /* grid-area: head; */
+  /* margin-bottom: 5px; */
 }
 
 #mainSection {
-  grid-area: content;
-  margin-top: 60px;
+  /* grid-area: content; */
+  /* margin-top: 60px; */
+  margin-bottom: 50px;
+  /* margin-left: 0px; */
   height: 100vh;
+  width: 100vw;
+  left: 0;
+  position: relative;
+  top: 40px;
 }
 
-#bottomBar {
+footer {
   /* display: flex; */
-  grid-area: foot;
+  /* grid-area: foot; */
   position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+  left: 0; /*keep*/
+  bottom: 0; /*keep*/
+  width: 100vw; /*keep*/
   background-color: brown;
   text-indent: 0.5%;
+  height: 50px;
   /* position: fixed;
   align-items: bottom; */
 }
@@ -105,6 +114,9 @@ nav {
     "content"
     "foot"; */
   /* grid-template-rows: 0.5fr 8fr 0.1fr; */
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 
 .header {
