@@ -1,8 +1,12 @@
 <template>
   <div>
     <h1>Deck Name Study Session</h1>
-    <div>Front: {{ card.front }}</div>
-    <div>Back: {{ card.back }}</div>
+    <div v-for="card in cards" v-bind:key="card.cardId">
+      <div v-show="card.cardId == currentCardId">
+      <div>Front: {{ card.front }}</div>
+      <div>Back: {{ card.back }}</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -16,17 +20,19 @@ export default {
     return {
       studySession: {},
       deckId: this.$route.params.deckId,
-      card: {},
+      cards: [],
+      currentCardId: ''
     };
   },
   created() {
-    CardService.getCards(this.$route.params.deckId);
+    this.getCards();
   },
   methods: {
     getCards() {
       CardService.getCards(this.$route.params.deckId)
         .then((response) => {
           this.cards = response.data;
+          this.currentCardId = this.cards[0].cardId;
           this.isLoading = false;
         })
         .catch((error) => {
