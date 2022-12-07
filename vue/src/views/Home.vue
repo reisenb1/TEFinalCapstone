@@ -30,7 +30,7 @@ main {
   flex-direction: column;
   align-items: center; */
   /* color: ivory; */
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
 }
 h2,
 h3,
@@ -48,4 +48,8 @@ p {
   text-align: center;
   border-radius: 6px;
 }
+
+/* #firstTextArea {
+  height: 100%;
+} */
 </style>

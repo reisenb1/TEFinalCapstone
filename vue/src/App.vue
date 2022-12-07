@@ -77,8 +77,9 @@ header {
 #mainSection {
   /* grid-area: content; */
   margin-top: 60px;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
   /* margin-left: 0px; */
+  /* height: 100vh; */
   height: 100vh;
   width: 100vw;
   left: 0;
@@ -90,12 +91,13 @@ header {
 footer {
   /* display: flex; */
   /* grid-area: foot; */
-  /* position: fixed; */
+  position: absolute;
   left: 0; /*keep*/
   bottom: 0; /*keep*/
   width: 100vw; /*keep*/
-  background-color: brown;
+  background-color: rgb(230, 227, 227);
   text-indent: 0.5%;
+  font-size: 0.65em;
   /* height: 50px; */
   /* position: fixed;
   align-items: bottom; */
