@@ -12,6 +12,7 @@ import LoggedInHome from '../views/LoggedInHome.vue'
 import AddDeck from '../views/AddDeck.vue'
 import EditDeck from '../views/EditDeck.vue'
 import StudySession from '../views/StudySession.vue'
+import Results from '../views/Results.vue'
 
 Vue.use(Router)
 
@@ -112,6 +113,14 @@ const router = new Router({
       path: '/deck/:deckId/studySession/',
       name: 'StudySession',
       component: StudySession,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/deck/:deckId/studySession/results',
+      name: 'Results',
+      component: Results,
       meta: {
         requiresAuth: true
       }
