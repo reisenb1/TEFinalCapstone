@@ -128,11 +128,11 @@ footer {
   background-color: rgb(230, 227, 227);
   text-indent: 0.5%;
   font-size: 0.65em;
-  max-height: 50px;
+  max-height: 20px;
   padding-bottom: 5px;
 }
 
-/* changed */
+/* changed renamed to avoid commenting issues */
 footerxxx {
   /* display: flex; */
   /* grid-area: foot; */
