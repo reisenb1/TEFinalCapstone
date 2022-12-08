@@ -3,13 +3,12 @@ package com.techelevator.controller;
 import com.techelevator.dao.DeckDao;
 import com.techelevator.dao.TagDao;
 import com.techelevator.model.Tag;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
+@CrossOrigin
 public class TagController {
 
     private TagDao tagDao;

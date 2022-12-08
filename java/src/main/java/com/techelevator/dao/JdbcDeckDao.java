@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Deck;
+import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -87,6 +88,18 @@ public class JdbcDeckDao implements DeckDao{
         return count == 1;
     }
 
+
+    @Override
+    public List<Deck> searchByName(String search) {
+        String sql = "SELECT * FROM decks WHERE deck_name LIKE ? OR deck_description LIKE ?;" ;
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, "%" + search + "%", "%" + search + "%");
+        List<Deck> searchedDecks = new ArrayList<>();
+        while(results.next()) {
+            searchedDecks.add(mapRowToDeck(results));
+            return searchedDecks;
+        }
+        return searchedDecks;
+    }
 
 //    @Override
 //    public boolean deleteDeck(int deckId) {

@@ -2,10 +2,12 @@ package com.techelevator.controller;
 
 
 import com.techelevator.dao.DeckDao;
+import com.techelevator.dao.JdbcDeckDao;
 import com.techelevator.model.Deck;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,6 +27,15 @@ public class DeckController {
             return deckDao.getAllMySavedDecks(userId);
         } else {
             return deckDao.getAllMyCreatedDecks(userId);
+        }
+    }
+
+    @RequestMapping(path = "/decks/search", method = RequestMethod.GET)
+    public List<Deck> getAllSearchedDecks(@RequestParam(value = "search", required = false) String search) {
+        if (search != null) {
+            return deckDao.searchByName(search);
+        } else {
+            return null;
         }
     }
 
