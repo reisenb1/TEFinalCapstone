@@ -6,10 +6,21 @@
       <h3>Test your knowledge with flashcards from YEGET!</h3>
       <p>"Ye get cards, you get it??"</p>
     </div>
+
+<!--   removed in order to move v-show to div  
     <div id="signInLink">
       <router-link
         v-bind:to="{ name: 'login' }"
         v-show="$store.state.token == ''"
+        >Sign In</router-link
+      >
+    </div> -->
+
+    <!-- added to move v-show from router-link to div -->
+    <div id="signInLink" 
+        v-show="$store.state.token == ''">
+      <router-link
+        v-bind:to="{ name: 'login' }"
         >Sign In</router-link
       >
     </div>
