@@ -143,7 +143,6 @@ footer {
 
   /* added */
   flex-grow: 1;
-  flex-shrink: 1;
   padding-right: 25px;
 }
 
