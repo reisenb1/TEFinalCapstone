@@ -27,16 +27,20 @@
           v-show="$store.state.token == ''"
           >Sign In</router-link
         >
-      </div>
 
-      <router-link
-        v-bind:to="{ name: 'logout' }"
-        v-if="$store.state.token != ''"
-        >Logout</router-link
-      >
+        <!-- removed 
+        </div> -->
+
+        <router-link
+          v-bind:to="{ name: 'logout' }"
+          v-if="$store.state.token != ''"
+          >Logout</router-link
+        >
+        <!-- added  -->
+      </div>
     </header>
 
-    <router-view id="mainSection" />
+    <router-view id="mainSection" :class="{ 'not-logged-in': $store.state.token == '' }"/>
 
     <footer>
       <p>Copyright &copy;2022</p>
@@ -50,6 +54,9 @@ export default {};
 
 <style>
 body {
+  /* added */
+  /* background-color: rgb(230, 227, 227); */
+
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -74,27 +81,47 @@ header {
   /* margin-bottom: 5px; */
 }
 
+/* added */
+.not-logged-in {
+  height: 100%;
+}
+
 #mainSection {
   /* grid-area: content; */
   margin-top: 60px;
   /* margin-bottom: 50px; */
   /* margin-left: 0px; */
   /* height: 100vh; */
+
+  /* removed
   height: 100vh;
   width: 100vw;
+  /*
+
+  /* added */
+  width: 100%;
+  /* height: 100%; */
+
   left: 0;
   position: static;
   /* top: 40px; */
+
+  /* removed 
   background-color: rgb(230, 227, 227);
+  */
 }
 
 footer {
   /* display: flex; */
   /* grid-area: foot; */
+
+  /* removed 
   position: absolute;
+  */
+
   left: 0; /*keep*/
   bottom: 0; /*keep*/
-  width: 100vw; /*keep*/
+  width: 100%; /*keep*/
   background-color: rgb(230, 227, 227);
   text-indent: 0.5%;
   font-size: 0.65em;
@@ -103,11 +130,20 @@ footer {
   align-items: bottom; */
 }
 
-#registerLogin {
+#registerLogin,
+.login-out {
   display: flex;
+
+  /* removed 
   width: 82%;
+  */
+
   /* margin-left: 73%; */
   justify-content: flex-end;
+
+  /* added */
+  flex-grow: 1;
+  padding-right: 25px;
 }
 
 #app {
@@ -117,9 +153,15 @@ footer {
     "content"
     "foot"; */
   /* grid-template-rows: 0.5fr 8fr 0.1fr; */
-  position: absolute;
+
+  /* removed
+
+   position: absolute;
   top: 0px;
-  left: 0px;
+  left: 0px; */
+
+  /* added */
+  height: 100vh;
 }
 
 .header {

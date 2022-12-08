@@ -155,6 +155,9 @@ body {
 .container {
   display: grid;
   background-image: url("../images/study-photo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 
 #topBar {
