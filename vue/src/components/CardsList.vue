@@ -63,7 +63,7 @@
     <div class="edit">
       <router-link :to="{name: 'EditCard', params:{cardId:card.cardId}}">Edit</router-link>
     </div>
-    <!-- <button class="delete" v-on:click="deleteCard">Delete</button> -->
+    <button class="delete" v-on:click="deleteCard(card.cardId)">Delete</button>
     </div>
 
    <!-- <div class="add-card-bottom">
@@ -158,13 +158,20 @@ export default {
                 back: "",
               }
     },
+    deleteCard(cardId){
+    CardService.deleteCard(cardId)
+    .then(
+      this.getCards()
+    )
+    .catch(error => {
+      console.log(error)
+    })
+  }
   },
   created(){
     this.getCards();
   },
-  // deleteCard(cardId){
-  //   CardService.deleteCard
-  // }
+ 
 
 }
 </script>
