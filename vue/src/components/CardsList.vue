@@ -1,16 +1,43 @@
 <template>
   <div class="page">
     <div class="deck-header">
-      <h2 id="cards-label">Cards in this deck</h2>
-      <card-form v-bind:cardId=0 v-show="showCardForm"></card-form>
+      <h2 id="cards-label">Cards in this deck</h2>      
       <div class="add-card">
         <!-- <router-link :to="{ name: 'AddCard' }">
           <img class="add-card-image" src="../images/plus-sign.png" alt="Add Card">
         </router-link> -->
-         <button v-on:click="showCardForm=true">
-          <img class="add-card-image" src="../images/plus-sign.png" alt="Add Card">
-        </button>
+         
       </div>
+    </div>
+
+    <div class="add-card">
+
+      <button v-on:click="showCardForm=true" v-show="!showCardForm">
+        <img class="add-card-image" src="../images/plus-sign.png" alt="Add Card">
+      </button>
+    
+
+      <div class="card-form" v-show="showCardForm">
+        <form v-on:submit.prevent="submitForm">
+
+          <div class="card-form-cards">
+          <div class="add-form" >
+            <label for="front">Front:</label>
+            <input id="text" type="text" name="front" v-model="card.front" />
+          </div>
+
+          <div class="add-form">
+            <label for="back">Back:</label>
+            <input id="text" type="text" name="back" v-model="card.back" />
+          </div>
+          </div>
+
+          <button class="submit" input type="submit">Add Card</button>
+
+          <button class="cancel" v-on:click.prevent="cancelForm" type="cancel">Nvm I changed my mind</button>
+        </form>
+      </div>
+
     </div>
 
   <div class="card" v-for="card in cards" v-bind:key="card.cardId" >
@@ -30,11 +57,11 @@
     <div class="delete">Delete</div>
     </div>
 
-   <!-- <div class="add-card-bottom">
+   <div class="add-card-bottom">
       <router-link :to="{ name: 'AddCard' }">
           <img class="add-card-image" src="../images/plus-sign.png" alt="Add Card">
         </router-link>
-      </div> -->
+      </div>
 
 
 
@@ -43,19 +70,23 @@
 
 <script>
 import CardService from "../services/CardService";
-import CardForm from "../components/CardForm.vue"
+
 export default {
   data(){
     return {
       isLoading: true,
       cards: [],
-      showCardForm: false
+      showCardForm: false,
+         card: {
+        front: "",
+        back: "",
+      },
+      deckId: this.$route.params.deckId,
+  
     }
   },
 
-  components: {
-    CardForm
-  },
+
   methods: {
     getCards() {
       CardService.getCards(this.$route.params.deckId)
@@ -71,7 +102,45 @@ export default {
             this.$router.push({ name: "Home" });
           } 
         });
-    }
+    },
+
+     submitForm() {
+        const newCard = {
+          deckId: this.deckId,
+          front: this.card.front,
+          back: this.card.back,
+          //fix
+          userId: 1,
+        }
+        CardService.addCard(newCard)
+          .then((response) => {
+            if (response.status === 200) {
+              this.getCards();
+              this.showCardForm = false;
+              this.card = {
+                front: "",
+                back: "",
+              }
+            }
+          })
+      
+          .catch((error) => {
+            console.log(error);
+            this.showCardForm = false;
+            this.card = {
+                front: "",
+                back: "",
+              }
+          });
+      },
+
+    cancelForm() {
+       this.showCardForm = false;
+            this.card = {
+                front: "",
+                back: "",
+              }
+    },
   },
   created(){
     this.getCards();
@@ -137,9 +206,6 @@ export default {
   margin:15px;
 }
 
-.add-card{
-  font-display: green;
-}
 
 .add-card-image{
   max-height: 50px;
@@ -151,6 +217,21 @@ export default {
   margin: 15px;
 }
 
+.add-form{
+  align-items: center;
+  border-style: solid;
+  border-color:rgb(223, 223, 223);
+  height: 200px;
+  width: 400px;
+  padding: 40px;
+  margin: 10px;
+  background-color: white;
+}
+
+.card-form-cards{
+  display: flex;
+  justify-content: center;
+}
 
 
 
