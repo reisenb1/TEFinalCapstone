@@ -36,6 +36,7 @@ public class StudySessionController {
 
     @RequestMapping(path = "/StudySessions", method = RequestMethod.POST)
     public StudySession createStudySession(@RequestBody StudySession studySession) {
+        studySession = studySessionService.computePercents(studySession);
         return studySessionDao.createStudySession(studySession);
     }
 

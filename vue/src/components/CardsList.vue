@@ -2,10 +2,14 @@
   <div class="page">
     <div class="deck-header">
       <h2 id="cards-label">Cards in this deck</h2>
+      <card-form v-bind:cardId=0 v-show="showCardForm"></card-form>
       <div class="add-card">
-        <router-link :to="{ name: 'AddCard' }">
+        <!-- <router-link :to="{ name: 'AddCard' }">
           <img class="add-card-image" src="../images/plus-sign.png" alt="Add Card">
-        </router-link>
+        </router-link> -->
+         <button v-on:click="showCardForm=true">
+          <img class="add-card-image" src="../images/plus-sign.png" alt="Add Card">
+        </button>
       </div>
     </div>
 
@@ -26,11 +30,11 @@
     <div class="delete">Delete</div>
     </div>
 
-   <div class="add-card-bottom">
+   <!-- <div class="add-card-bottom">
       <router-link :to="{ name: 'AddCard' }">
           <img class="add-card-image" src="../images/plus-sign.png" alt="Add Card">
         </router-link>
-      </div>
+      </div> -->
 
 
 
@@ -39,12 +43,18 @@
 
 <script>
 import CardService from "../services/CardService";
+import CardForm from "../components/CardForm.vue"
 export default {
   data(){
     return {
       isLoading: true,
-      cards: []
+      cards: [],
+      showCardForm: false
     }
+  },
+
+  components: {
+    CardForm
   },
   methods: {
     getCards() {
