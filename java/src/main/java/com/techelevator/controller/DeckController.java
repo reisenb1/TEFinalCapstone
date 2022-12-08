@@ -19,7 +19,8 @@ public class DeckController {
     }
 
     @RequestMapping(path = "/{userId}/decks", method = RequestMethod.GET)
-    public List<Deck> getAllDecksFromUser(@PathVariable int userId,  @RequestParam(value = "saved", required = true) Boolean saved) {
+    public List<Deck> getAllDecksFromUser(@PathVariable int userId,  @RequestParam(value = "saved", required = true) Boolean saved,
+                                          @RequestParam(value = "search", required = false) String search) {
         if (saved){
             return deckDao.getAllMySavedDecks(userId);
         } else {

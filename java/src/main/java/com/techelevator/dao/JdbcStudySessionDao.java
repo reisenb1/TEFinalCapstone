@@ -56,14 +56,14 @@ public class JdbcStudySessionDao implements StudySessionDao{
     }
 
     @Override
-    public boolean updateStudySession(StudySession studySession) {
-        String sql = "UPDATE study_session SET user_id = ?, deck_id = ?, number_of_cards = ?, number_correct = ? +\n" +
-                                "number_green = ?, number_yellow = ?, number_red = ?, confidence_percent = ?, correct_percent =?" +
+    public boolean updateStudySession(StudySession studySession, int studySessionId) {
+        String sql = "UPDATE study_session SET user_id = ?, deck_id = ?, number_of_cards = ?, number_correct = ?, \n" +
+                                "number_green = ?, number_yellow = ?, number_red = ?, confidence_percent = ?, correct_percent =? \n" +
                 "WHERE study_session_id = ?;";
         int count = jdbcTemplate.update(sql,studySession.getUserId(),
                 studySession.getDeckId(), studySession.getNumberOfCards(), studySession.getNumberCorrect(),
                 studySession.getNumberGreen(), studySession.getNumberYellow(), studySession.getNumberRed(),
-                studySession.getConfidencePercent(), studySession.getCorrectPercent());
+                studySession.getConfidencePercent(), studySession.getCorrectPercent(), studySessionId);
         return count == 1;
     }
 

@@ -24,4 +24,8 @@ INSERT INTO study_session(user_id, deck_id, number_of_cards, number_correct, num
 						  number_yellow, number_red, confidence_percent, correct_percent)
 VALUES(1, 1, 10, 6, 5, 5, 0, 50, 60);
 
+INSERT INTO study_session(user_id, deck_id, number_of_cards, number_correct, number_green,
+						  number_yellow, number_red, confidence_percent, correct_percent)
+VALUES(1, 2, 20, 30, 40, 50, 60, 70, 80);
+
 COMMIT TRANSACTION;

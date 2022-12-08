@@ -42,8 +42,7 @@ public class StudySessionController {
 
     @RequestMapping(path = "/StudySessions/{StudySessionId}", method = RequestMethod.PUT)
     public boolean updateStudySession(@RequestBody StudySession studySession, @PathVariable int studySessionId) {
-        return studySessionDao.updateStudySession(studySession);
-
+        return studySessionDao.updateStudySession(studySession, studySessionId);
     }
 
 
