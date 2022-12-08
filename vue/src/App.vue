@@ -55,13 +55,18 @@ export default {};
 <style>
 body {
   /* added */
-  /* background-color: rgb(230, 227, 227); */
+  background-color: rgb(230, 227, 227);
 
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   /* placeholder image to test function, will be removed */
+
+  /* height: 100%;
+  width: 100vw; */
+  width: 100%;
+  margin: 0px;
 }
 
 header {
@@ -75,7 +80,13 @@ header {
   position: fixed; /*keep*/
   top: 0; /*keep*/
   left: 0; /*keep*/
-  width: 100vw; /*keep*/
+
+
+  /* removed
+  width: 100vw;*/ /*keep*/
+
+  /* added */
+  width: 100%;
   flex-direction: row;
   /* grid-area: head; */
   /* margin-bottom: 5px; */
@@ -109,9 +120,20 @@ header {
   /* removed 
   background-color: rgb(230, 227, 227);
   */
+  height: 100%;
 }
 
+
 footer {
+  background-color: rgb(230, 227, 227);
+  text-indent: 0.5%;
+  font-size: 0.65em;
+  max-height: 50px;
+  padding-bottom: 5px;
+}
+
+/* changed */
+footerxxx {
   /* display: flex; */
   /* grid-area: foot; */
 
@@ -162,6 +184,9 @@ footer {
 
   /* added */
   height: 100vh;
+  width: 100%;
+  /* margin-left: 0px; */
+  
 }
 
 .header {
