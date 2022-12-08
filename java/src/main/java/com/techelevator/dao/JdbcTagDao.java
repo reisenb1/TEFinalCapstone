@@ -5,10 +5,12 @@ import com.techelevator.model.StudySession;
 import com.techelevator.model.Tag;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class JdbcTagDao implements TagDao {
 
     private JdbcTemplate jdbcTemplate;
@@ -23,12 +25,11 @@ public class JdbcTagDao implements TagDao {
         String sql = "SELECT tag_name FROM tags;";
         SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
         List<Tag> allTags = new ArrayList<>();
-        if (rowSet.next()) {
+        while (rowSet.next()) {
             allTags.add(mapRowToTag((rowSet)));
             return allTags;
-        } else {
-            return allTags;
         }
+        return allTags;
     }
 
 

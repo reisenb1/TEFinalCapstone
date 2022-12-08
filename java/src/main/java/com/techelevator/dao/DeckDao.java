@@ -18,6 +18,9 @@ public interface DeckDao {
 
     boolean updateDeck(Deck deck, int deckId);
 
+    List<Deck> searchByName(String search);
+
+    List<Deck> getAllPublicDecks();
 
 //    boolean deleteDeck(int deckId);
 
