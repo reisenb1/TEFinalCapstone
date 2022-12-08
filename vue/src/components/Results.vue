@@ -1,22 +1,55 @@
 <template>
   <div>
     <h1>Deck Name Study Session Results</h1>
-    <div class="card" v-for="card in cards" v-bind:key="card.cardId" >
+    <button>Finish Session</button>
+    <div class="card">
+      <div>
+        You got {{ studySession.numberCorrect }}/{{studySession.numberOfCards}} a percentage of
+        {{ studySession.correctPercent }}
+      </div>
+      <div>
+        You have a confidence score of {{ studySession.confidencePercent }}
+      </div>
+    </div>
+    <div class="card" v-for="card in cards" v-bind:key="card.cardId">
       <div class="front">{{ card.front }}</div>
       <div class="back">{{ card.back }}</div>
+      <div class="confidence" v-show="card.confidence == 2">
+        <img
+          class="confidence-image"
+          src="../images/green-circle.png"
+          alt="Green"
+        />
+      </div>
+      <div class="confidence" v-show="card.confidence == 1">
+        <img
+          class="confidence-image"
+          src="../images/yellow-circle.png"
+          alt="Yellow"
+        />
+      </div>
+      <div class="confidence" v-show="card.confidence == 0">
+        <img
+          class="confidence-image"
+          src="../images/red-circle.png"
+          alt="Red"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import CardService from "../services/CardService";
+import StudySession from "../services/StudySessionService";
 
 export default {
-//    props: 
+  //    props:
   data() {
     return {
       isLoading: true,
       cards: [],
+      studySession: [],
     };
   },
   methods: {
@@ -33,9 +66,23 @@ export default {
           }
         });
     },
+    getStudySession() {
+      StudySession.getStudySessionById(this.$route.params.studySessionId)
+        .then((response) => {
+          this.studySession = response.data;
+          this.isLoading = false;
+        })
+        .catch((error) => {
+            if (error.response && error.response.status === 404) {
+            alert("Study session not available.");
+            this.$router.push({ name: "Deck" });
+          }
+        });
+    },
   },
   created() {
     this.getCards();
+    this.getStudySession();
   },
 };
 </script>
