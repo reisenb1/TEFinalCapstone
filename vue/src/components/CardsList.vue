@@ -7,14 +7,14 @@
           <img class="add-card-image" src="../images/plus-sign.png" alt="Add Card">
         </router-link> -->
          
+      <button v-on:click="showCardForm=true" v-show="!showCardForm">
+        <img class="add-card-image" src="../images/plus-sign.png" alt="Add Card">
+      </button>
       </div>
     </div>
 
     <div class="add-card">
 
-      <button v-on:click="showCardForm=true" v-show="!showCardForm">
-        <img class="add-card-image" src="../images/plus-sign.png" alt="Add Card">
-      </button>
     
 
       <div class="card-form" v-show="showCardForm">
@@ -32,9 +32,12 @@
           </div>
           </div>
 
+
+          <div class="form-buttons">
           <button class="submit" input type="submit">Add Card</button>
 
           <button class="cancel" v-on:click.prevent="cancelForm" type="cancel">Nvm I changed my mind</button>
+          </div>
         </form>
       </div>
 
@@ -57,11 +60,11 @@
     <div class="delete">Delete</div>
     </div>
 
-   <div class="add-card-bottom">
+   <!-- <div class="add-card-bottom">
       <router-link :to="{ name: 'AddCard' }">
           <img class="add-card-image" src="../images/plus-sign.png" alt="Add Card">
         </router-link>
-      </div>
+      </div> -->
 
 
 
@@ -104,7 +107,12 @@ export default {
         });
     },
 
+
      submitForm() {
+
+      if(this.card.front == '' || this.card.back == ''){
+        this.cancelForm();
+      } else {
         const newCard = {
           deckId: this.deckId,
           front: this.card.front,
@@ -112,6 +120,8 @@ export default {
           //fix
           userId: 1,
         }
+
+    
         CardService.addCard(newCard)
           .then((response) => {
             if (response.status === 200) {
@@ -132,6 +142,7 @@ export default {
                 back: "",
               }
           });
+        }
       },
 
     cancelForm() {
@@ -189,10 +200,11 @@ export default {
 }
 
 .page{
-  margin-left: 300px;
-  margin-right: 300px;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-top: 30px;
   margin-bottom: 30px;
+  
 }
 
 #cards-label {
@@ -233,6 +245,20 @@ export default {
   justify-content: center;
 }
 
+.form-buttons{
+  display: flex;
+  justify-content: center;
+}
+
+.submit{
+  background-color: teal;
+  width: 200px;
+}
+
+.cancel {
+  background-color: gray;
+  width: 200px;
+}
 
 
 </style>

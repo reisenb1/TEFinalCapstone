@@ -55,7 +55,7 @@ export default {};
 <style>
 body {
   /* added */
-  /* background-color: rgb(230, 227, 227); */
+  background-color: rgb(230, 227, 227);
 
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
