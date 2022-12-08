@@ -2,9 +2,7 @@
   <div>
     <!-- <decks /> -->
     <deck-header></deck-header>
-    <div>
-      <router-link :to="{ name: 'AddCard' }">Add Card</router-link>
-    </div>
+  
     <cards-list></cards-list>
   </div>
 </template>

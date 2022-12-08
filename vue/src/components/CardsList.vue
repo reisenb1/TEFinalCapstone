@@ -22,12 +22,12 @@
 
           <div class="card-form-cards">
           <div class="add-form" >
-            <label for="front">Front:</label>
+            <label for="front">Term</label>
             <input id="text" type="text" name="front" v-model="card.front" />
           </div>
 
           <div class="add-form">
-            <label for="back">Back:</label>
+            <label for="back">Definition</label>
             <input id="text" type="text" name="back" v-model="card.back" />
           </div>
           </div>
@@ -48,16 +48,22 @@
     <div class="back">{{card.back}}</div>
 
 
-    <div class="confidence" v-show="card.confidence=='green'">Green</div>
-    <div class="confidence" v-show="card.confidence=='yellow'">Yellow</div>
-    <div class="confidence" v-show="card.confidence==0">Red</div>
+    <div class="confidence" v-show="card.confidence=='green'">
+      <img class="confidence-image" src="../images/green-circle.png" alt="Green">
+    </div>
+    <div class="confidence" v-show="card.confidence=='yellow'">
+      <img class="confidence-image" src="../images/yellow-circle.png" alt="Yellow">
+    </div>
+    <div class="confidence" v-show="card.confidence==0">
+      <img class="confidence-image" src="../images/red-circle.png" alt="Red">
+    </div>
 
 
 
     <div class="edit">
       <router-link :to="{name: 'EditCard', params:{cardId:card.cardId}}">Edit</router-link>
     </div>
-    <div class="delete">Delete</div>
+    <button class="delete" v-on:click="deleteCard">Delete</button>
     </div>
 
    <!-- <div class="add-card-bottom">
@@ -155,7 +161,10 @@ export default {
   },
   created(){
     this.getCards();
-  }
+  },
+  // deleteCard(cardId){
+  //   CardService.deleteCard
+  // }
 
 }
 </script>
@@ -172,11 +181,12 @@ export default {
   grid-template-columns: 10fr 10fr 2fr 1fr;
 
   align-items: center;
-  border-style: solid;
-  border-color:rgb(223, 223, 223);
+  /* border-style: solid;
+  border-color:rgb(223, 223, 223); */
   padding: 40px;
   margin: 10px;
   background-color: white;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .front{
@@ -189,6 +199,7 @@ export default {
 
 .confidence{
   grid-area: confidence;
+
 }
 
 .edit{
@@ -200,8 +211,8 @@ export default {
 }
 
 .page{
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 20%;
+  margin-right: 20%;
   margin-top: 30px;
   margin-bottom: 30px;
   
@@ -260,5 +271,8 @@ export default {
   width: 200px;
 }
 
+.confidence-image{
+  max-width: 30px;
+}
 
 </style>

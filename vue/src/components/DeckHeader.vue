@@ -4,7 +4,7 @@
       <router-link :to="{name: 'loggedInHome'}">Back to Home Page</router-link>
 
 
-      <h1>{{deck.deckName}}</h1>
+      <h1 class="deck-header-deck-name">{{deck.deckName}}</h1>
 
 
       <div class="description-edit">
@@ -43,16 +43,21 @@ export default {
 
 <style>
 .deck-header-page{
-    margin-left: 315px;
-    margin-right: 315px;
-
+ 
+    border-bottom: solid gray;
+    width: 100%;
+  
 }
 
 .description-edit{
     display: flex;
     align-items: center;
     justify-content: space-between;
-  
+}
+
+.deck-header-deck-name{
+    display: flex;
+    justify-content: center;
 }
 
 
