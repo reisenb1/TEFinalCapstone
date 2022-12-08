@@ -13,6 +13,6 @@ public interface StudySessionDao {
 
     StudySession createStudySession(StudySession studySession);
 
-    boolean updateStudySession(StudySession studySession);
+    boolean updateStudySession(StudySession studySession, int studySessionId);
 
 }

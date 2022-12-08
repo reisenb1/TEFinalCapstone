@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.Deck;
 import com.techelevator.model.StudySession;
 import org.junit.Assert;
 import org.junit.Test;
@@ -41,11 +42,21 @@ public class JdbcStudySessionDaoTest extends BaseDaoTests {
         studySession.setConfidencePercent(50);
         studySession.setCorrectPercent(60);
         StudySession result = studySessionDao.createStudySession(studySession);
+        Assert.assertEquals(1, result.getUserId());
+        Assert.assertEquals(1, result.getDeckId());
+        Assert.assertEquals(10, result.getNumberOfCards());
         Assert.assertEquals(5, result.getNumberYellow());
     }
 
     @Test
     public void updateStudySession() {
+        StudySessionDao studySessionDao = new JdbcStudySessionDao(new JdbcTemplate(dataSource));
+        StudySession studySession = studySessionDao.getStudySession(1);
+        studySession.setNumberRed(9);
+        studySessionDao.updateStudySession(studySession, 1);
+        StudySession updatedStudySession = studySessionDao.getStudySession(1);
+        Assert.assertEquals(9, updatedStudySession.getNumberRed());
+        Assert.assertTrue(true);
 
     }
 }
