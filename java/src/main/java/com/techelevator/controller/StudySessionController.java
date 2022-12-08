@@ -34,13 +34,13 @@ public class StudySessionController {
 
     };
 
-    @RequestMapping(path = "/StudySessions", method = RequestMethod.POST)
+    @RequestMapping(path = "/studySessions", method = RequestMethod.POST)
     public StudySession createStudySession(@RequestBody StudySession studySession) {
         studySession = studySessionService.computePercents(studySession);
         return studySessionDao.createStudySession(studySession);
     }
 
-    @RequestMapping(path = "/StudySessions/{StudySessionId}", method = RequestMethod.PUT)
+    @RequestMapping(path = "/studySessions/{studySessionId}", method = RequestMethod.PUT)
     public boolean updateStudySession(@RequestBody StudySession studySession, @PathVariable int studySessionId) {
         return studySessionDao.updateStudySession(studySession, studySessionId);
     }

@@ -48,10 +48,10 @@
     <div class="back">{{card.back}}</div>
 
 
-    <div class="confidence" v-show="card.confidence=='green'">
+    <div class="confidence" v-show="card.confidence==2">
       <img class="confidence-image" src="../images/green-circle.png" alt="Green">
     </div>
-    <div class="confidence" v-show="card.confidence=='yellow'">
+    <div class="confidence" v-show="card.confidence==1">
       <img class="confidence-image" src="../images/yellow-circle.png" alt="Yellow">
     </div>
     <div class="confidence" v-show="card.confidence==0">

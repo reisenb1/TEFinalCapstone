@@ -106,10 +106,10 @@ export default {
 
       if (result == "green") {
         this.studySession.numberGreen = this.studySession.numberGreen + 1;
-        card.confidence = "green";
+        card.confidence = 2;
       } else if (result == "yellow") {
         this.studySession.numberYellow = this.studySession.numberYellow + 1;
-        card.confidence = "yellow";
+        card.confidence = 1;
       } else {
         this.studySession.numberRed = this.studySession.numberRed + 1;
       }
@@ -126,7 +126,7 @@ export default {
         });
 
       this.showConfidenceForm = false;
-      if (this.position == this.deckId.length) {
+      if (this.position == this.cards.length-1) {
         this.$router.push({ name: "Results", params: { deckId: this.deckId } });
       } else {
         this.position = this.position + 1;

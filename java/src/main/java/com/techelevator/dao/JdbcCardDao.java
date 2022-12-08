@@ -52,9 +52,9 @@ import java.util.List;
 
     @Override
     public boolean updateCard(Card card, int cardId) {
-        String sql = "UPDATE cards SET deck_id = ?, front = ?, back = ?, user_id = ?" +
+        String sql = "UPDATE cards SET deck_id = ?, front = ?, back = ?, user_id = ?, confidence = ?" +
                      "WHERE card_id = ?;";
-        int count = jdbcTemplate.update(sql, card.getDeckId(), card.getFront(), card.getBack(), card.getUserId(), cardId);
+        int count = jdbcTemplate.update(sql, card.getDeckId(), card.getFront(), card.getBack(), card.getUserId(), card.getConfidence(), cardId);
         return count == 1;
     }
 
