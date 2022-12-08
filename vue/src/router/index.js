@@ -118,7 +118,7 @@ const router = new Router({
       }
     },
     {
-      path: '/deck/:deckId/studySession/results',
+      path: '/deck/:deckId/studySession/:studySessionId',
       name: 'Results',
       component: Results,
       meta: {

@@ -151,7 +151,7 @@ export default {
       StudySessionService.addStudySession(this.studySession)
       .then(response => {
         if(response.status == 200){
-          this.$router.push({ name: "Results", params: { deckId: this.deckId } });
+          this.$router.push({ name: "Results", params: { deckId: this.deckId, studySessionId: response.data.studySessionId } });
         }
       }).catch( error => {
         console.log(error);
