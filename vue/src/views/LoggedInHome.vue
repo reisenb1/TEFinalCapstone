@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <h1>HOME</h1> <!-- HOME should be within the label but I removed -->
-    <p>You must be authenticated to see this</p>
+    <!-- <h1>HOME</h1> HOME should be within the label but I removed -->
+    <!-- <p>You must be authenticated to see this</p> -->
     <decks />
     
   </div>
