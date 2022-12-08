@@ -1,12 +1,13 @@
 <template>
-  
+  <div id="main-grid">
     <div class="scroll" id="sideNav">
       <h1 id="h1">My Decks</h1>
       <div class="decks">
         <div class="loading" v-if="isLoading">
           <img src="../images/eye-blink.gif" />
         </div>
-        <router-link id="activeDeck"
+        <router-link
+          id="activeDeck"
           :to="{ name: 'Deck', params: { deckId: deck.deckId } }"
           v-for="deck in this.decks"
           v-bind:key="deck.deckId"
@@ -16,7 +17,11 @@
       </div>
       <router-link :to="{ name: 'AddDeck' }">Add a New Deck!!!!!!</router-link>
     </div>
-  
+
+    <div id="home1">
+        <h1 id="greeting">Hello</h1>
+      </div>
+  </div>
 </template>
 
 <script>
@@ -48,18 +53,19 @@ export default {
 };
 </script>
 <style>
-/* #main-grid {
+#main-grid {
   display: grid;
-  grid-template-areas: 
-    "sideNav   home    home"
-    "sideNav   home    home"
-    "sideNav   home    home"
-  ;
+  grid-template-areas:
+    "sideNav   home1    home1"
+    "sideNav   home1    home1"
+    "sideNav   home1    home1";
   grid-template-columns: 1fr 2fr 2fr;
   grid-template-rows: 2fr 2fr 2fr;
 
   align-items: center;
-} */
+   width: 100vw;
+  height: 100vh
+}
 
 #main-grid {
   margin-top: 60px;
@@ -67,16 +73,25 @@ export default {
 
 #sideNav {
   grid-area: sideNav;
-  
 }
 
 #sideNav > #h1 {
+  display: flex;
+  
+}
+
+#home1 {
+  grid-area: home1;
+}
+
+#greeting {
+  display: flex;
   
 }
 
 div#sideNav {
   height: 100%;
-  width: 20%;
+  width: 17%;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -84,32 +99,29 @@ div#sideNav {
   padding-top: 75px;
   padding-bottom: 20px;
   border-right: solid lightgrey 1px;
-  display: flex;
+  display: flexbox;
   flex-direction: column;
   margin-top: 60px;
+  margin-bottom: 100px;
   background-color: rgb(214, 198, 198);
   text-align: center;
   justify-content: space-evenly;
   align-items: center;
-  /* overflow: auto; */
-  overflow-x: hidden;
-  overflow-y: auto;
+   overflow-x:hidden; 
+
 }
 
-h1 {
+/* h1 {
   text-align: center;
-}
+} */
 
-.decks {
-  /* display: flex;
+.decks { 
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center; */
-  overflow: auto;
-  overflow-y: auto;
-  overflow-x:hidden;
+  align-items: center; 
 }
-.deck {
+/* .deck {
   color: #010303;
   border-radius: 10px;
   padding: 40px;
@@ -119,8 +131,8 @@ h1 {
   text-decoration: none;
   cursor: pointer;
   width: 60%;
-}
-.addDeck {
+} */
+/* .addDeck {
   display: flex;
   justify-content: center;
   color: #f7fafc;
@@ -131,8 +143,8 @@ h1 {
   margin: 10px;
   padding: 10px;
   cursor: pointer;
-}
-.form-control {
+} */
+/* .form-control {
   margin-bottom: 10px;
 }
 .btn {
@@ -149,9 +161,9 @@ h1 {
   font-weight: bold;
   border: solid blue 5px;
 
-}
+} */
 
-.home {
+/* .home {
      display: flex;
      justify-content: space-between;
      flex-direction: column;
@@ -160,34 +172,17 @@ h1 {
      grid-area: home;
      overflow-y: auto;
   overflow-x:hidden;
-}
+} */
 
-#activeDeck {
-  /* box-sizing: border-box; */
-  width: 150px;
+ #activeDeck {
+ box-sizing: border-box; 
+ width: 120px;
+ height: 300px;
   border: 15px solid rgb(128, 0, 0);
   border-radius: 5px;
-  padding: 50px;
+  padding: 5px;
   margin: 20px;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
-  overflow-x:hidden;
-  /* overflow-y: auto; */
-  overflow-x:hidden;
-
-}
-
-  /* div.scroll {
-                margin:4px, 4px;
-                padding:4px;
-                background-color: green;
-                width: 500px;
-                height: 110px;
-                overflow-x: hidden;
-                overflow-y: auto;
-                text-align:justify;
-            } */
-
-
+ }
 </style>

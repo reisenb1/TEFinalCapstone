@@ -67,7 +67,7 @@ p {
   border: solid rgb(185, 68, 68) 5px;
   background-color: rgb(185, 68, 68);
   margin: auto;
-  width: 5vw;
+  width: 100px;
   text-align: center;
   border-radius: 6px;
 }
@@ -83,7 +83,8 @@ p {
   color: white;
   scroll-behavior: smooth;
   background-color: rgba(110, 101, 238, 0.89);
-  height: 750px;
+  /* height: 750px; */
+  flex-basis: 750px;
   width: 100%;
 }
 
@@ -91,11 +92,16 @@ p {
   display: flex;
   color: white;
   background-color: rgb(235, 83, 109, 0.89);
-  height: 500px;
+  /* height: 500px; */
+  flex-basis: 500px;
   align-items: center;
   flex-direction: column;
   width: 100%;
 } 
 
+.view {
+  display: flex;
+  flex-direction: column;
+}
 
 </style>

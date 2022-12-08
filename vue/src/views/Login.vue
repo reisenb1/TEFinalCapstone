@@ -157,6 +157,7 @@ body {
   background-image: url("../images/study-photo.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  width: 100%;
 
 }
 
