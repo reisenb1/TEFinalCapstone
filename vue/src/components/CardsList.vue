@@ -123,8 +123,7 @@ export default {
           deckId: this.deckId,
           front: this.card.front,
           back: this.card.back,
-          //fix
-          userId: 1,
+          userId:this.$store.getters.user.id
         }
 
     

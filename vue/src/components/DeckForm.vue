@@ -67,8 +67,7 @@ export default {
       deck: {
         deckName: "",
         deckDescription: "",
-        //have to fix this
-        creatorId: 1,
+        creatorId: this.$store.getters.user.id,
         accessible: false,
       },
     };
@@ -84,8 +83,7 @@ export default {
               this.newDeck = {
                 deckName: "",
                 deckDescription: "",
-                //also would have to fix creator id here
-                creatorId: 1,
+                creatorId: this.$store.getters.user.id,
                 accessible: false,
               };
             this.$router.push({ name: 'Deck', params: { deckId: response.data.deckId } })
@@ -100,8 +98,7 @@ export default {
           deckId: this.deckId,
           deckName: this.deck.deckName,
           deckDescription: this.deck.deckDescription,
-          //have to fix this
-          creatorId: 1,
+          creatorId: this.$store.getters.user.id,
           accessible: this.deck.accessible,
         };
         DeckService.updateDeck(newDeck)
