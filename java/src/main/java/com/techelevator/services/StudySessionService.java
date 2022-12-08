@@ -19,7 +19,7 @@ public class StudySessionService {
         double correctPercent = 0;
         int numGreen = session.getNumberGreen();
         int numYellow = session.getNumberYellow();
-        int numCards = session.getNumberOfCards();
+        double numCards = session.getNumberOfCards();
         int numCorrect = session.getNumberCorrect();
 
         confidencePercent = ((numGreen + 0.5*numYellow)/numCards)*100;

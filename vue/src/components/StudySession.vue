@@ -36,7 +36,7 @@
 </template>
 
 <script>
-// import StudySessionService from "../services/StudySessionService";
+import StudySessionService from "../services/StudySessionService";
 // import DeckService from "../services/DeckService";
 import CardService from "../services/CardService";
 
@@ -127,7 +127,7 @@ export default {
 
       this.showConfidenceForm = false;
       if (this.position == this.cards.length-1) {
-        this.$router.push({ name: "Results", params: { deckId: this.deckId } });
+        this.submitStudySession();
       } else {
         this.position = this.position + 1;
       }
@@ -145,6 +145,20 @@ export default {
       this.showFront = false;
       this.showBack = true;
     },
+
+    submitStudySession(){
+      this.studySession.deckId = this.deckId;
+      StudySessionService.addStudySession(this.studySession)
+      .then(response => {
+        if(response.status == 200){
+          this.$router.push({ name: "Results", params: { deckId: this.deckId } });
+        }
+      }).catch( error => {
+        console.log(error);
+        this.goBackToDeckPage;
+      })
+      
+    }
 
     // flipBackToFront(){
     //   this.showFront=true;
