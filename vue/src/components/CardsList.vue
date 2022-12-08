@@ -63,7 +63,7 @@
     <div class="edit">
       <router-link :to="{name: 'EditCard', params:{cardId:card.cardId}}">Edit</router-link>
     </div>
-    <button class="delete" v-on:click="deleteCard">Delete</button>
+    <!-- <button class="delete" v-on:click="deleteCard">Delete</button> -->
     </div>
 
    <!-- <div class="add-card-bottom">
