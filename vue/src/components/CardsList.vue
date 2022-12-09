@@ -8,7 +8,7 @@
         </button>
         </router-link>
       
-      <h2 class="header-bottom" id="cards-label">Cards in this deck</h2>  
+      <h2 id="cards-label">Cards in this deck</h2>  
      
       <div class="add-card">
         <!-- <router-link :to="{ name: 'AddCard' }">
@@ -16,7 +16,7 @@
         </router-link> -->
          
       <button class="header-bottom" v-on:click="showCardForm=true" v-show="!showCardForm">
-        <img class="add-card-image" src="../images/plus-sign.png" alt="Add Card">
+        <img class="add-card-image" src="../images/black-plus-sign.png" alt="Add Card">
       </button>
       </div>
     </div>
@@ -215,7 +215,7 @@ export default {
   margin: 10px;
   background-color: white;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  
+  font-weight: bold;
 
 
 }
@@ -285,9 +285,20 @@ export default {
   margin:15px;
 }
 
-/* .header-bottom{
-  
-} */
+.header-bottom{
+  background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  opacity: 75%;
+
+}
+
+.header-bottom:hover{
+  background-color: rgba(218, 216, 216, 0.7);
+  transition-duration: 1s;
+  opacity: 1;
+
+}
 
 .study-session-link{
   grid-area: study-session-link;
@@ -321,12 +332,14 @@ export default {
 
 .add-card-image{
   max-height: 50px;
+  padding: 10px;
 }
 
 .add-card-bottom{
   display: flex;
   justify-content: flex-end;
   margin: 15px;
+  background-color: white;
 }
 
 .add-form{

@@ -309,7 +309,7 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(32, 189, 149, 0.7);
+  background: rgba(255, 255, 255, 0.7);
   border-radius: 15px;
 }
 </style>
