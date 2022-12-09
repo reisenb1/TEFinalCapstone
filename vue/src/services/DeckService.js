@@ -23,7 +23,11 @@ export default {
     },
 
     getAllSearchedDecks(searchTerm) {
-        return http.get(`decks/search`, {params: { searchTerm }});
+        return http.get(`/decks/search`, {params: { searchTerm }});
+    },
+
+    getAllDecks() {
+        return http.get(`/decks`);
     }
 
     // deleteDeck(deckId) {

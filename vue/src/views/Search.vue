@@ -6,8 +6,11 @@
           <input type="text" placeholder="search by name or description...">
       </div>
 
-      <div v-bind:key="deck.deckId" v-for="deck in this.decks"> 
-          {{ deck.deckName }}
+      <div v-bind:key="deck.deckId" v-for="deck in this.decks" > 
+          <router-link v-bind:to="{ name: 'Deck' , params: {deckId: deck.deckId}}">
+            {{ deck.deckName }}
+          </router-link>
+        
       </div>
 
   </div>
@@ -32,7 +35,9 @@ export default {
             return this.decks;
         },
         retrieveAllDecks(){
-            DeckService.getDecks(this.$store.getters.id).then((response) => {
+            // DeckService.getDecks(this.$store.getters.user.id).then((response) => {
+            //     this.decks = response.data;
+            DeckService.getAllDecks().then((response) => {
                 this.decks = response.data;
             });
         }
