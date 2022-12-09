@@ -91,6 +91,7 @@ header {
   position: fixed; /*keep*/
   top: 0; /*keep*/
   left: 0; /*keep*/
+  z-index: 9999;
 
   /* removed
   width: 100vw;*/ /*keep*/

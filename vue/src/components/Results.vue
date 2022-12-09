@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="resultsContainer">
     <h1>Deck Name Study Session Results</h1>
     <button>Finish Session</button>
 
