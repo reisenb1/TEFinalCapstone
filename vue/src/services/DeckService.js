@@ -22,6 +22,10 @@ export default {
         return http.put(`/decks/${deck.deckId}`, deck);
     },
 
+    getAllSearchedDecks(searchTerm) {
+        return http.get(`decks/search`, {params: { searchTerm }});
+    }
+
     // deleteDeck(deckId) {
     //     return http.delete(`/decks/${deckId}`)
     // }

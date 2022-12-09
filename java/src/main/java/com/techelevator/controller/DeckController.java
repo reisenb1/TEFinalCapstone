@@ -38,6 +38,11 @@ public class DeckController {
         }
     }
 
+    @RequestMapping(path= "/decks", method = RequestMethod.GET)
+    public List<Deck> getAllDecks() {
+        return deckDao.getAllDecks();
+    }
+
    @RequestMapping(path = "{userId}/decks/search", method = RequestMethod.GET)
     public List<Deck> getMySearchedDecks(@PathVariable int userId, @RequestParam(value = "search", required = false) String search) {
        if (search != null) {
