@@ -4,18 +4,18 @@
       
       <router-link  :to="{name: 'StudySession', params:{deckId: deckId}}">
         <button class="study-session-link">
-        Start a Study Session! ASAP!!
+        START STUDY SESSION
         </button>
         </router-link>
       
-      <h2 id="cards-label">Cards in this deck</h2>  
+      <h2 class="header-bottom" id="cards-label">Cards in this deck</h2>  
      
       <div class="add-card">
         <!-- <router-link :to="{ name: 'AddCard' }">
           <img class="add-card-image" src="../images/plus-sign.png" alt="Add Card">
         </router-link> -->
          
-      <button v-on:click="showCardForm=true" v-show="!showCardForm">
+      <button class="header-bottom" v-on:click="showCardForm=true" v-show="!showCardForm">
         <img class="add-card-image" src="../images/plus-sign.png" alt="Add Card">
       </button>
       </div>
@@ -215,10 +215,9 @@ export default {
   margin: 10px;
   background-color: white;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-
   
 
-  
+
 }
 
 .front{
@@ -249,6 +248,7 @@ export default {
 
 .confidence{
   grid-area: confidence;
+  opacity: 75%;
 
 }
 
@@ -285,14 +285,26 @@ export default {
   margin:15px;
 }
 
+/* .header-bottom{
+  
+} */
+
 .study-session-link{
   grid-area: study-session-link;
   background-color: #FFB5A7;
-  align-self: end;
-  padding:15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:30px;
   margin-top: 10px;
   margin-bottom: 10px;
   border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 150%;
+  
+
+
 }
 
 .add-card{

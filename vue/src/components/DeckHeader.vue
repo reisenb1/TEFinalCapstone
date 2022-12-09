@@ -46,7 +46,7 @@ export default {
  
    
     width: 100%;
-    background-color: #F9DCC4;
+    background-color: #FEC89A;
   
 }
 
