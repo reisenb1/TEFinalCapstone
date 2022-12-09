@@ -72,12 +72,14 @@
 
 
     <div class="edit">
+      <button class="edit-delete">
       <router-link :to="{name: 'EditCard', params:{cardId:card.cardId}}">
-        <img src="../images/pencil-icon.png" alt="pencil-icon">
+        <img class="imgggg" src="../images/image_from_ios.jpg" alt="pencil-icon">
       </router-link>
+      </button>
     </div>
-    <button class="delete" v-on:click="deleteCard(card.cardId)">
-      <img src="../images/trashcan.jpg" alt="trashcan">
+    <button class="delete edit-delete" v-on:click="deleteCard(card.cardId)">
+      <img class="imgggg" src="../images/trashcan.png" alt="trashcan">
     </button>
     </div>
 
@@ -230,11 +232,15 @@ export default {
   /* display: flex;
   flex-direction: column;
   flex-wrap: wrap; */
+
+   padding-left: 20%;
+  padding-right: 20%;
 }
 
 .back{
   grid-area: back;
-  padding: 10px;
+  padding-right: 20%;
+ 
   /* display: flex;
   flex-wrap: wrap;
   flex-direction: column; */
@@ -281,7 +287,7 @@ export default {
 
 .study-session-link{
   grid-area: study-session-link;
-  background-color: violet;
+  background-color: #FFB5A7;
   align-self: end;
   padding:15px;
   margin-top: 10px;
@@ -343,6 +349,16 @@ export default {
 
 .confidence-image{
   max-width: 30px;
+}
+
+.imgggg{
+  width: 50%;
+}
+  
+.edit-delete{
+  background-color: white;
+  border-style: none;
+  opacity: 75%;
 }
 
 </style>
