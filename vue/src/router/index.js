@@ -13,6 +13,7 @@ import AddDeck from '../views/AddDeck.vue'
 import EditDeck from '../views/EditDeck.vue'
 import StudySession from '../views/StudySession.vue'
 import Results from '../views/Results.vue'
+import Search from '../views/Search.vue'
 
 Vue.use(Router)
 
@@ -124,9 +125,17 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: '/decks/search',
+      name: 'Search',
+      component: Search,
+      meta: {
+        requiresAuth: false
+      }
     }
 
-    
+
   ]
 })
 
