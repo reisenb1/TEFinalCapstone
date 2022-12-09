@@ -15,6 +15,7 @@ INSERT INTO cards (deck_id, front, back, user_id, confidence) VALUES (1, 'front2
 INSERT INTO cards (deck_id, front, back, user_id, confidence) VALUES (1, 'front3', 'back3', 1, 10);
 
 INSERT INTO tags (tag_name) VALUES ('math');
+INSERT INTO tags (tag_name) VALUES ('history');
 
 INSERT INTO deck_tag (deck_id, tag_id) VALUES (4, 1);
 

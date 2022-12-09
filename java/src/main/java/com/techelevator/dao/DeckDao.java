@@ -24,6 +24,8 @@ public interface DeckDao {
 
     List<Deck> getAllDecks();
 
+    List<Deck> getMySearchDecks(int userId, String search);
+
 //    boolean deleteDeck(int deckId);
 
 

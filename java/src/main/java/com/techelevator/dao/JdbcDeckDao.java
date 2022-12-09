@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class JdbcDeckDao implements DeckDao{
+public class JdbcDeckDao implements DeckDao {
 
     private JdbcTemplate jdbcTemplate;
 
@@ -23,7 +23,7 @@ public class JdbcDeckDao implements DeckDao{
         List<Deck> allDecks = new ArrayList<>();
         String sql = "SELECT * FROM decks WHERE creator_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
-        while(results.next()) {
+        while (results.next()) {
             allDecks.add(mapRowToDeck(results));
         }
         return allDecks;
@@ -36,7 +36,7 @@ public class JdbcDeckDao implements DeckDao{
                 "JOIN user_deck ON user_deck.deck_id= decks.deck_id\n" +
                 "WHERE user_id = ? AND creator_id != ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId, userId);
-        while(results.next()) {
+        while (results.next()) {
             allDecks.add(mapRowToDeck(results));
         }
         return allDecks;
@@ -45,7 +45,7 @@ public class JdbcDeckDao implements DeckDao{
     @Override
     public Deck getDeck(int deckId) {
         String sql = "SELECT * FROM decks WHERE deck_id = ?;";
-        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql,deckId);
+        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, deckId);
         if (rowSet.next()) {
             Deck deck = mapRowToDeck(rowSet);
             return deck;
@@ -73,17 +73,17 @@ public class JdbcDeckDao implements DeckDao{
     public Deck createDeck(Deck deck) {
         String sql = "INSERT INTO decks(deck_name, deck_description, accessible, creator_id)\n" +
                 "VALUES(?, ?, ?, ?) RETURNING deck_id;";
-        Integer deckId = jdbcTemplate.queryForObject(sql, Integer.class, deck.getDeckName(),deck.getDeckDescription(),deck.isAccessible(),deck.getCreatorId());
+        Integer deckId = jdbcTemplate.queryForObject(sql, Integer.class, deck.getDeckName(), deck.getDeckDescription(), deck.isAccessible(), deck.getCreatorId());
         deck.setDeckId(deckId);
         sql = "INSERT INTO user_deck(deck_id,user_id) VALUES (?,?);";
-        jdbcTemplate.update(sql,deck.getDeckId(),deck.getCreatorId());
+        jdbcTemplate.update(sql, deck.getDeckId(), deck.getCreatorId());
         return deck;
     }
 
     @Override
     public boolean updateDeck(Deck deck, int deckId) {
         String sql = "UPDATE decks SET deck_name = ?, deck_description = ?, accessible = ?, creator_id = ?" +
-                     "WHERE deck_id = ?;";
+                "WHERE deck_id = ?;";
         int count = jdbcTemplate.update(sql, deck.getDeckName(), deck.getDeckDescription(), deck.isAccessible(), deck.getCreatorId(), deckId);
         return count == 1;
     }
@@ -104,7 +104,7 @@ public class JdbcDeckDao implements DeckDao{
         String sql = "SELECT * FROM decks;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         List<Deck> allDecks = new ArrayList<>();
-        while(results.next()) {
+        while (results.next()) {
             allDecks.add(mapRowToDeck(results));
         }
         return allDecks;
@@ -113,14 +113,24 @@ public class JdbcDeckDao implements DeckDao{
 
     @Override
     public List<Deck> searchByName(String search) {
-        String sql = "SELECT * FROM decks WHERE deck_name LIKE ? OR deck_description LIKE ?;" ;
+        String sql = "SELECT * FROM decks WHERE deck_name LIKE ? OR deck_description LIKE ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, "%" + search + "%", "%" + search + "%");
         List<Deck> searchedDecks = new ArrayList<>();
-        while(results.next()) {
+        while (results.next()) {
             searchedDecks.add(mapRowToDeck(results));
         }
-            return searchedDecks;
+        return searchedDecks;
+    }
 
+    @Override
+    public List<Deck> getMySearchDecks(int userId, String search) {
+        String sql = "SELECT * FROM decks WHERE creator_id = ? AND deck_name LIKE ? OR deck_description LIKE ?;\n";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId, "%" + search + "%", "%" + search + "%" );
+        List<Deck> mySearchedDecks = new ArrayList<>();
+        while(results.next()) {
+            mySearchedDecks.add(mapRowToDeck(results));
+        }
+        return mySearchedDecks;
     }
 
 //    @Override

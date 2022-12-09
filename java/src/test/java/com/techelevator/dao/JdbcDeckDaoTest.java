@@ -69,13 +69,31 @@ public class JdbcDeckDaoTest extends BaseDaoTests {
         deck.setCreatorId(1);
         deckDao.updateDeck(deck, 1);
 //        Assert.assertEquals("new name", updatedDeck.getDeckName());
-
-
         Deck updatedDeck = deckDao.getDeck(1);
-
-        Assert.assertEquals("new deck description",
-                updatedDeck.getDeckDescription());
-
+        Assert.assertEquals("new deck description", updatedDeck.getDeckDescription());
         Assert.assertTrue(true);
     }
+
+    @Test
+    public void getAllDecks() {
+        DeckDao deckDao = new JdbcDeckDao(new JdbcTemplate(dataSource));
+        List<Deck> allDecks = deckDao.getAllDecks();
+        Assert.assertEquals(4, allDecks.size());
+    }
+
+    @Test
+    public void searchByName() {
+        DeckDao deckDao = new JdbcDeckDao(new JdbcTemplate(dataSource));
+        List<Deck> searchedDecks = deckDao.searchByName("deck");
+        Assert.assertEquals(4, searchedDecks.size());
+    }
+
+    @Test
+    //not passing
+    public void getMySearchDecks() {
+        DeckDao deckDao = new JdbcDeckDao(new JdbcTemplate(dataSource));
+        List<Deck> mySearchedDecks = deckDao.getMySearchDecks(2, "deck");
+        Assert.assertEquals("myDeck4", mySearchedDecks.get(0).getDeckName());
+    }
+
 }
