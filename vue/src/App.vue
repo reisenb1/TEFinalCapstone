@@ -53,9 +53,9 @@
       :class="{ 'not-logged-in': $store.state.token == '' }"
     />
 
-    <footer>
+    <!-- <footer>
       <p>Copyright &copy;2022</p>
-    </footer>
+    </footer> -->
   </div>
 </template>
 
