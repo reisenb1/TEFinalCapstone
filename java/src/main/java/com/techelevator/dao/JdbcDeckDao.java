@@ -95,7 +95,6 @@ public class JdbcDeckDao implements DeckDao{
         List<Deck> publicDecks = new ArrayList<>();
         while(results.next()) {
             publicDecks.add(mapRowToDeck(results));
-            return publicDecks;
         }
         return publicDecks;
     }
