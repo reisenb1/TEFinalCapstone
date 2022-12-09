@@ -1,19 +1,25 @@
 <template>
   <div class="deck-header-page">
 
-      <router-link :to="{name: 'loggedInHome'}">Back to Home Page</router-link>
+
 
 
       <h1 class="deck-header-deck-name">{{deck.deckName}}</h1>
 
 
-      <div class="description-edit">
+      <div class="description">
 
       <p>{{deck.deckDescription}}</p>
 
-      <router-link :to="{name:'EditDeck', params:{deckId:this.$route.params.deckId}}" class="deck-edit">Edit Deck</router-link>
-    </div>
+      </div>
 
+      
+        <button class="button-deck">
+      <router-link :to="{name:'EditDeck', params:{deckId:this.$route.params.deckId}}" class="deck-edit">
+          <img class = "edit" src="../images/image_from_ios.jpg" alt="edit deck">
+          </router-link>
+        </button>
+   
 
   </div>
 </template>
@@ -47,18 +53,29 @@ export default {
    
     width: 100%;
     background-color: #FEC89A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2%;
   
 }
 
-.description-edit{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.edit{
+    
+    height: 30px;
 }
 
-.deck-header-deck-name{
-    display: flex;
-    justify-content: center;
+.button-deck{
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+
+    justify-self: right;
+
+    display: flex; 
+    flex-direction: row;
+    justify-content: flex-end;
+    
 }
 
 

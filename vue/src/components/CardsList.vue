@@ -2,7 +2,7 @@
   <div class="page">
     <div class="deck-header">
       
-      <router-link  :to="{name: 'StudySession', params:{deckId: deckId}}">
+      <router-link :to="{name: 'StudySession', params:{deckId: deckId}}">
         <button class="study-session-link">
         START STUDY SESSION
         </button>
@@ -292,7 +292,7 @@ export default {
 .study-session-link{
   grid-area: study-session-link;
   background-color: #FFB5A7;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   padding:30px;
@@ -302,9 +302,10 @@ export default {
   border-radius: 10px;
   font-weight: bold;
   font-size: 150%;
-  
+}
 
-
+.study-session-link:hover{
+  background-color: #f79986;
 }
 
 .add-card{
