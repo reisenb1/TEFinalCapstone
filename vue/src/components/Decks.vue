@@ -1,11 +1,14 @@
 <template>
-  <div id="main-grid">
+  <div id="main-grid" class="container1">
     <div class="scroll" id="sideNav">
       <h1 id="h1">My Decks</h1>
+       <router-link :to="{ name: 'AddDeck' }"><button id="addDeck" >New Deck</button></router-link>
       <div class="decks">
+        
         <div class="loading" v-if="isLoading">
           <img src="../images/eye-blink.gif" />
         </div>
+        
         <router-link
           id="activeDeck"
           :to="{ name: 'Deck', params: { deckId: deck.deckId } }"
@@ -13,17 +16,19 @@
           v-bind:key="deck.deckId"
         >
           {{ deck.deckName }}
+          <img src="../images/cards.png" alt="">
         </router-link>
       </div>
-      <router-link id="addDeck" :to="{ name: 'AddDeck' }">New Deck</router-link>
+      <!-- <router-link :to="{ name: 'AddDeck' }"><button id="addDeck" >New Deck</button></router-link> -->
     </div>
 
     <div id="home1">
-        <h1 id="greeting">Hello</h1>
+        <h1 id="greeting">Hello User</h1>
       
 
       <div id="my-stats">
-        <h2>my stats</h2>
+        <h2>My Stats</h2>
+        
       </div>
 
       <div id="confidence">
@@ -71,7 +76,23 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.container1 {
+  display: grid;
+  background-image: url("../images/study-photo.jpg");
+  /* background-color: #F8EDE8; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+
+}
 #main-grid {
   display: grid;
   grid-template-areas:
@@ -120,20 +141,20 @@ export default {
 #greeting {
   display: flex;
   grid-area: greeting;
-  width: 100%;
-  background-color: rgb(216, 213, 213);
-  height: 75px;
+  width: 90%;
+  background-color: rgb(216, 213, 213, 0.8);
+  height: 95px;
   align-items: center;
   text-indent: 20px;
 }
 
 #my-stats {
   grid-area: my-stats;
-  height: 60px;
-  background-color: rgb(142, 142, 212);
+  height: 70px;
+  background-color: #fcb2a4;
   align-items: center;
   text-indent: 20px;
-  width: 75%
+  width: 80%
 }
 
 #confidence {
@@ -165,7 +186,7 @@ export default {
   text-shadow: 0 8px 16px 0 black, 0 6px 20px 0 black;
 }
 
-#yellow {
+/* #yellow {
   background-color: lavender;
   width: 200px;
   height: 400px;
@@ -196,7 +217,7 @@ export default {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   
   margin-right: 75px;
-}
+} */
 
 
 div#sideNav {
@@ -212,7 +233,7 @@ div#sideNav {
   display: flexbox;
   flex-direction: column;
   margin-top: 60px;
-  background-color: rgb(214, 198, 198);
+  background-color: rgb(214, 198, 198, 0.7);
   text-align: center;
   justify-content: space-evenly;
   align-items: center;
@@ -228,22 +249,23 @@ div#sideNav {
 }
 
 #addDeck {
-  color: white;
+  color: #6b6967;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 25%;
+  height: 40px;
+  width: 40%;
   box-shadow: 0 6px 14px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   transition-duration: 1s;
   margin-left: 10px;
   text-decoration: none;
   margin-top: 20px;
-  background-color: rgb(45, 235, 162, 0.6);
+  /* background-color: rgb(#F8EDE8, 0.6); */
 }
 
 #addDeck:hover {
-  background-color: rgb(45, 235, 162, 0.6);
+  background-color: rgb(#f1ae8f, 0.6);
   opacity: 1;
 }
 
@@ -302,10 +324,11 @@ div#sideNav {
 
  #activeDeck {
  box-sizing: border-box; 
- width: 150px;
- height: 200px;
-  border: 15px solid rgb(128, 0, 0);
-  border-radius: 5px;
+ width: 165px;
+ height: 215px;
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: #FEC89A;
   padding: 5px;
   margin: 20px;
   display: flex;
