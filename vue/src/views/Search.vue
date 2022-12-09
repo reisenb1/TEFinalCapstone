@@ -3,7 +3,7 @@
 
       <div id="search">
           <h2 id="searchTitle">Search: </h2>
-          <input type="text" placeholder="search by name or description...">
+          <input type="text" v-on:keyup.enter.prevent= "retrieveSearchedDecks" placeholder="search by name or description...">
       </div>
 
       <div v-bind:key="deck.deckId" v-for="deck in this.decks" > 
@@ -32,7 +32,7 @@ export default {
             DeckService.getAllSearchedDecks(this.searchTerm).then((response) => {
                 this.decks = response.data;
             });
-            return this.decks;
+
         },
         retrieveAllDecks(){
             // DeckService.getDecks(this.$store.getters.user.id).then((response) => {
