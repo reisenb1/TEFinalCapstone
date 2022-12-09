@@ -44,8 +44,9 @@ export default {
 <style>
 .deck-header-page{
  
-    border-bottom: solid gray;
+   
     width: 100%;
+    background-color: #F9DCC4;
   
 }
 
