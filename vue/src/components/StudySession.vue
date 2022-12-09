@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <button v-on:click.prevent="goBackToDeckPage">Cancel Study Session</button>
+    <button id="cancelButton" v-on:click.prevent="goBackToDeckPage">Cancel Study Session</button>
   </div>
 </template>
 
@@ -51,8 +51,7 @@ export default {
       showConfidenceForm: false,
       cardCorrectIncorrect: "",
       studySession: {
-        //fix
-        userId: 1,
+        userId: this.$store.getters.user.id,
         deckId: this.deckId,
         numberOfCards: 0,
         numberCorrect: 0,
@@ -99,8 +98,7 @@ export default {
         deckId: this.deckId,
         front: currentCard.front,
         back: currentCard.back,
-        //fix
-        userId: 1,
+        userId: this.$store.getters.user.id,
         confidence: "",
       };
 
@@ -169,31 +167,46 @@ export default {
 </script>
 
 <style>
+
+#cancelButton{
+  align-self: right;
+  justify-self: right;
+  background-color: rgba(255, 0, 0, 0.425);
+}
+
+#study-session-component{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 #card-front-study {
   display: flex;
   flex-direction: column;
   background-color: white;
-  width: 400px;
+  width: 800px;
   padding: 25px;
   border-style: solid;
   border-color: rgb(223, 223, 223);
-  height: 200px;
+  height: 400px;
   /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-  margin-right: 50px;
   align-content: center;
   justify-items: center;
+  margin: 50px;
 }
 
 #card-back-study {
   display: flex;
   flex-direction: column;
   background-color: white;
-  width: 400px;
+  width: 800px;
   padding: 25px;
   border-style: solid;
   border-color: rgb(223, 223, 223);
-  height: 200px;
+  height: 400px;
   /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-  margin-right: 50px;
+  margin: 50px;
+ 
 }
 </style>

@@ -1,7 +1,15 @@
 <template>
   <div class="page">
     <div class="deck-header">
-      <h2 id="cards-label">Cards in this deck</h2>      
+      
+      <router-link  :to="{name: 'StudySession', params:{deckId: deckId}}">
+        <button class="study-session-link">
+        Start a Study Session! ASAP!!
+        </button>
+        </router-link>
+      
+      <h2 id="cards-label">Cards in this deck</h2>  
+     
       <div class="add-card">
         <!-- <router-link :to="{ name: 'AddCard' }">
           <img class="add-card-image" src="../images/plus-sign.png" alt="Add Card">
@@ -14,7 +22,10 @@
     </div>
 
     <div class="add-card">
-
+<!-- 
+    <h3 id="cards-terms" class="cards-label">Terms</h3>
+      <h3 id="cards-definitions" class="cards-label">Definitions</h3>
+      <h3 id="cards-confidence" class="cards-label">Confidence</h3>  -->
     
 
       <div class="card-form" v-show="showCardForm">
@@ -61,9 +72,13 @@
 
 
     <div class="edit">
-      <router-link :to="{name: 'EditCard', params:{cardId:card.cardId}}">Edit</router-link>
+      <router-link :to="{name: 'EditCard', params:{cardId:card.cardId}}">
+        <img src="../images/pencil-icon.png" alt="pencil-icon">
+      </router-link>
     </div>
-    <button class="delete" v-on:click="deleteCard(card.cardId)">Delete</button>
+    <button class="delete" v-on:click="deleteCard(card.cardId)">
+      <img src="../images/trashcan.jpg" alt="trashcan">
+    </button>
     </div>
 
    <!-- <div class="add-card-bottom">
@@ -185,6 +200,11 @@ export default {
     "front back confidence delete";
 
   grid-template-columns: 10fr 10fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+/* 
+  display: flex;
+  flex-wrap: wrap;
+  word-wrap: break-word; */
 
   align-items: center;
   /* border-style: solid;
@@ -193,14 +213,32 @@ export default {
   margin: 10px;
   background-color: white;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+  
+
+  
 }
 
 .front{
   grid-area: front;
+  /* border-style: solid;
+  border-right: rgb(200, 200, 200), 1px;
+  border-left: none;
+  border-top: none;
+  border-bottom: none;
+  height: 100%; */
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; */
 }
 
 .back{
   grid-area: back;
+  padding: 10px;
+  /* display: flex;
+  flex-wrap: wrap;
+  flex-direction: column; */
+  
 }
 
 .confidence{
@@ -217,8 +255,8 @@ export default {
 }
 
 .page{
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-top: 30px;
   margin-bottom: 30px;
   
@@ -226,15 +264,41 @@ export default {
 
 #cards-label {
   justify-self: left;
+  grid-area: cards-in-deck;
 }
 
 .deck-header{
-  display:flex;
+  display:grid;
+
+  grid-template-areas: 
+    "study-session-link study-session-link "
+    "cards-in-deck add-card";
+
   justify-content: space-between;
   align-items: center;
   margin:15px;
 }
 
+.study-session-link{
+  grid-area: study-session-link;
+  background-color: violet;
+  align-self: end;
+  padding:15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+}
+
+.add-card{
+  grid-area: add-card;
+}
+
+.cards-label{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  
+}
 
 .add-card-image{
   max-height: 50px;
