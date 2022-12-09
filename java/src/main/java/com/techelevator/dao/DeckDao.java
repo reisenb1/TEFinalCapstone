@@ -20,7 +20,9 @@ public interface DeckDao {
 
     List<Deck> searchByName(String search);
 
-    List<Deck> getAllPublicDecks();
+//    List<Deck> getAllPublicDecks();
+
+    List<Deck> getAllDecks();
 
 //    boolean deleteDeck(int deckId);
 

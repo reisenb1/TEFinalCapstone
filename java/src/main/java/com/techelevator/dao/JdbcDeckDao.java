@@ -88,15 +88,26 @@ public class JdbcDeckDao implements DeckDao{
         return count == 1;
     }
 
+//    @Override
+//    public List<Deck> getAllPublicDecks() {
+//        String sql = "SELECT * FROM decks WHERE accessible = true;\n";
+//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+//        List<Deck> publicDecks = new ArrayList<>();
+//        while(results.next()) {
+//            publicDecks.add(mapRowToDeck(results));
+//        }
+//        return publicDecks;
+//    }
+
     @Override
-    public List<Deck> getAllPublicDecks() {
-        String sql = "SELECT * FROM decks WHERE accessible = true;\n";
+    public List<Deck> getAllDecks() {
+        String sql = "SELECT * FROM decks;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
-        List<Deck> publicDecks = new ArrayList<>();
+        List<Deck> allDecks = new ArrayList<>();
         while(results.next()) {
-            publicDecks.add(mapRowToDeck(results));
+            allDecks.add(mapRowToDeck(results));
         }
-        return publicDecks;
+        return allDecks;
     }
 
 

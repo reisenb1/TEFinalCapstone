@@ -35,7 +35,7 @@ public class DeckController {
         if (search != null) {
             return deckDao.searchByName(search);
         } else {
-            return deckDao.getAllPublicDecks();
+            return deckDao.getAllDecks();
         }
     }
 
