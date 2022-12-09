@@ -22,12 +22,11 @@ public class JdbcTagDao implements TagDao {
     @Override
     public List<Tag> getAllTags() {
 
-        String sql = "SELECT tag_name FROM tags;";
+        String sql = "SELECT * FROM tags;";
         SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
         List<Tag> allTags = new ArrayList<>();
         while (rowSet.next()) {
             allTags.add(mapRowToTag((rowSet)));
-            return allTags;
         }
         return allTags;
     }
@@ -35,6 +34,7 @@ public class JdbcTagDao implements TagDao {
 
     private Tag mapRowToTag(SqlRowSet rowSet) {
         Tag tag = new Tag();
+        tag.setTagId(rowSet.getInt("tag_id"));
         tag.setTagName(rowSet.getString("tag_name"));
         return tag;
     }

@@ -106,12 +106,11 @@ public class JdbcDeckDao implements DeckDao{
         String sql = "SELECT * FROM decks WHERE deck_name LIKE ? OR deck_description LIKE ?;" ;
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, "%" + search + "%", "%" + search + "%");
         List<Deck> searchedDecks = new ArrayList<>();
-        if(results.next()) {
+        while(results.next()) {
             searchedDecks.add(mapRowToDeck(results));
-            return searchedDecks;
-        } else {
-            return searchedDecks;
         }
+            return searchedDecks;
+
     }
 
 //    @Override
