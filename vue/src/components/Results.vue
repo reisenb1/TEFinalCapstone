@@ -19,7 +19,7 @@
     </div>
 
     <div
-      class="card backgroundColorGreen"
+      class="card-results backgroundColorGreen"
       v-if="studySession.correctPercent >= 70"
     >
       <div>
@@ -33,7 +33,7 @@
     </div>
 
     <div
-      class="card backgroundColorYellow"
+      class="card-results backgroundColorYellow"
       v-if="
         studySession.correctPercent >= 50 && studySession.correctPercent < 70
       "
@@ -49,7 +49,7 @@
     </div>
 
     <div
-      class="card backgroundColorRed"
+      class="card-results backgroundColorRed"
       v-if="studySession.correctPercent < 50"
     >
       <div>
@@ -62,7 +62,7 @@
       <div>Confidence Score: {{ studySession.confidencePercent }}%</div>
     </div>
 
-    <div class="card" v-for="card in cards" v-bind:key="card.cardId">
+    <div class="card-results" v-for="card in cards" v-bind:key="card.cardId">
       <div class="front">{{ card.front }}</div>
       <div class="back">{{ card.back }}</div>
       <div class="confidence" v-show="card.confidence == 2">
@@ -139,7 +139,7 @@ export default {
 </script>
 
 <style>
-.card{
+.card-results {
   display: grid;
   
   grid-template-areas:
