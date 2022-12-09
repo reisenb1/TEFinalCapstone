@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import java.util.List;
+
 public class Deck {
 
     private int deckId;
@@ -49,6 +51,5 @@ public class Deck {
     public void setAccessible(boolean accessible) {
         this.accessible = accessible;
     }
-
 
 }

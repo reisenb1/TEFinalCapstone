@@ -152,6 +152,7 @@ public class JdbcDeckDao implements DeckDao {
         deck.setDeckName(rowSet.getString("deck_name"));
         deck.setDeckDescription(rowSet.getString("deck_description"));
         deck.setAccessible(rowSet.getBoolean("accessible"));
+        deck.setCreatorId(rowSet.getInt("creator_id"));
         return deck;
     }
 

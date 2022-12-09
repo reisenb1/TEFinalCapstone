@@ -27,6 +27,11 @@
       &nbsp;|&nbsp;<a style="text-decoration: none; color: blue" href="#about"
         >About</a
       >
+       &nbsp;|&nbsp;
+       <router-link
+          v-bind:to="{ name: 'Search' }"
+          >Search All Decks</router-link
+        >
       <!-- &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">About</router-link> -->
       &nbsp;|&nbsp;
       <div id="registerLogin">
