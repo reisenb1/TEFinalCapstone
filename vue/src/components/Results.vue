@@ -1,9 +1,27 @@
 <template>
   <div class="resultsContainer">
     <h1>Deck Name Study Session Results</h1>
-    <button>Finish Session</button>
+    <div class="button-header">
+      <router-link
+        :to="{ name: 'Deck', params: { deckId: this.studySession.deckId } }"
+      >
+        <button class="finishRetry">FINISH SESSION</button>
+      </router-link>
 
-    <div class="card backgroundColorGreen" v-if="studySession.correctPercent >= 70">
+      <router-link
+        :to="{
+          name: 'StudySession',
+          params: { deckId: this.studySession.deckId },
+        }"
+      >
+        <button class="finishRetry2">TRY AGAIN!!</button>
+      </router-link>
+    </div>
+
+    <div
+      class="card backgroundColorGreen"
+      v-if="studySession.correctPercent >= 70"
+    >
       <div>
         You got {{ studySession.numberCorrect }}/{{
           studySession.numberOfCards
@@ -14,7 +32,12 @@
       <div>Confidence Score: {{ studySession.confidencePercent }}%</div>
     </div>
 
-    <div class="card backgroundColorYellow" v-if="studySession.correctPercent >= 50 && studySession.correctPercent < 70">
+    <div
+      class="card backgroundColorYellow"
+      v-if="
+        studySession.correctPercent >= 50 && studySession.correctPercent < 70
+      "
+    >
       <div>
         You got {{ studySession.numberCorrect }}/{{
           studySession.numberOfCards
@@ -25,7 +48,10 @@
       <div>Confidence Score: {{ studySession.confidencePercent }}%</div>
     </div>
 
-    <div class="card backgroundColorRed" v-if="studySession.correctPercent < 50">
+    <div
+      class="card backgroundColorRed"
+      v-if="studySession.correctPercent < 50"
+    >
       <div>
         You got {{ studySession.numberCorrect }}/{{
           studySession.numberOfCards
@@ -113,23 +139,97 @@ export default {
 </script>
 
 <style>
+.card{
+  display: grid;
+  
+  grid-template-areas:
+    "front back confidence";
+
+  grid-template-columns: 10fr 10fr 2fr;
+
+  align-items: center;
+  padding: 40px;
+  margin: 10px;
+  background-color: white;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.front {
+    grid-area: front;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.back {
+    grid-area: back;
+    padding-right: 20%;
+}
+
+.confidence {
+    grid-area: confidence;
+    opacity: 75%;
+}
+
+.resultsContainer {
+    margin: 30px 10% 30px 10%;
+}
+
+h1{
+    text-align: center;
+}
+
+.button-header {
+    display: grid;
+
+    grid-template-areas:
+    "finishRetry finishRetry2";
+    justify-content: space-between;
+    align-items: center;
+}
+
+.finishRetry {
+  background-color: #ffb5a7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 150%;
+}
+
+.finishRetry2 {
+  background-color: #ffb5a7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 150%;
+}
 
 .backgroundColorGreen {
-    background-color: green;
-    font-size: 24px;
-    font-weight: bold;
+  background-color: green;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .backgroundColorYellow {
-    background-color: yellow;
-    font-size: 24px;
-    font-weight: bold;
+  background-color: yellow;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .backgroundColorRed {
-    background-color: red;
-    font-size: 24px;
-    font-weight: bold;
+  background-color: red;
+  font-size: 24px;
+  font-weight: bold;
 }
-
 </style>
