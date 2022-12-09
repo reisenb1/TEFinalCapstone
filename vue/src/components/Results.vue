@@ -3,38 +3,6 @@
     <h1>Deck Name Study Session Results</h1>
     <button>Finish Session</button>
 
-
-<!-- <div class="percentColorGreen" v-if="studySession.correctPercent >= 70">
-        You got {{ studySession.numberCorrect }}/{{
-          studySession.numberOfCards
-        }}
-        a percentage of
-        {{ studySession.correctPercent }}
-      </div>
-      <div
-        class="percentColorYellow"
-        v-if="
-          studySession.correctPercent >= 50 && studySession.correctPercent < 70
-        "
-      >
-        You got {{ studySession.numberCorrect }}/{{
-          studySession.numberOfCards
-        }}
-        a percentage of
-        {{ studySession.correctPercent }}
-      </div>
-      <div class="percentColorRed" v-if="studySession.correctPercent < 50">
-        You got {{ studySession.numberCorrect }}/{{
-          studySession.numberOfCards
-        }}
-        a percentage of
-        {{ studySession.correctPercent }}
-      </div> -->
-
-
-
-
-
     <div class="card backgroundColorGreen" v-if="studySession.correctPercent >= 70">
       <div>
         You got {{ studySession.numberCorrect }}/{{
@@ -164,17 +132,4 @@ export default {
     font-weight: bold;
 }
 
-.percentColorYellow {
-    font-size: 24px;
-  color: yellow;
-  font-weight: bold;
-}
-
-.percentColorGreen {
-  color: green;
-}
-
-.percentColorRed {
-  color: red;
-}
 </style>
