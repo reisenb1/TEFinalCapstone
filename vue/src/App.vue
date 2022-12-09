@@ -7,7 +7,15 @@
 
       <router-link
         style="text-decoration: none; color: blue"
+        v-bind:to="{ name: 'loggedInHome' }"
+        v-show="$store.getters.user.id > 0"
+        >Home</router-link
+      >
+
+      <router-link
+        style="text-decoration: none; color: blue"
         v-bind:to="{ name: 'home' }"
+        v-show="$store.getters.user.id === undefined"
         >Home</router-link
       >
       &nbsp;|&nbsp;<a
@@ -40,7 +48,10 @@
       </div>
     </header>
 
-    <router-view id="mainSection" :class="{ 'not-logged-in': $store.state.token == '' }"/>
+    <router-view
+      id="mainSection"
+      :class="{ 'not-logged-in': $store.state.token == '' }"
+    />
 
     <footer>
       <p>Copyright &copy;2022</p>
@@ -80,7 +91,6 @@ header {
   position: fixed; /*keep*/
   top: 0; /*keep*/
   left: 0; /*keep*/
-
 
   /* removed
   width: 100vw;*/ /*keep*/
@@ -122,7 +132,6 @@ header {
   */
   height: 100%;
 }
-
 
 footer {
   background-color: rgb(230, 227, 227);
@@ -186,7 +195,6 @@ footerxxx {
   height: 100vh;
   width: 100%;
   /* margin-left: 0px; */
-  
 }
 
 .header {

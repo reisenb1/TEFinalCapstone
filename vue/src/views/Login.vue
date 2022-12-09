@@ -74,7 +74,6 @@
       <div id="login-about">
         <h1>Ye Got It!</h1>
         <h2>Sign in and let's get started!</h2>
-
       </div>
 
       <!-- <div id="main-grid">
@@ -148,8 +147,6 @@ html {
 }
 
 body {
-  
- 
 }
 
 .container {
@@ -158,7 +155,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-
 }
 
 #topBar {
@@ -168,7 +164,6 @@ body {
 #login {
   grid-area: login;
   margin-top: 20px;
-  
 }
 
 #login-about {
@@ -180,15 +175,13 @@ body {
 .text-center {
   display: flex;
   height: 500px;
-  
 }
 
 #main-grid {
   display: grid;
   grid-template-areas:
     "topBar topBar"
-    "login  login-about"
-    ;
+    "login  login-about";
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 3fr;
 
@@ -198,7 +191,7 @@ body {
   column-gap: 50px;
 }
 
- /* #login { 
+/* #login { 
     background-color: rgb(122, 120, 120, 0.7);
     height: 60px;
     padding: 10px;
@@ -218,19 +211,16 @@ body {
   border: none;
   cursor: pointer;
   width: 100%;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition-duration: 1s;
 }
 
 #submit:hover {
   background-color: rgb(31, 51, 235);
   opacity: 0.8;
-  
 }
 
 .form-sign-in {
-
-
 }
 
 .form-control {
@@ -238,8 +228,6 @@ body {
   margin: 8px 0;
   border: none;
   border-bottom: 2px solid black;
-  
-
 }
 
 .text-center .form-sign-in {
@@ -249,7 +237,7 @@ body {
   width: 500px;
   padding: 25px;
   border: 15px solid rgb(218, 107, 218);
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
   margin-right: 75px;
 }
