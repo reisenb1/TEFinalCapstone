@@ -66,7 +66,7 @@ export default {};
 <style>
 body {
   /* added */
-  background-color: rgb(230, 227, 227);
+  background-color: #f8ede8;
 
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
@@ -87,7 +87,7 @@ header {
   /* padding: 10px; */
   color: blue;
   height: 60px; /*keep*/
-  background-color: green;
+  background-color: #f9dcc4;
   position: fixed; /*keep*/
   top: 0; /*keep*/
   left: 0; /*keep*/
