@@ -23,9 +23,10 @@
     <hr />
     <div id="categories">
       <h1>Categories</h1>
-      <p>Here is more information</p>
-      <div id="category" v-bind:key="tag.tag_id" v-for="tag in this.tags">
-        {{ tag.tag_name }}
+      <div id="categoriesContainer">
+        <div id="category" v-bind:key="tag.tagId" v-for="tag in this.tags">
+          {{ tag.tagName }}
+        </div>
       </div>
     </div>
 
@@ -62,6 +63,13 @@ export default {
 </script>
 
 <style scoped>
+#categoriesContainer {
+  display: flex;
+  width: 100vw;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 main {
   /* display: flex;
   justify-content: space-between;
@@ -87,6 +95,16 @@ p {
   border-radius: 6px;
 }
 
+#category {
+  border: 5px;
+  border-style: solid;
+  border-color: #fec89a;
+  border-radius: 8px;
+  font-size: 25px;
+  background-color: #f9dcc4;
+  padding: 10px;
+}
+
 /* #firstTextArea {
   height: 100%;
 } */
@@ -99,7 +117,7 @@ p {
   scroll-behavior: smooth;
   background-color: #fcd5ce;
   /* height: 750px; */
-  flex-basis: 750px;
+  flex-basis: 25%;
   width: 100%;
 }
 
