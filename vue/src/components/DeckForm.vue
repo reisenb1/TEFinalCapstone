@@ -132,17 +132,24 @@ export default {
 #add-deck-form {
   display: flex;
   flex-direction: column;
-  background-color: lavender;
+  background-color: #FFB5A7;
   width: 500px;
   padding: 25px;
-  border: 15px solid rgb(218, 107, 218);
+  border: 15px solid #FEC89A;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
   margin-right: 75px;
-  justify-content: center;
+  justify-content: space-evenly;
+  height: 400px;
 }
 
 .form-control9 {
-  height: 25px;
+  height: 35px;
+  width: 100%;
+}
+
+button {
+  height: 40px;
+  border-radius: 5px;
 }
 </style>
