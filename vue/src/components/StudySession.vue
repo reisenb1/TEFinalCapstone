@@ -3,10 +3,35 @@
     <h1>Deck Name Study Session</h1>
     <div v-for="card in cards" v-bind:key="card.cardId">
       <div v-show="card.cardId == currentCardId">
+
+
+
+
+
+
+        <div class="flip-card-container">
+          <div class="flip-card-inner">
+            <div class="card_face front--front" v-on:click="flipCard">
+              {{ card.front }}
+<!-- 
         <button id="card-front-study" v-on:click="flipCard" v-show="showFront">
           {{ card.front }}
-        </button>
-        <button id="card-back-study" v-show="showBack">{{ card.back }}</button>
+        </button> -->
+            </div>
+
+            <div class="card_face back--back" v-on:click="showBack">
+              {{ card.back }}
+        <!-- <button id="card-back-study" v-show="showBack">{{ card.back }}</button> -->
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+
+        
 
         <div v-show="showCorrectIncorrectForm">
           <button v-on:click.prevent="submitCorrectIncorrect('correct')">
@@ -60,12 +85,16 @@ export default {
         numberRed: 0,
       },
       allCardsUpdated: true,
-      showFront: true,
-      showBack: false,
+      showFront: this.flipCard(),
+      showBack: this.flipCard(),
+      // showFront: true,
+      // showBack: false,
+      
     };
   },
   created() {
     this.getCards();
+    
   },
   methods: {
     getCards() {
@@ -138,11 +167,11 @@ export default {
       this.$router.push({ name: "Deck", params: { deckId: this.deckId } });
     },
 
-    flipCard() {
-      this.showCorrectIncorrectForm = true;
-      this.showFront = false;
-      this.showBack = true;
-    },
+    // flipCard() {
+    //   this.showCorrectIncorrectForm = true;
+    //   this.showFront = false;
+    //   this.showBack = true;
+    // },
 
     submitStudySession(){
       this.studySession.deckId = this.deckId;
@@ -156,6 +185,16 @@ export default {
         this.goBackToDeckPage;
       })
       
+    },
+    flipCard() {
+    
+    let cards = document.querySelectorAll('.flip-card-inner');
+
+        [...cards].forEach((card)=>{
+        card.addEventListener( 'click', function() {
+        card.classList.toggle('is-flipped');
+        });
+      });
     }
 
     // flipBackToFront(){
@@ -171,7 +210,13 @@ export default {
 #cancelButton{
   align-self: right;
   justify-self: right;
-  background-color: rgba(255, 0, 0, 0.425);
+  background-color: #FFB5A7;
+  height: 50px;
+  width: 150px;
+  margin-top: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
 }
 
 #study-session-component{
@@ -181,7 +226,51 @@ export default {
   align-items: center;
 }
 
-#card-front-study {
+.flip-card-container {
+  display: inline-block;
+  width: 500px;
+  height: 400px;
+/*   border: 1px solid #CCC; */
+  margin: 40px 0;
+  perspective: 600px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 1s;
+}
+
+.flip-card-inner.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card_face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 260px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  backface-visibility: hidden;
+}
+
+.front--front {
+  background: crimson;
+}
+
+.back--back {
+  background: slateblue;
+  transform: rotateY(180deg);
+}
+
+/* #card-front-study {
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -191,7 +280,7 @@ export default {
   border-color: rgb(223, 223, 223);
   height: 400px;
   /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-  align-content: center;
+  /* align-content: center;
   justify-items: center;
   margin: 50px;
 }
@@ -205,8 +294,8 @@ export default {
   border-style: solid;
   border-color: rgb(223, 223, 223);
   height: 400px;
-  /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 50px;
  
-}
+} */ 
 </style>
