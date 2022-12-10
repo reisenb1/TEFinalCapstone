@@ -151,6 +151,12 @@ export default {
   height: 35px;
   width: 100%;
   margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+
+  -webkit-box-shadow:inset 0 0 3px #000;
+       -moz-box-shadow:inset 0 0 3px #000;
+            box-shadow:inset 0 0 3px #000;
 }
 
 #niceButton {

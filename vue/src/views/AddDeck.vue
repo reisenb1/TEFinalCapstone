@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1>Add New Deck</h1>
+      <h1 id="add-new-deck">Add New Deck</h1>
       <deck-form v-bind:deckId=0></deck-form>
   </div>
 </template>
@@ -14,6 +14,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+
+
 
 </style>
