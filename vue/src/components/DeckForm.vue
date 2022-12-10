@@ -33,8 +33,8 @@
         />
       </div>
 
-      <button type="submit">Save</button>
-      <button v-on:click.prevent="cancelDeck" type="cancel">Cancel</button>
+      <button id="niceButton" type="submit">Save</button>
+      <button id="niceButton" v-on:click.prevent="cancelDeck" type="cancel">Cancel</button>
       
     </form>
 
@@ -127,12 +127,14 @@ export default {
   display: flex;
   justify-content: center;
   margin-top: 100px;
+  background-color: #F8EDEB;
+
 }
 
 #add-deck-form {
   display: flex;
   flex-direction: column;
-  background-color: #FFB5A7;
+  background-color: #FCD5CE;
   width: 500px;
   padding: 25px;
   border: 15px solid #FEC89A;
@@ -141,15 +143,29 @@ export default {
   margin-right: 75px;
   justify-content: space-evenly;
   height: 400px;
+  font-weight: bold;
+  
 }
 
 .form-control9 {
   height: 35px;
   width: 100%;
+  margin-top: 10px;
 }
 
-button {
+#niceButton {
   height: 40px;
   border-radius: 5px;
+  border: 2px solid #FEC89A;
+  font-weight: bold;
+  
+  
+}
+
+#niceButton:hover {
+  background-color: #FEC89A;
+  opacity: 0.8;
+  
+  
 }
 </style>

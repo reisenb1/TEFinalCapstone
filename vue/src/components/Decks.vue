@@ -105,9 +105,6 @@ body {
   column-gap: 0%;
 }
 
-#main-grid {
-  /* margin-top: 60px; */
-}
 
 #sideNav {
   grid-area: sideNav;
@@ -137,12 +134,12 @@ body {
 #greeting {
   display: flex;
   grid-area: greeting;
-  width: 90%;
+  width: 100%;
   background-color:#f3c096;
   height: 95px;
   align-items: center;
   text-indent: 20px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 
 #my-stats {
@@ -181,7 +178,7 @@ div#sideNav {
   top: 0;
   padding-top: 20px;
   padding-bottom: 20px;
-  border-right: solid rgb(172, 167, 167) 5px;
+  border-right: solid rgb(192, 186, 186) 5px;
   display: flexbox;
   flex-direction: column;
   margin-top: 60px;
