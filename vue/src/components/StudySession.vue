@@ -212,11 +212,19 @@ export default {
   justify-self: right;
   background-color: #FFB5A7;
   height: 50px;
-  width: 150px;
+  width: 250px;
   margin-top: 20px;
   font-weight: bold;
+  font-size:medium;
   border: none;
   border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#cancelButton:hover {
+  background-color: #FFB5A7;
+  opacity: 0.7;
+
 }
 
 #study-session-component{
@@ -233,6 +241,8 @@ export default {
 /*   border: 1px solid #CCC; */
   margin: 40px 0;
   perspective: 600px;
+  border-radius: 10px;
+  /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 .flip-card-inner {
@@ -262,12 +272,16 @@ export default {
 }
 
 .front--front {
-  background: crimson;
+  background: #FFB5A7;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .back--back {
-  background: slateblue;
+  background: #FEC89A;
   transform: rotateY(180deg);
+  border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* #card-front-study {
