@@ -24,7 +24,7 @@
         >Categories</a
       >
       <!-- &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">Categories</router-link> -->
-      &nbsp;|&nbsp;<a style="text-decoration: none; color: black" href="#about"
+      &nbsp;|&nbsp;<a style="text-decoration: none; color: black;" href="#about"
         >About</a
       >
        &nbsp;|&nbsp;
@@ -44,7 +44,7 @@
         <!-- removed 
         </div> -->
 
-        <router-link
+        <router-link style="text-decoration: none; color: black;"
           v-bind:to="{ name: 'logout' }"
           v-if="$store.state.token != ''"
           >Logout</router-link
