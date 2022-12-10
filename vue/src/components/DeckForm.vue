@@ -1,21 +1,21 @@
 <template>
-  <div>
-    <form v-on:submit.prevent="submitForm">
+  <div class="container3">
+    <form id="add-deck-form" v-on:submit.prevent="submitForm">
       <div>
-        <label for="deck-name">Deck Name:</label>
+        <label for="deck-name">Deck Name: </label>
         <input
           type="text"
-          class="form-control"
+          class="form-control9"
           name="deck-name"
           v-model="deck.deckName"
         />
       </div>
 
       <div>
-        <label for="deck-description">Description:</label>
+        <label for="deck-description">Description: </label>
         <input
           type="text"
-          class="form-control"
+          class="form-control9"
           name="deck-description"
           v-model="deck.deckDescription"
         />
@@ -118,6 +118,31 @@ export default {
   },
 };
 </script>
+#add-deck-form {
 
-<style>
+}
+
+<style scoped>
+.container3 {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+#add-deck-form {
+  display: flex;
+  flex-direction: column;
+  background-color: lavender;
+  width: 500px;
+  padding: 25px;
+  border: 15px solid rgb(218, 107, 218);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  margin-right: 75px;
+  justify-content: center;
+}
+
+.form-control9 {
+  height: 25px;
+}
 </style>
