@@ -142,6 +142,7 @@ body {
   height: 95px;
   align-items: center;
   text-indent: 20px;
+  border-radius: 10px;
 }
 
 #my-stats {
@@ -151,6 +152,7 @@ body {
   align-items: center;
   text-indent: 20px;
   width: 80%;
+  border-radius: 10px;
 }
 
 #confidence {

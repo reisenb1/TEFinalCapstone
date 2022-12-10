@@ -109,8 +109,8 @@ export default {
   justify-content: space-evenly;
   /* margin: 10%; */
   margin-top: 5%;
-  /* border: none;
-  border-bottom: 1px solid black; */
+  border: 2px solid black;
+  /* border-bottom: 1px solid black; */
   /* color: white; */
   background-color: #F8EDE8;
   font-weight: bold;
