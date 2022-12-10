@@ -1,28 +1,70 @@
 <template>
-  <study-session-service></study-session-service>
+  <div class="container-stats">
+    <div class="card-study-session">
+      <h3>Deck ID</h3>
+      <h3>Number Correct</h3>
+      <h3>Number of Green</h3>
+      <h3>Number of Yellow</h3>
+      <h3>Number of Red</h3>
+      <h3>Confidence %</h3>
+      <h3>Correct(%)</h3>
+
+    </div>
+    <div class="cards-study-session" v-for="session in studySessions" v-bind:key="session.studySessionId">
+      <div id="number-of-cards">
+        {{session.numberOfCards}}
+      </div>
+
+      <div id="number-correct">
+        {{session.numberCorrect}}
+      </div>
+
+      <div id="number-of-green">
+        {{session.numberGreen}}
+      </div>
+
+      <div id="number-of-yellow">
+        {{session.numberYellow}}
+      </div>
+      
+      <div id="number-of-red">
+        {{session.numberRed}}
+      </div>
+
+      <div id="confidence-percent">
+        {{session.confidencePercent}}%
+      </div>
+
+      <div id="percent-correct">
+        {{session.correctPercent}}%
+      </div>
+
+    </div>
+  </div>
 </template>
 
 <script>
-import studySessionService from "../services/StudySessionService";
+import StudySessionService from "../services/StudySessionService";
 
 export default {
-    data() {
+  data() {
     return {
       isLoading: true,
       studySessions: [],
-      
     };
   },
-  components: {
-    studySessionService,
+  created() {
+    this.getAllSessions();
   },
-
+  components: {
+  
+  },
   methods: {
     getAllSessions() {
-      studySessionService
+      StudySessionService
         .getStudySessions(this.$store.getters.user.id)
         .then((response) => {
-          this.getStudySessions = response.data;
+          this.studySessions = response.data;
           this.isLoading = false;
         })
         .catch((error) => {
@@ -32,36 +74,78 @@ export default {
           }
         });
     },
-    getSession() {
-        studySessionService.getStudySessionById(this.getSessionId).then(response => {
-            this.getStudySessionById = response.data;
-        }).catch((error) => {
-            if (error.response && error.response.status === 404) {
-                alert("No sessions available")
-            }
-        })
-    }
-  },
-  cancelSession() {
-      this.$router.push({ name: "LoggedInHome", params: { studySessionId: this.studySessionId } });
+    //   getSession() {
+    //       studySessionService.getStudySessionById(this.getSessionId).then(response => {
+    //           this.getStudySessionById = response.data;
+    //       }).catch((error) => {
+    //           if (error.response && error.response.status === 404) {
+    //               alert("No sessions available")
+    //           }
+    //       })
+    //   }
+
+    cancelSession() {
+      this.$router.push({
+        name: "LoggedInHome",
+        params: { studySessionId: this.studySessionId },
+      });
     },
-  created() {
-    if (this.cardId != 0) {
-      studySessionService.getStudySessionById(this.studySession)
-        .then((response) => {
-          this.studySession = response.data;
-        })
-        .catch((error) => {
-          if (error.response && error.response.status == 404) {
-            alert("Could not find session");
-          }
-          this.$router.push({ name: "LoggedInHome", params: { studySessionId: this.studySessionId } });
-        });
-    }
-  }
-}
+  },
+};
 </script>
 
 
 <style>
+.container-stats {
+  /* background-color: rgb(90, 90, 226); */
+  height: 50%;
+  margin: 10%;
+}
+
+.cards-study-session {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: space-evenly;
+  /* margin: 10%; */
+  margin-top: 5%;
+  border: none;
+  border-bottom: 1px solid black;
+  /* color: white; */
+  background-color: #F8EDE8;
+
+}
+
+.card-study-session {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #F9DCC4;
+  border: 2px solid black;
+  opacity: 0.8;
+}
+
+#number-of-cards {
+  position: relative;
+  right: 60px;
+}
+
+#number-correct {
+  position: relative;
+  right: 50px;
+}
+
+#number-of-green {
+  position: relative;
+  right: 0px;
+}
+
+#number-of-yellow {
+  position: relative;
+  right: -40px;
+}
+
+#number-of-red {
+  position: relative;
+  left: 80px;
+}
 </style>

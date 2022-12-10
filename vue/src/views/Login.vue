@@ -36,7 +36,7 @@
       >
     </nav>
     <div id="login" class="text-center">
-      <form class="form-sign-in" @submit.prevent="login">
+      <form class="form-sign-in2" @submit.prevent="login">
         <h2 class="h3 mb-3 font-weight-normal">Please Sign In</h2>
         <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
           Invalid username and password!
@@ -52,7 +52,7 @@
         <input
           type="text"
           id="username"
-          class="form-control"
+          class="form-control2"
           placeholder="Username"
           v-model="user.username"
           required
@@ -62,7 +62,7 @@
         <input
           type="password"
           id="password"
-          class="form-control"
+          class="form-control2"
           placeholder="Password"
           v-model="user.password"
           required
@@ -220,17 +220,14 @@ body {
   opacity: 0.8;
 }
 
-.form-sign-in {
-}
-
-.form-control {
+.form-control2 {
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid black;
 }
 
-.text-center .form-sign-in {
+.text-center .form-sign-in2 {
   display: flex;
   flex-direction: column;
   background-color: lavender;

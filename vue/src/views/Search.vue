@@ -3,7 +3,7 @@
 
       <div id="search">
           <h2 id="searchTitle">Search: </h2>
-          <input type="text" v-on:keyup.enter.prevent= "retrieveSearchedDecks" placeholder="search by name or description...">
+          <input id="search-box" type="text" v-on:keyup.enter.prevent= "retrieveSearchedDecks" placeholder="search by name or description...">
       </div>
 
       <div v-bind:key="deck.deckId" v-for="deck in this.decks" > 
@@ -68,7 +68,7 @@ export default {
     align-items: center;
 }
 
-input {
+#search-box {
     width: 400px;
     border-radius: 15px;
     height: 35px;

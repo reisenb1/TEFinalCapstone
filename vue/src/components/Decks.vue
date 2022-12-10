@@ -9,14 +9,14 @@
           <img src="../images/eye-blink.gif" />
         </div>
         
-        <router-link
+        <router-link class="deckName"
           id="activeDeck"
           :to="{ name: 'Deck', params: { deckId: deck.deckId } }"
           v-for="deck in this.decks"
           v-bind:key="deck.deckId"
         >
           {{ deck.deckName }}
-          <img src="../images/cards.png" alt="">
+          <img src="../images/cards.gif" alt="">
         </router-link>
       </div>
       <!-- <router-link :to="{ name: 'AddDeck' }"><button id="addDeck" >New Deck</button></router-link> -->
@@ -28,18 +28,8 @@
 
       <div id="my-stats">
         <h2>My Stats</h2>
+        <stats></stats>
         
-      </div>
-
-      <div id="confidence">
-        <h2 id="green">green</h2>
-        <h2 id="yellow">yellow</h2>
-        <h2 id="red">red</h2>
-      </div>
-
-      <div id="high-score">
-        <h2>high score</h2>
-
       </div>
 
       </div>
@@ -48,6 +38,7 @@
 
 <script>
 import DeckService from "../services/DeckService";
+import Stats from "../components/Stats.vue";
 
 export default {
   data() {
@@ -58,6 +49,9 @@ export default {
   },
   created() {
     this.retrieveDecks();
+  },
+  components: {
+    Stats
   },
   computed: {
     activeDeckId() {
@@ -86,13 +80,15 @@ body {
 
 .container1 {
   display: grid;
-  background-image: url("../images/study-photo.jpg");
+  background-image: url("../images/pic2.jpg");
   /* background-color: #F8EDE8; */
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
 
+
 }
+
 #main-grid {
   display: grid;
   grid-template-areas:
@@ -142,7 +138,7 @@ body {
   display: flex;
   grid-area: greeting;
   width: 90%;
-  background-color: rgb(216, 213, 213, 0.8);
+  background-color:#f3c096;
   height: 95px;
   align-items: center;
   text-indent: 20px;
@@ -154,7 +150,7 @@ body {
   background-color: #fcb2a4;
   align-items: center;
   text-indent: 20px;
-  width: 80%
+  width: 80%;
 }
 
 #confidence {
@@ -172,52 +168,6 @@ body {
   grid-area: high-score;
   margin-top: 50px;
 }
-
-#green {
-  background-color: lavender;
-  width: 200px;
-  height: 400px;
-  padding: 25px;
-  border: 15px solid rgb(187, 187, 187);
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-
-  margin-right: 75px;
-  color: green;
-  text-shadow: 0 8px 16px 0 black, 0 6px 20px 0 black;
-}
-
-/* #yellow {
-  background-color: lavender;
-  width: 200px;
-  height: 400px;
-  padding: 25px;
-  border: 15px solid rgb(187, 187, 187);
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  
-  margin-right: 75px;
-}
-
-#red {
-  background-color: lavender;
-  width: 200px;
-  height: 400px;
-  padding: 25px;
-  border: 15px solid rgb(187, 187, 187);
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  
-  margin-right: 75px;
-}
-
-#high-score {
-   background-color: lavender;
-  width: 200px;
-  height: 400px;
-  padding: 25px;
-  border: 15px solid rgb(187, 187, 187);
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  
-  margin-right: 75px;
-} */
 
 
 div#sideNav {
@@ -261,12 +211,13 @@ div#sideNav {
   margin-left: 10px;
   text-decoration: none;
   margin-top: 20px;
+  border-radius: 10px;
   /* background-color: rgb(#F8EDE8, 0.6); */
 }
 
 #addDeck:hover {
   background-color: rgb(#f1ae8f, 0.6);
-  opacity: 1;
+  opacity: 0.6;
 }
 
 /* .deck {
@@ -326,7 +277,7 @@ div#sideNav {
  box-sizing: border-box; 
  width: 165px;
  height: 215px;
-  border: 2px solid black;
+  border: 3px solid black;
   border-radius: 15px;
   background-color: #FEC89A;
   padding: 5px;
@@ -334,5 +285,20 @@ div#sideNav {
   display: flex;
   flex-direction: column;
   text-decoration: none;
+  justify-content: center;
+  box-shadow: 0 6px 14px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+ }
+
+ #activeDeck:hover {
+   background-color: (#f3790e);
+   opacity: 0.7;
+ }
+
+ .deckName {
+   margin-bottom: 50px;
+ }
+
+ img {
+   height: 50%;
  }
 </style>

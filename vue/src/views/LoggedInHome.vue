@@ -3,6 +3,7 @@
     <!-- <h1>HOME</h1> HOME should be within the label but I removed -->
     <!-- <p>You must be authenticated to see this</p> -->
     <decks />
+  
     
   </div>
 </template>
@@ -13,7 +14,7 @@ import Decks from '../components/Decks';
 export default {
   name: "home",
   components: {
-    Decks
+    Decks,
   },
     created() {
     // if there are boards, forward to first board/card list
