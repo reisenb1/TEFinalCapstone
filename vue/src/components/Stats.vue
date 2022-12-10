@@ -109,11 +109,12 @@ export default {
   justify-content: space-evenly;
   /* margin: 10%; */
   margin-top: 5%;
-  border: none;
-  border-bottom: 1px solid black;
+  /* border: none;
+  border-bottom: 1px solid black; */
   /* color: white; */
   background-color: #F8EDE8;
-
+  font-weight: bold;
+  align-items: center;
 }
 
 .card-study-session {
@@ -147,5 +148,15 @@ export default {
 #number-of-red {
   position: relative;
   left: 80px;
+}
+
+#confidence-percent {
+  position: relative;
+  left: 90px;
+}
+
+#percent-correct {
+  position: relative;
+  left: 60px;
 }
 </style>

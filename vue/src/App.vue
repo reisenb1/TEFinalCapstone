@@ -6,29 +6,29 @@
       </div>
 
       <router-link
-        style="text-decoration: none; color: blue"
+        style="text-decoration: none; color: black"
         v-bind:to="{ name: 'loggedInHome' }"
         v-show="$store.getters.user.id > 0"
         >Home</router-link
       >
 
       <router-link
-        style="text-decoration: none; color: blue"
+        style="text-decoration: none; color: black"
         v-bind:to="{ name: 'home' }"
         v-show="$store.getters.user.id === undefined"
         >Home</router-link
       >
       &nbsp;|&nbsp;<a
-        style="text-decoration: none; color: blue"
+        style="text-decoration: none; color: black"
         href="#categories"
         >Categories</a
       >
       <!-- &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">Categories</router-link> -->
-      &nbsp;|&nbsp;<a style="text-decoration: none; color: blue" href="#about"
+      &nbsp;|&nbsp;<a style="text-decoration: none; color: black" href="#about"
         >About</a
       >
        &nbsp;|&nbsp;
-       <router-link
+       <router-link id="search-button"
           v-bind:to="{ name: 'Search' }"
           >Search All Decks</router-link
         >
@@ -90,7 +90,7 @@ header {
   text-decoration: none;
   align-items: center;
   /* padding: 10px; */
-  color: blue;
+  color: black;
   height: 60px; /*keep*/
   background-color: #f9dcc4;
   position: fixed; /*keep*/
@@ -209,6 +209,11 @@ footerxxx {
   align-items: center;
   padding: 10px;
   color: rgb(233, 216, 64);
+}
+
+#search-button {
+  text-decoration: none;
+  color: black;
 }
 
 /* #welcome-span {

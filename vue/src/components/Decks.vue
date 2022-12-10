@@ -179,7 +179,7 @@ div#sideNav {
   top: 0;
   padding-top: 20px;
   padding-bottom: 20px;
-  border-right: solid lightgrey 1px;
+  border-right: solid rgb(172, 167, 167) 5px;
   display: flexbox;
   flex-direction: column;
   margin-top: 60px;
