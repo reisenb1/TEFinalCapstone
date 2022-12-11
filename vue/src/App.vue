@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Klee One">
     <header>
       <div class="header">
         <h2>YEGET</h2>
@@ -69,13 +70,17 @@ export default {};
 </script>
 
 <style>
+/* @font-face {
+  font-family: "Klee";
+  src: url(https://fonts.google.com/specimen/Klee+One?preview.text=i%20dont%20remember%20the%20name%20of%20the%20project&preview.text_type=custom);
+} */
 body {
   /* added */
   background-color: #f8ede8;
 
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  font-family: "Klee One";/* ,system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
 
   /* placeholder image to test function, will be removed */
 
