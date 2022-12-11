@@ -92,6 +92,7 @@ export default {
       // showBack: this.flipCard(),
       showFront: true,
       showBack: true,
+      flipCardCount: 0
       
     };
   },
@@ -162,8 +163,10 @@ export default {
         this.position = this.position + 1;
       }
       this.currentCardId = this.cards[this.position].cardId;
-      this.showFront = true;
-      this.showBack = false;
+      // this.showFront = true;
+      // this.showBack = false;
+      this.flipCardCount = 0;
+
     },
 
     goBackToDeckPage() {
@@ -190,6 +193,13 @@ export default {
       
     },
     flipCard() {
+    
+    if (this.flipCardCount == 0) {
+      this.showCorrectIncorrectForm = true;
+    }
+    
+    this.flipCardCount = this.flipCardCount + 1;
+
     let cards = document.querySelectorAll('.flip-card-inner');
 
         [...cards].forEach((card)=>{
