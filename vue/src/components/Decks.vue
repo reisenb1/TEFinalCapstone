@@ -80,8 +80,8 @@ body {
 
 .container1 {
   display: grid;
-  background-image: url("../images/pic2.jpg");
-  /* background-color: #F8EDE8; */
+  /* background-image: url("../images/pic2.jpg"); */
+  background-color: #F8EDE8;
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
