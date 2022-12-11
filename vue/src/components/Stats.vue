@@ -42,6 +42,12 @@
       </div>
 
     </div>
+
+
+    <div class="cards-study-session-bottom">
+
+
+    </div>
   </div>
 </template>
 
@@ -102,21 +108,29 @@ export default {
   /* background-color: rgb(90, 90, 226); */
   height: 50%;
   margin: 10%;
+  
 }
 
 .cards-study-session {
   display: flex;
   height: 100%;
-  width: 100%;
+  width: 90%;
   justify-content: space-evenly;
   /* margin: 10%; */
-  margin-top: 5%;
+  margin-top: 0%;
   border: 2px solid black;
   /* border-bottom: 1px solid black; */
   /* color: white; */
-  background-color: #F8EDE8;
+  background-color: rgba(255, 255, 255, 0.541);
+  border-top: none;
   font-weight: bold;
   align-items: center;
+  padding: 5%;
+  
+}
+
+.cards-study-session-bottom {
+  height: 200px;
 }
 
 .card-study-session {
@@ -125,6 +139,7 @@ export default {
   background-color: #F9DCC4;
   border: 2px solid black;
   opacity: 0.8;
+
 }
 
 #number-of-cards {

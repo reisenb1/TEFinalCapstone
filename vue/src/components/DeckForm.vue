@@ -23,10 +23,11 @@
 
       <div>
         <label for="accessible"
-          >Check this box if you would like to make your deck public</label
+          >Check this box if you would like to make your deck public: </label
         >
         <input
           id="checkbox"
+          class="checkbox"
           type="checkbox"
           name="accessible"
           v-model="deck.accessible"
@@ -137,10 +138,10 @@ export default {
   background-color: #FCD5CE;
   width: 500px;
   padding: 25px;
-  border: 15px solid #FEC89A;
+  border: 1px solid #FEC89A;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
-  margin-right: 75px;
+  /* margin-right: 75px; */
   justify-content: space-evenly;
   height: 400px;
   font-weight: bold;
@@ -162,8 +163,10 @@ export default {
 #niceButton {
   height: 40px;
   border-radius: 5px;
-  border: 2px solid #FEC89A;
+  border: none;
   font-weight: bold;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  background-color: #f7c2b9;
   
   
 }
@@ -173,5 +176,12 @@ export default {
   opacity: 0.8;
   
   
+}
+
+input.checkbox {
+  /* size: 20px; */
+  /* height: 30px; */
+  transform: scale(2);
+  margin-left: 10px;
 }
 </style>
