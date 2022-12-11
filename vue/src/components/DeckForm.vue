@@ -114,7 +114,7 @@ export default {
       }
     },
     cancelDeck() {
-        this.$router.push({ name: 'Deck', params: { deckId: this.deckId } });
+        this.$router.push({ name: 'loggedInHome' });
     }
   },
 };
