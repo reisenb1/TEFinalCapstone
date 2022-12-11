@@ -7,7 +7,7 @@ const http = axios.create({
 
 export default {
     getDecks(userId, saved) {
-        return http.get(`/${userId}/decks`, {params: { saved }});
+        return http.get(`/${userId}/decks`, { params: { saved } });
     },
 
     getDeckById(deckId) {
@@ -23,7 +23,7 @@ export default {
     },
 
     getAllSearchedDecks(searchTerm) {
-        return http.get(`/decks/search`, {params: { searchTerm }});
+        return http.get(`/decks/search`, { params: { search: searchTerm } });
     },
 
     getAllDecks() {
