@@ -5,22 +5,25 @@
       <div v-show="card.cardId == currentCardId">
 
 
-
+          
 
 
 
         <div class="flip-card-container">
           <div class="flip-card-inner">
-            <div class="card_face front--front" v-on:click="flipCard">
+            <div class="card_face front--front" v-on:click="flipCard" v-show="showFront">
+              
               {{ card.front }}
+              
 <!-- 
         <button id="card-front-study" v-on:click="flipCard" v-show="showFront">
           {{ card.front }}
         </button> -->
             </div>
 
-            <div class="card_face back--back" v-on:click="showBack">
+            <div class="card_face back--back" v-show="showBack">
               {{ card.back }}
+              
         <!-- <button id="card-back-study" v-show="showBack">{{ card.back }}</button> -->
             </div>
 
@@ -85,10 +88,10 @@ export default {
         numberRed: 0,
       },
       allCardsUpdated: true,
-      showFront: this.flipCard(),
-      showBack: this.flipCard(),
-      // showFront: true,
-      // showBack: false,
+      // showFront: this.flipCard(),
+      // showBack: this.flipCard(),
+      showFront: true,
+      showBack: true,
       
     };
   },
@@ -187,12 +190,13 @@ export default {
       
     },
     flipCard() {
-    
     let cards = document.querySelectorAll('.flip-card-inner');
 
         [...cards].forEach((card)=>{
         card.addEventListener( 'click', function() {
         card.classList.toggle('is-flipped');
+        this.showFront = false;
+        this.showBack = false;
         });
       });
     }

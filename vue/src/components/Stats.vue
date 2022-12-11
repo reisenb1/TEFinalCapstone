@@ -10,6 +10,8 @@
       <h3>Correct(%)</h3>
 
     </div>
+
+
     <div class="cards-study-session" v-for="session in studySessions" v-bind:key="session.studySessionId">
       <div id="number-of-cards">
         {{session.numberOfCards}}
