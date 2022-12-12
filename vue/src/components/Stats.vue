@@ -13,11 +13,11 @@
       
       <h3 id='deck-name-label'>Deck Name</h3>
       <h3 id='unfamiliar-terms'>Unfamiliar Terms</h3>
-      <h3 id='still learning'>Still Learning</h3>
-      <h3 id='mastered terms'>Mastered Terms</h3>
+      <h3 id='still-learning'>Still Learning</h3>
+      <h3 id='mastered-terms'>Mastered Terms</h3>
       <h3 id='cards-correct'>Cards Correct</h3>
-      <h3 id='percent-correct'>Percent Correct</h3>
-      <h3 id='confidence-percentage'>Confidence Percentage</h3>
+      <h3 id='percent-correct-label'>Percent Correct</h3>
+      <h3 id='confidence-percent-label'>Confidence Percentage</h3>
     </div>
 
 
@@ -26,38 +26,36 @@
       <div id="deck-name">
           {{deckNames[studySessions.indexOf(session)]}}
       </div>
-      
-      <div>
-          <!-- {{session.studySessionId}} -->
-      </div>
-      
-      <div id="number-of-cards">
-        {{session.numberOfCards}}
-      </div>
-
-      <div id="number-correct">
-        {{session.numberCorrect}}
-      </div>
-
-      <div id="number-of-green">
-        {{session.numberGreen}}
+    
+      <div id="number-of-red">
+        {{session.numberRed}}
+        <img class="img-stat" src="../images/red-circle.png" alt="green">
       </div>
 
       <div id="number-of-yellow">
         {{session.numberYellow}}
+        <img class="img-stat" src="../images/yellow-circle.png" alt="yellow">
+      </div>
+
+      <div id="number-of-green">
+        {{session.numberGreen}}
+        <img class="img-stat" src="../images/green-circle.png" alt="green">
       </div>
       
-      <div id="number-of-red">
-        {{session.numberRed}}
+
+      <div id="number-correct">
+        {{session.numberCorrect}}/{{session.numberOfCards}}
+      </div>
+
+      <div id="percent-correct">
+        {{session.correctPercent}}%
       </div>
 
       <div id="confidence-percent">
         {{session.confidencePercent}}%
       </div>
 
-      <div id="percent-correct">
-        {{session.correctPercent}}%
-      </div>
+      
 
     </div>
 
@@ -97,7 +95,8 @@ export default {
         .then((response) => {
           this.studySessions = response.data;
           this.isLoading = false;
-           this.setDeckNames();
+          this.setDeckNames();
+          this.reverseOrderSessions();
         })
         .catch((error) => {
           if (error.response && error.response.status === 404) {
@@ -123,6 +122,10 @@ export default {
       });
     },
 
+    reverseOrderSessions(){
+        this.studySessions.reverse();
+    },
+
     setDeckNames(){
         for(let i=0; i<this.studySessions.length; i++){
             DeckService.getDeckById(this.studySessions[i].deckId)
@@ -135,6 +138,7 @@ export default {
                 this.deckNames[i] = '';
             })
         }
+        this.deckNames.reverse();
     }
   },
 };
@@ -142,17 +146,37 @@ export default {
 
 
 <style>
+
+
+.img-stat{
+    height: 20px;
+    margin-left: 5px;
+}
 .container-stats {
   /* background-color: rgb(90, 90, 226); */
   height: 50%;
-  margin: 10%;
+  margin-left: 10%;
+  margin-top: 10%;
+  /* display: grid; */
+  /* grid-template-areas: 
+    "card-study-session"
+    "cards-study-session"; */
   
 }
 
 .cards-study-session {
-  display: flex;
+
+  display: grid;
+  grid-template-areas: 
+    "deck-name number-of-red number-of-yellow number-of-green number-correct percent-correct confidence-percent";
+
+  grid-template-columns: 3fr 1fr 1fr 1fr 2fr 2fr 2fr;
+
+  grid-template-rows: row;
+
+
   height: 100%;
-  width: 90%;
+  width: 100%;
   justify-content: space-evenly;
   /* margin: 10%; */
   margin-top: 0%;
@@ -162,7 +186,8 @@ export default {
   border-bottom: 1px solid black;
   font-weight: bold;
   align-items: center;
-  padding: 5%;
+  padding-top: 4%;
+  padding-bottom: 4%;
   
 }
 
@@ -171,7 +196,14 @@ export default {
 }
 
 .card-study-session {
-  display: flex;
+  display: grid;
+  grid-template-areas: 
+    "deck-name-label unfamiliar-terms still-learning mastered-terms cards-correct percent-correct-label confidence-percent-label";
+
+  grid-template-columns: 3fr 1fr 1fr 1fr 2fr 2fr 2fr;
+
+
+
   justify-content: space-evenly;
   background-color: #F9DCC4;
   border: 2px solid black;
@@ -179,7 +211,116 @@ export default {
 
 }
 
-#number-of-cards {
+#deck-name {
+    grid-area: deck-name;
+    display: flex;
+    justify-content: center;
+    
+}
+
+#number-of-red{
+    grid-area: number-of-red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#number-of-yellow{
+    grid-area: number-of-yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#number-of-green{
+    grid-area: number-of-green;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+#number-correct{
+    grid-area: number-correct;
+    display: flex;
+    justify-content: center;
+}
+
+#percent-correct{
+    grid-area: percent-correct;
+    display: flex;
+    justify-content: center;
+}
+
+#confidence-percent{
+    grid-area: confidence-percent;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+#deck-name-label {
+    grid-area: deck-name-label;
+    /* display: flex;
+    justify-content: center; */
+    text-align: center;
+    
+}
+
+#unfamiliar-terms{
+    grid-area: unfamiliar-terms;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    text-align: center;
+}
+
+#still-learning{
+    grid-area:still-learning;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    text-align: center;
+}
+
+#mastered-terms{
+    grid-area: mastered-terms;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    text-align: center;
+}
+
+#cards-correct{
+    grid-area: cards-correct;
+    /* display: flex;
+    justify-content: center; */
+    text-align: center;
+}
+
+#percent-correct-label{
+    grid-area: percent-correct-label;
+    /* display: flex;
+    justify-content: center; */
+    text-align: center;
+}
+
+#confidence-percent-label{
+    grid-area: confidence-percent-label;
+    /* display: flex;
+    justify-content: center; */
+    text-align: center;
+}
+
+
+
+
+
+/* #number-of-cards {
   position: relative;
   right: 60px;
 }
@@ -212,5 +353,5 @@ export default {
 #percent-correct {
   position: relative;
   left: 60px;
-}
+} */
 </style>
