@@ -11,7 +11,7 @@
       <h3>Correct(%)</h3> -->
     
       
-      <h3 id='deck-name'>Deck Name</h3>
+      <h3 id='deck-name-label'>Deck Name</h3>
       <h3 id='unfamiliar-terms'>Unfamiliar Terms</h3>
       <h3 id='still learning'>Still Learning</h3>
       <h3 id='mastered terms'>Mastered Terms</h3>
@@ -22,6 +22,15 @@
 
 
     <div class="cards-study-session" v-for="session in studySessions" v-bind:key="session.studySessionId">
+      
+      <div id="deck-name">
+          {{deckNames[studySessions.indexOf(session)]}}
+      </div>
+      
+      <div>
+          <!-- {{session.studySessionId}} -->
+      </div>
+      
       <div id="number-of-cards">
         {{session.numberOfCards}}
       </div>
@@ -68,11 +77,15 @@ export default {
   data() {
     return {
       isLoading: true,
-      studySessions: [],
+      studySessions: [],  
+      deckNames: [],
+      currentDeckName: ""
     };
   },
   created() {
     this.getAllSessions();
+   
+    
   },
   components: {
   
@@ -84,6 +97,7 @@ export default {
         .then((response) => {
           this.studySessions = response.data;
           this.isLoading = false;
+           this.setDeckNames();
         })
         .catch((error) => {
           if (error.response && error.response.status === 404) {
@@ -109,11 +123,18 @@ export default {
       });
     },
 
-    getDeckName(deckId){
-        DeckService.getDeckById(deckId)
-        .then(response => {
-            return response.data.deckName;
-        })
+    setDeckNames(){
+        for(let i=0; i<this.studySessions.length; i++){
+            DeckService.getDeckById(this.studySessions[i].deckId)
+            .then(response => {
+                // this.studySessions[i].push(response.data.deckName);
+                this.deckNames.push(response.data.deckName)
+            })
+            .catch(error => {
+                console.log(error);
+                this.deckNames[i] = '';
+            })
+        }
     }
   },
 };

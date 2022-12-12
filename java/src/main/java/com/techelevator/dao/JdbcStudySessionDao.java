@@ -69,6 +69,7 @@ public class JdbcStudySessionDao implements StudySessionDao{
 
     private StudySession mapRowToStudySession(SqlRowSet rowSet) {
         StudySession studySession = new StudySession();
+        studySession.setStudySessionId(rowSet.getInt("study_session_id"));
         studySession.setUserId(rowSet.getInt("user_id"));
         studySession.setDeckId(rowSet.getInt("deck_id"));
         studySession.setNumberOfCards(rowSet.getInt("number_of_cards"));

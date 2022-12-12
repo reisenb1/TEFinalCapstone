@@ -32,10 +32,10 @@
         You got {{ studySession.numberCorrect }}/{{
           studySession.numberOfCards
         }}
-        a percentage of
+        a percentage of:
         {{ studySession.correctPercent }}%
       </div>
-      <div>Confidence Score: {{ studySession.confidencePercent }}%</div>
+      <div>You have a confidence score of: {{ studySession.confidencePercent }}%</div>
     </div>
 
     <div
@@ -48,10 +48,10 @@
         You got {{ studySession.numberCorrect }}/{{
           studySession.numberOfCards
         }}
-        a percentage of
+        a percentage of:
         {{ studySession.correctPercent }}%
       </div>
-      <div>Confidence Score: {{ studySession.confidencePercent }}%</div>
+      <div>You have a confidence score of: {{ studySession.confidencePercent }}%</div>
     </div>
 
     <div
@@ -62,10 +62,10 @@
         You got {{ studySession.numberCorrect }}/{{
           studySession.numberOfCards
         }}
-        a percentage of
+        a percentage of:
         {{ studySession.correctPercent }}%
       </div>
-      <div>Confidence Score: {{ studySession.confidencePercent }}%</div>
+      <div>You have a confidence score of: {{ studySession.confidencePercent }}%</div>
     </div>
 
     <div class="card-results" v-for="card in cards" v-bind:key="card.cardId">
@@ -193,11 +193,11 @@ export default {
 
   align-items: center;
   justify-content: space-evenly;
-  padding: 40px;
+  padding: 20px;
   margin: 10px;
   background-color: white;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   border-radius: 10px;
   
 }
@@ -233,6 +233,7 @@ h1{
     "finishRetry finishRetry2";
     justify-content: space-between;
     align-items: center;
+    margin: 10px;
 
     margin-bottom: 40px;
 }
@@ -242,13 +243,13 @@ h1{
   /* display: flex;
   justify-content: center;
   align-items: center; */
-  padding: 30px;
+  padding: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
   border: none;
   border-radius: 10px;
   font-weight: bold;
-  font-size: 150%;
+  font-size: 100%;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
  
 }
@@ -258,13 +259,13 @@ h1{
   /* display: flex;
   justify-content: center;
   align-items: center; */
-  padding: 30px;
+  padding: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
   border: none;
   border-radius: 10px;
   font-weight: bold;
-  font-size: 150%;
+  font-size: 100%;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
