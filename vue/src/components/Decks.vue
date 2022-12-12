@@ -1,49 +1,52 @@
 <template>
   <div id="main-grid" class="container1">
-    
     <div class="scroll" id="sideNav">
-      
-      <h1 id="h1">My Decks</h1>
 
       <div id="mySearchBar">
-          <h3 id="mySearchTitle">Search:</h3>
-          <input id="search-box" type="text" 
+        <!-- <h3 id="mySearchTitle">Search:</h3> -->
+        <input
+          id="search-box"
+          type="text"
           v-on:keyup.enter="retrieveMyDeck"
-          placeholder="search my decks by name..."
-          v-model="mySearchTerm" />
-        </div>
-       <router-link :to="{ name: 'AddDeck' }"><button id="addDeck" >New Deck</button></router-link>
-       
+          placeholder="search my decks..."
+          v-model="mySearchTerm"
+        />
+      </div>
+
+      <h1 id="h1">My Decks</h1>
+
+    
+      <router-link :to="{ name: 'AddDeck' }"
+        ><button id="addDeck">New Deck</button></router-link
+      >
+
       <div class="decks">
-        
         <div class="loading" v-if="isLoading">
           <img src="../images/eye-blink.gif" />
         </div>
-        
-        <router-link class="deckName"
+
+        <router-link
+          class="deckName"
           id="activeDeck"
           :to="{ name: 'Deck', params: { deckId: deck.deckId } }"
           v-for="deck in this.decks"
           v-bind:key="deck.deckId"
         >
           {{ deck.deckName }}
-          <img src="../images/cards.gif" alt="">
+          <img src="../images/cards.gif" alt="" />
         </router-link>
       </div>
       <!-- <router-link :to="{ name: 'AddDeck' }"><button id="addDeck" >New Deck</button></router-link> -->
     </div>
 
     <div id="home1">
-        <h1 id="greeting">Hello {{this.$store.getters.user.username}}</h1>
-      
+      <h1 id="greeting">Hello {{ this.$store.getters.user.username }}</h1>
 
       <div id="my-stats">
         <h2>My Stats</h2>
         <stats></stats>
-        
       </div>
-
-      </div>
+    </div>
   </div>
 </template>
 
@@ -56,14 +59,14 @@ export default {
     return {
       isLoading: true,
       decks: [],
-      mySearchTerm: ""
+      mySearchTerm: "",
     };
   },
   created() {
     this.retrieveDecks();
   },
   components: {
-    Stats
+    Stats,
   },
   computed: {
     activeDeckId() {
@@ -72,23 +75,27 @@ export default {
   },
   methods: {
     retrieveDecks() {
-      DeckService.getDecks(this.$store.getters.user.id, false).then((response) => {
-        this.decks = response.data;
-        this.isLoading = false;
-      });
+      DeckService.getDecks(this.$store.getters.user.id, false).then(
+        (response) => {
+          this.decks = response.data;
+          this.isLoading = false;
+        }
+      );
     },
     retrieveMyDeck() {
-      DeckService.getMySearchedDecks(this.mySearchTerm).then((response) => {
+      DeckService.getMySearchedDecks(
+        this.$store.getters.user.id,
+        this.mySearchTerm
+      ).then((response) => {
         this.decks = response.data;
-      })
-    }
+      });
+    },
   },
 };
 </script>
 
 
 <style scoped>
-
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
@@ -98,30 +105,32 @@ body {
 .container1 {
   display: grid;
   /* background-image: url("../images/pic2.jpg"); */
-  background-color: #F8EDE8;
+  background-color: #f8ede8;
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-
 }
 
 #search-box {
-  display:flex;
+  display: flex;
   align-items: center;
-  height: 30px;
-  width: 200px;
+  height: 15px;
+  width: 120px;
   margin: auto;
+  margin-bottom: -5%;
 }
 
-#mySearchTitle {
+#h1 {
+  margin-bottom: -5px;
+}
+
+/* #mySearchTitle {
   display: flex;
   height: 30px;
   justify-content: center;
   align-items: center;
-  margin-bottom: -1px;
-  
-}
-
+  margin-bottom: 5px;
+} */
 
 #main-grid {
   display: grid;
@@ -134,11 +143,10 @@ body {
   grid-template-rows: 1fr 2fr 2fr;
 
   align-items: center;
-   width: 100%;
+  width: 100%;
   /* height: 100vh */
   column-gap: 0%;
 }
-
 
 #sideNav {
   grid-area: sideNav;
@@ -151,17 +159,15 @@ body {
 #home1 {
   display: grid;
   grid-template-areas:
-  "greeting    greeting    greeting"
-  "my-stats    my-stats    my-stats"
-  "confidence  confidence  high-score"
-  ;
+    "greeting    greeting    greeting"
+    "my-stats    my-stats    my-stats"
+    "confidence  confidence  high-score";
   grid-template-columns: 1fr 1fr 1fr;
   grid-auto-rows: 10% 5% 3fr;
 
-   /* row-gap: 0px; */
+  /* row-gap: 0px; */
   /* column-gap: 50px; */
 
-  
   height: 100vh;
 }
 
@@ -169,7 +175,7 @@ body {
   display: flex;
   grid-area: greeting;
   width: 100%;
-  background-color:#f3c096;
+  background-color: #f3c096;
   height: 95px;
   align-items: center;
   text-indent: 20px;
@@ -193,14 +199,12 @@ body {
   justify-content: space-around;
   margin-left: 70px;
   margin-top: 50px;
-  
 }
 
 #high-score {
   grid-area: high-score;
   margin-top: 50px;
 }
-
 
 div#sideNav {
   height: 90%;
@@ -219,15 +223,14 @@ div#sideNav {
   text-align: center;
   justify-content: space-evenly;
   align-items: center;
-   overflow-x:hidden; 
-
+  overflow-x: hidden;
 }
 
-.decks { 
+.decks {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
 }
 
 #addDeck {
@@ -238,7 +241,7 @@ div#sideNav {
   cursor: pointer;
   height: 40px;
   width: 40%;
-  box-shadow: 0 6px 14px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition-duration: 1s;
   margin-left: 10px;
   text-decoration: none;
@@ -305,36 +308,35 @@ div#sideNav {
   overflow-x:hidden;
 } */
 
- #activeDeck {
- box-sizing: border-box; 
- width: 165px;
- height: 215px;
+#activeDeck {
+  box-sizing: border-box;
+  width: 165px;
+  height: 215px;
   border: 3px solid black;
   border-radius: 15px;
-  background-color: #FEC89A;
+  background-color: #fec89a;
   padding: 5px;
   margin: 20px;
   display: flex;
   flex-direction: column;
   text-decoration: none;
   justify-content: center;
-  box-shadow: 0 6px 14px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
- }
+  box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
- #activeDeck:hover {
-   background-color: (#f3790e);
-   opacity: 0.7;
- }
+#activeDeck:hover {
+  background-color: (#f3790e);
+  opacity: 0.7;
+}
 
- .deckName {
-   margin-bottom: 50px;
-   font-weight: bold;
-   color: black;
-   
- }
+.deckName {
+  margin-bottom: 50px;
+  font-weight: bold;
+  color: black;
+}
 
- img {
-   height: 50%;
-   margin-top: 20px;
- }
+img {
+  height: 50%;
+  margin-top: 20px;
+}
 </style>

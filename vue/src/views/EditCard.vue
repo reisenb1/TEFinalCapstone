@@ -1,5 +1,7 @@
 <template>
   <div>
+
+      <div class="header-edit"></div>
       <h1>Edit Card</h1>
       <card-form v-bind:cardId="parseInt($route.params.cardId)"></card-form>
   </div>
@@ -15,5 +17,8 @@ export default {
 </script>
 
 <style>
+.header-edit {
+    height: 100px;
+}
 
 </style>
