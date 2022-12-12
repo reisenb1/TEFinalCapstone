@@ -4,6 +4,7 @@
     <div class="scroll" id="sideNav">
       
       <h1 id="h1">My Decks</h1>
+
       <div id="mySearchBar">
           <h3 id="mySearchTitle">Search:</h3>
           <input id="search-box" type="text" 
@@ -55,6 +56,7 @@ export default {
     return {
       isLoading: true,
       decks: [],
+      mySearchTerm: ""
     };
   },
   created() {
@@ -101,12 +103,25 @@ body {
   background-size: cover;
   width: 100%;
 
-
 }
 
-#mySearchBar {
+#search-box {
   display:flex;
+  align-items: center;
+  height: 30px;
+  width: 200px;
+  margin: auto;
 }
+
+#mySearchTitle {
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -1px;
+  
+}
+
 
 #main-grid {
   display: grid;
@@ -178,7 +193,6 @@ body {
   justify-content: space-around;
   margin-left: 70px;
   margin-top: 50px;
-  
   
 }
 
