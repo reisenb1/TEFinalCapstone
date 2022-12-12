@@ -2,6 +2,7 @@
   <div id="main-grid" class="container1">
     <div class="scroll" id="sideNav">
       <h1 id="h1">My Decks</h1>
+
       <div id="mySearchBar">
         <h3 id="mySearchTitle">Search:</h3>
         <input
@@ -55,6 +56,7 @@ export default {
     return {
       isLoading: true,
       decks: [],
+      mySearchTerm: ""
     };
   },
   created() {
@@ -101,11 +103,33 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
+<<<<<<< HEAD
 }
 
 #mySearchBar {
   display: flex;
+=======
+
 }
+
+#search-box {
+  display:flex;
+  align-items: center;
+  height: 30px;
+  width: 200px;
+  margin: auto;
+>>>>>>> 6a9c22edecf4877486990b209f269bad883eb364
+}
+
+#mySearchTitle {
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -1px;
+  
+}
+
 
 #main-grid {
   display: grid;
@@ -174,6 +198,10 @@ body {
   justify-content: space-around;
   margin-left: 70px;
   margin-top: 50px;
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 6a9c22edecf4877486990b209f269bad883eb364
 }
 
 #high-score {
