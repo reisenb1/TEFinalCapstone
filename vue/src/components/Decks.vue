@@ -103,12 +103,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-<<<<<<< HEAD
-}
-
-#mySearchBar {
-  display: flex;
-=======
 
 }
 
@@ -118,7 +112,6 @@ body {
   height: 30px;
   width: 200px;
   margin: auto;
->>>>>>> 6a9c22edecf4877486990b209f269bad883eb364
 }
 
 #mySearchTitle {
@@ -198,10 +191,6 @@ body {
   justify-content: space-around;
   margin-left: 70px;
   margin-top: 50px;
-<<<<<<< HEAD
-=======
-  
->>>>>>> 6a9c22edecf4877486990b209f269bad883eb364
 }
 
 #high-score {
