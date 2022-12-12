@@ -122,6 +122,7 @@ body {
 
 #h1 {
   margin-bottom: -5px;
+
 }
 
 /* #mySearchTitle {
