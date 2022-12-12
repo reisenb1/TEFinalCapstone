@@ -87,8 +87,8 @@ p {
 
 #signInLink {
   font-weight: bold;
-  border: solid rgb(185, 68, 68) 5px;
-  background-color: rgb(185, 68, 68);
+  border: solid rgb(199, 92, 92) 2px;
+  background-color: #ffb5a7;
   margin: auto;
   width: 100px;
   text-align: center;

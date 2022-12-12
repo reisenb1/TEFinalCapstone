@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Klee One">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Klee One"
+    />
     <header>
       <div class="header">
         <h2>YEGET</h2>
@@ -25,14 +28,13 @@
         >Categories</a
       >
       <!-- &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">Categories</router-link> -->
-      &nbsp;|&nbsp;<a style="text-decoration: none; color: black;" href="#about"
+      &nbsp;|&nbsp;<a style="text-decoration: none; color: black" href="#about"
         >About</a
       >
-       &nbsp;|&nbsp;
-       <router-link id="search-button"
-          v-bind:to="{ name: 'Search' }"
-          >Search All Decks</router-link
-        >
+      &nbsp;|&nbsp;
+      <router-link id="search-button" v-bind:to="{ name: 'Search' }"
+        >Search All Decks</router-link
+      >
       <!-- &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">About</router-link> -->
       &nbsp;|&nbsp;
       <div id="registerLogin">
@@ -45,7 +47,8 @@
         <!-- removed 
         </div> -->
 
-        <router-link style="text-decoration: none; color: black;"
+        <router-link
+          style="text-decoration: none; color: black"
           v-bind:to="{ name: 'logout' }"
           v-if="$store.state.token != ''"
           >Logout</router-link
@@ -78,7 +81,7 @@ body {
   /* added */
   background-color: #f8ede8;
 
-  font-family: "Klee One";/* ,system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  font-family: "Klee One"; /* ,system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
 
@@ -213,7 +216,8 @@ footerxxx {
   justify-content: left;
   align-items: center;
   padding: 10px;
-  color: rgb(233, 216, 64);
+  color: #ffb5a7;
+  text-shadow: 0 0 1.5px darkblue;
 }
 
 #search-button {
