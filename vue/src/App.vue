@@ -38,7 +38,8 @@
       <!-- &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">About</router-link> -->
       &nbsp;|&nbsp;
       <div id="registerLogin">
-        <router-link
+        <router-link 
+        style="text-decoration: none; color: black"
           v-bind:to="{ name: 'login' }"
           v-show="$store.state.token == ''"
           >Sign In</router-link

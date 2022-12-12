@@ -2,7 +2,7 @@
   <div id="main-grid" class="container">
     <nav id="topBar">
       <div class="header">
-        <h2>Emily's FlashCards</h2>
+        <!-- <h2>Emily's FlashCards</h2> -->
       </div>
 
       <router-link
