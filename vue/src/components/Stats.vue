@@ -1,5 +1,41 @@
 <template>
-  <div class="container-stats">
+  
+  <div>
+
+  <div class="no-stats" v-show="studySessions.length == 0">
+
+      <div class="no-stats-top">
+      <img class="img-new-user-arrow" src="../images/arrow.png" alt="arrow">
+     
+        <h2 class="no-stats-directions">Welcome to YEGET! Ready to start studying? Start by adding a new deck on the left!
+        </h2>
+
+        <!-- <img class="no-stats-top-img" src="../images/cards.gif" alt="cards"> -->
+
+        </div>
+
+        <div class="did-you-know">
+
+            <div>
+            <h3 class="stat-dyk">Did you know?</h3>
+            <p class="stat-p">By spending just <b>1 hour</b> a day studying on YEGET, you can increase your grades by a whole letter grade!</p>
+            </div>
+
+            <div>
+                <h3 class="stat-dyk">Did you know?</h3>
+                <p class="stat-p"><b>97% of users</b> would recommend YEGET to their friends! The other 3% don't know what they are talking about.</p>
+            </div>
+
+            <div>
+                <h3 class="stat-dyk">Did you know?</h3>
+                <p class="stat-p">YEGET was recognized as the <b>#1 flash card app</b> in the US according to the most popular flash card rater!</p>
+            </div>
+
+        </div>
+      
+  </div>
+  
+  <div class="container-stats" v-show="studySessions.length !== 0">
     <div class="card-study-session">
       
       <!-- <h3>Deck ID</h3>
@@ -23,9 +59,14 @@
 
     <div class="cards-study-session" v-for="session in studySessions" v-bind:key="session.studySessionId">
       
+
       <div id="deck-name">
+
+         
           <img class="img-deck-stat" src="../images/cards.gif" alt="cards">
+           <router-link class="deck-name-link" :to="{ name: 'Deck', params: { deckId: session.deckId } }">
           {{deckNames[studySessions.indexOf(session)]}}
+          </router-link>
       </div>
     
       <div id="number-of-red">
@@ -68,6 +109,8 @@
 
     </div>
   </div>
+  </div>
+
 </template>
 
 <script>
@@ -149,6 +192,57 @@ export default {
 
 
 <style>
+
+.stat-dyk{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.stat-p{
+    padding: 10%;
+    padding-top: 3%;
+    text-align: center;
+}
+
+.no-stats-top{
+    display: flex;
+    margin-bottom: 10%;
+}
+
+/* .no-stats-top-img{
+    size: 5%;
+} */
+
+.did-you-know{
+    display: flex;
+    justify-content: center;
+}
+
+
+.no-stats-directions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-emphasis: bold;
+}
+
+.no-stats{
+    margin: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-new-user-arrow{
+    transform: scaleX(-1);
+    width: 30%;
+    margin-right: 50px;
+}
+
+.deck-name-link{
+    color: black
+}
 
 
 .img-stat{
