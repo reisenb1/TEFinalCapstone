@@ -1,7 +1,7 @@
 <template>
   <div class="resultsContainer">
     <div class="header-results"></div>
-    <h1>Deck Name Study Session Results</h1>
+    <h1>{{deck.deckName}} Study Session Results</h1>
     <div class="button-header">
       <!-- <router-link
         :to="{ name: 'Deck', params: { deckId: this.studySession.deckId } }"
@@ -99,6 +99,7 @@
 <script>
 import CardService from "../services/CardService";
 import StudySession from "../services/StudySessionService";
+import DeckService from "../services/DeckService";
 
 export default {
   //    props:
@@ -107,6 +108,7 @@ export default {
       isLoading: true,
       cards: [],
       studySession: [],
+      deck: []
     };
   },
   methods: {
@@ -136,10 +138,24 @@ export default {
           }
         });
     },
+    getDecks() {
+      DeckService.getDeckById(this.$route.params.deckId)
+        .then((response) => {
+          this.deck = response.data;
+          this.isLoading = false;
+        })
+        .catch((error) => {
+          if (error.response && error.response.status === 404) {
+            alert("Deck cards not available.");
+            this.$router.push({ name: "Home" });
+          }
+        });
+    },
   },
   created() {
     this.getCards();
     this.getStudySession();
+    this.getDecks();
   },
 };
 </script>
@@ -223,9 +239,9 @@ h1{
 
 .finishRetry {
   background-color: #ffb5a7;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   padding: 30px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -239,9 +255,9 @@ h1{
 
 .finishRetry2 {
   background-color: #ffb5a7;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   padding: 30px;
   margin-top: 10px;
   margin-bottom: 10px;
