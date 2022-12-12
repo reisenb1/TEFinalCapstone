@@ -14,23 +14,22 @@
     <div id="searchResults">
       <div id="searchLinks" v-bind:key="deck.deckId" v-for="deck in this.decks">
         <div id="firstLine">
-          <router-link
-            v-bind:to="{ name: 'Deck', params: { deckId: deck.deckId } }"
-          >
+          <div v-bind:to="{ name: 'Deck', params: { deckId: deck.deckId } }">
             Deck ID: {{ deck.deckId }}
-          </router-link>
+          </div>
           <router-link
             v-bind:to="{ name: 'Deck', params: { deckId: deck.deckId } }"
           >
-            Name: {{ deck.deckName }}
+            {{ deck.deckName }}
           </router-link>
+          <div v-bind:to="{ name: 'Deck', params: { deckId: deck.deckId } }">
+            Creator ID: {{ deck.creatorId }}
+          </div>
         </div>
         <div id="secondLine">
-          <router-link
-            v-bind:to="{ name: 'Deck', params: { deckId: deck.deckId } }"
-          >
+          <div v-bind:to="{ name: 'Deck', params: { deckId: deck.deckId } }">
             Description: {{ deck.deckDescription }}
-          </router-link>
+          </div>
         </div>
       </div>
     </div>
