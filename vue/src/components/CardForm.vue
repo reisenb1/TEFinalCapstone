@@ -1,5 +1,5 @@
 <template>
-  <!-- <div id="main-grid"> -->
+  <div id="main-grid">
     <div class="container2">
       <form v-on:submit.prevent="submitForm">
         <div id="cardFront">
@@ -17,7 +17,7 @@
         <button class="cancel" v-on:click.prevent="cancelForm" type="cancel">Cancel</button>
       </form>
     </div>
-  <!-- </div> -->
+  </div>
 </template>
 
 <script>
@@ -146,6 +146,7 @@ export default {
 .container2 {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 #text {
