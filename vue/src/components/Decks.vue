@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     retrieveDecks() {
-      DeckService.getDecks(1, false).then((response) => {
+      DeckService.getDecks(this.$store.getters.user.id, false).then((response) => {
         this.decks = response.data;
         this.isLoading = false;
       });
@@ -295,9 +295,13 @@ div#sideNav {
 
  .deckName {
    margin-bottom: 50px;
+   font-weight: bold;
+   color: black;
+   
  }
 
  img {
    height: 50%;
+   margin-top: 20px;
  }
 </style>

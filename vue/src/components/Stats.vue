@@ -2,22 +2,22 @@
   <div class="container-stats">
     <div class="card-study-session">
       
-      <h3>Deck ID</h3>
+      <!-- <h3>Deck ID</h3>
       <h3>Number Correct</h3>
       <h3>Number of Green</h3>
       <h3>Number of Yellow</h3>
       <h3>Number of Red</h3>
       <h3>Confidence %</h3>
-      <h3>Correct(%)</h3>
+      <h3>Correct(%)</h3> -->
     
       
-      <!-- <h3>Deck Name</h3>
-      <h3>Unfamiliar Terms</h3>
-      <h3>Still Learning</h3>
-      <h3>Mastered Terms</h3>
-      <h3>Cards Correct</h3>
-      <h3>Percent Correct</h3>
-      <h3>Confidence Percentage</h3> -->
+      <h3 id='deck-name'>Deck Name</h3>
+      <h3 id='unfamiliar-terms'>Unfamiliar Terms</h3>
+      <h3 id='still learning'>Still Learning</h3>
+      <h3 id='mastered terms'>Mastered Terms</h3>
+      <h3 id='cards-correct'>Cards Correct</h3>
+      <h3 id='percent-correct'>Percent Correct</h3>
+      <h3 id='confidence-percentage'>Confidence Percentage</h3>
     </div>
 
 
@@ -62,6 +62,7 @@
 
 <script>
 import StudySessionService from "../services/StudySessionService";
+import DeckService from "../services/DeckService";
 
 export default {
   data() {
@@ -107,6 +108,13 @@ export default {
         params: { studySessionId: this.studySessionId },
       });
     },
+
+    getDeckName(deckId){
+        DeckService.getDeckById(deckId)
+        .then(response => {
+            return response.data.deckName;
+        })
+    }
   },
 };
 </script>
