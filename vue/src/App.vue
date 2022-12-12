@@ -20,36 +20,46 @@
         </router-link>
       </div>
 
-      <router-link class="header-bar-font"
+      <router-link
+        class="header-bar-font"
         style="text-decoration: none; color: black"
         v-bind:to="{ name: 'loggedInHome' }"
         v-show="$store.getters.user.id > 0"
         >My Stats</router-link
       >
 
-      <router-link class="header-bar-font"
+      <router-link
+        class="header-bar-font"
         style="text-decoration: none; color: black"
         v-bind:to="{ name: 'home' }"
         v-show="$store.getters.user.id === undefined"
         >Home</router-link
       >
-      &nbsp;|&nbsp;<a class="header-bar-font"
+      &nbsp;|&nbsp;<a
+        class="header-bar-font"
         style="text-decoration: none; color: black"
         href="#categories"
         >Categories</a
       >
       <!-- &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">Categories</router-link> -->
-      &nbsp;|&nbsp;<a class="header-bar-font" style="text-decoration: none; color: black" href="#about"
+      &nbsp;|&nbsp;<a
+        class="header-bar-font"
+        style="text-decoration: none; color: black"
+        href="#about"
         >About</a
       >
       &nbsp;|&nbsp;
-      <router-link class="header-bar-font" id="search-button" v-bind:to="{ name: 'Search' }"
+      <router-link
+        class="header-bar-font"
+        id="search-button"
+        v-bind:to="{ name: 'Search' }"
         >Search All Decks</router-link
       >
       <!-- &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">About</router-link> -->
 
       <div id="registerLogin" class="header-bar-font">
-        <router-link class="header-bar-font"
+        <router-link
+          class="header-bar-font"
           style="text-decoration: none; color: black"
           v-bind:to="{ name: 'login' }"
           v-show="$store.state.token == ''"
@@ -240,7 +250,6 @@ footerxxx {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
 }
 
 #search-button {
