@@ -28,6 +28,10 @@ export default {
 
     getAllDecks() {
         return http.get(`/decks`);
+    },
+
+    getMySearchedDecks(creatorId, mySearchTerm) {
+        return http.get(`${creatorId}/decks/search`, { params: { search: mySearchTerm} });
     }
 
     // deleteDeck(deckId) {
