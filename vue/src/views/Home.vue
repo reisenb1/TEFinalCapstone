@@ -1,13 +1,15 @@
 <template>
-  <main class="view">
-    <!-- <img src="../images/study-photo.jpg" /> -->
-    <div id="firstTextArea">
-      <h2>Hello!</h2>
-      <h3>Test your knowledge with flashcards from YEGET!</h3>
-      <p>"Ye get cards, you get it??"</p>
-    </div>
+  <main>
+    <div class="view">
+      <!-- <img src="../images/study-photo.jpg" /> -->
+      <div id="firstTextArea">
+        <h2>Hello!</h2>
+        <h3>Test your knowledge with flashcards from YEGET!</h3>
+        <img src="..\images\cards.gif" />
+        <p>"Ye get cards, you get it??"</p>
+      </div>
 
-    <!--   removed in order to move v-show to div  
+      <!--   removed in order to move v-show to div  
     <div id="signInLink">
       <router-link
         v-bind:to="{ name: 'login' }"
@@ -16,25 +18,52 @@
       >
     </div> -->
 
-    <!-- added to move v-show from router-link to div -->
-    <div id="signInLink" v-show="$store.state.token == ''">
-      <router-link v-bind:to="{ name: 'login' }">Sign In</router-link>
-    </div>
-    <hr />
-    <div id="categories">
-      <h1>Categories</h1>
-      <div id="categoriesContainer">
-        <div id="category" v-bind:key="tag.tagId" v-for="tag in this.tags">
-          {{ tag.tagName }}
+      <!-- added to move v-show from router-link to div -->
+      <div id="signInLink" v-show="$store.state.token == ''">
+        <router-link
+          style="text-decoration: none; color: white"
+          v-bind:to="{ name: 'login' }"
+          >Sign In</router-link
+        >
+      </div>
+      <hr />
+      <div id="categories">
+        <h1>Categories</h1>
+        <div id="categoriesContainer">
+          <div id="category" v-bind:key="tag.tagId" v-for="tag in this.tags">
+            {{ tag.tagName }}
+          </div>
         </div>
       </div>
-    </div>
 
-    <div id="about">
-      <h1>About</h1>
-      <p>Here is more information</p>
+      <div id="about">
+        <h1>About</h1>
+        <ul>
+          Team Members:
+          <li>
+            Ying Huang: Digimon player extraordinare. When it comes to
+            ping-pong, let him beat himself.
+          </li>
+          <li>
+            Thi Pham: Color guard FTW. We are glad she made it to the end
+            without getting kicked out.
+          </li>
+          <li>
+            Emily Hamilton: Don't let her go hungry or you'll regret it. She is
+            also a velociraptor.
+          </li>
+          <li>
+            Geoffrey Jones: Will smoke you on the basketball court. Has said
+            sorry 5000 times since the beginning of cohort.
+          </li>
+          <li>
+            Eric Reisenbuckler: We don't know why he did this program when he
+            used to be an aerospace engineer at Boeing...
+          </li>
+        </ul>
 
-      <a id="top" href="#">Back to top</a>
+        <a id="top" href="#">Back to top</a>
+      </div>
     </div>
   </main>
 </template>
@@ -69,6 +98,8 @@ export default {
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 20px;
+  margin-bottom: 20px;
+  max-width: 60%;
 }
 main {
   /* display: flex;
@@ -77,6 +108,9 @@ main {
   align-items: center; */
   /* color: ivory; */
   /* background-color: cadetblue; */
+  background-image: url("../images/study-photo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 h2,
 h3,
@@ -105,9 +139,10 @@ p {
   padding: 10px;
 }
 
-/* #firstTextArea {
-  height: 100%;
-} */
+#firstTextArea {
+  margin: auto;
+  color: white;
+}
 
 #categories {
   display: flex;
@@ -119,6 +154,7 @@ p {
   /* height: 750px; */
   flex-basis: 25%;
   width: 100%;
+  opacity: 95%;
 }
 
 #about {

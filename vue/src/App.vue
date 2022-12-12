@@ -6,14 +6,25 @@
     />
     <header>
       <div class="header">
-        <h2>YEGET</h2>
+        <router-link
+          style="
+            text-decoration: none;
+            color: #ffb5a7;
+            text-shadow: 0 0 1.5px darkblue;
+          "
+          id="homeLogo"
+          v-bind:to="{ name: 'home' }"
+        >
+          <img id="logoHeaderBar" src=".\images\cards.gif" />
+          <h2>YEGET</h2>
+        </router-link>
       </div>
 
       <router-link
         style="text-decoration: none; color: black"
         v-bind:to="{ name: 'loggedInHome' }"
         v-show="$store.getters.user.id > 0"
-        >Home</router-link
+        >My Stats</router-link
       >
 
       <router-link
@@ -36,10 +47,10 @@
         >Search All Decks</router-link
       >
       <!-- &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">About</router-link> -->
-      &nbsp;|&nbsp;
+
       <div id="registerLogin">
-        <router-link 
-        style="text-decoration: none; color: black"
+        <router-link
+          style="text-decoration: none; color: black"
           v-bind:to="{ name: 'login' }"
           v-show="$store.state.token == ''"
           >Sign In</router-link
@@ -216,14 +227,26 @@ footerxxx {
   display: flex;
   justify-content: left;
   align-items: center;
-  padding: 10px;
+  padding: 10px 30px 10px 20px;
   color: #ffb5a7;
   text-shadow: 0 0 1.5px darkblue;
+}
+
+#homeLogo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
 
 #search-button {
   text-decoration: none;
   color: black;
+}
+
+#logoHeaderBar {
+  height: 50px;
+  width: auto;
 }
 
 /* #welcome-span {

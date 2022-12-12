@@ -84,6 +84,10 @@ export default {
   background-color: #f9dcc4;
   margin: auto;
   margin-top: 10px;
+  border-style: solid;
+  border-width: thin;
+  padding: 3px;
+  border-radius: 5px;
 }
 
 #searchTitle {
