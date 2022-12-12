@@ -1,8 +1,18 @@
 <template>
   <div id="main-grid" class="container1">
+    
     <div class="scroll" id="sideNav">
+      
       <h1 id="h1">My Decks</h1>
+      <div id="mySearchBar">
+          <h3 id="mySearchTitle">Search:</h3>
+          <input id="search-box" type="text" 
+          v-on:keyup.enter="retrieveMyDeck"
+          placeholder="search my decks by name..."
+          v-model="mySearchTerm" />
+        </div>
        <router-link :to="{ name: 'AddDeck' }"><button id="addDeck" >New Deck</button></router-link>
+       
       <div class="decks">
         
         <div class="loading" v-if="isLoading">
@@ -65,6 +75,11 @@ export default {
         this.isLoading = false;
       });
     },
+    retrieveMyDeck() {
+      DeckService.getMySearchedDecks(this.mySearchTerm).then((response) => {
+        this.decks = response.data;
+      })
+    }
   },
 };
 </script>
@@ -87,6 +102,10 @@ body {
   width: 100%;
 
 
+}
+
+#mySearchBar {
+  display:flex;
 }
 
 #main-grid {
