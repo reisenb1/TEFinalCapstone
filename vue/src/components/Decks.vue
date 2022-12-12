@@ -118,7 +118,7 @@ body {
   height: 30px;
   justify-content: center;
   align-items: center;
-  margin-bottom: -1px;
+  margin-bottom: 5px;
   
 }
 
