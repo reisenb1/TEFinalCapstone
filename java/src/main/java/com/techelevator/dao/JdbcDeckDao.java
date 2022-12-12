@@ -113,7 +113,7 @@ public class JdbcDeckDao implements DeckDao {
 
     @Override
     public List<Deck> searchByName(String search) {
-        String sql = "SELECT DISTINCT * FROM decks WHERE deck_name LIKE ? OR deck_description LIKE ?;";
+        String sql = "SELECT * FROM decks WHERE deck_name iLIKE ? OR deck_description iLIKE ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, "%" + search + "%", "%" + search + "%");
         List<Deck> searchedDecks = new ArrayList<>();
         while (results.next()) {
