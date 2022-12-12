@@ -11,7 +11,6 @@ public class Deck {
     private boolean accessible;
 
 
-
     public int getDeckId() {
         return deckId;
     }
