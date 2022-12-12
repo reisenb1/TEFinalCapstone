@@ -1,7 +1,8 @@
 <template>
   <div class="resultsContainer">
+      
     <div class="header-results"></div>
-    <h1>{{deck.deckName}} Study Session Results</h1>
+
     <div class="button-header">
       <!-- <router-link
         :to="{ name: 'Deck', params: { deckId: this.studySession.deckId } }"
@@ -23,6 +24,7 @@
         <button class="finishRetry2">TRY AGAIN!!</button>
       </router-link>
     </div>
+    <h1>{{deck.deckName}} Study Session Results</h1>
 
     <div
       class="card-results-main backgroundColorGreen"
@@ -162,7 +164,7 @@ export default {
 
 <style>
 .header-results {
-  height: 100px;
+  height: 20px;
 }
 
 .card-results {
@@ -235,7 +237,7 @@ h1{
     align-items: center;
     margin: 10px;
 
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .finishRetry {
@@ -270,7 +272,7 @@ h1{
 }
 
 .backgroundColorGreen {
-  background-color: green;
+  background-color:lightgreen;
   font-size: 24px;
   font-weight: bold;
 }

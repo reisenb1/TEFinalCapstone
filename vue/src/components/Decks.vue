@@ -4,15 +4,13 @@
     <div class="scroll" id="sideNav">
       
       <h1 id="h1">My Decks</h1>
-
       <div id="mySearchBar">
-          <h4 id="mySearchTitle">Search:</h4>
+          <h3 id="mySearchTitle">Search:</h3>
           <input id="search-box" type="text" 
           v-on:keyup.enter="retrieveMyDeck"
           placeholder="search my decks by name..."
           v-model="mySearchTerm" />
         </div>
-
        <router-link :to="{ name: 'AddDeck' }"><button id="addDeck" >New Deck</button></router-link>
        
       <div class="decks">
@@ -35,7 +33,7 @@
     </div>
 
     <div id="home1">
-        <h1 id="greeting">Hello User</h1>
+        <h1 id="greeting">Hello {{this.$store.getters.user.username}}</h1>
       
 
       <div id="my-stats">
@@ -108,18 +106,6 @@ body {
 
 #mySearchBar {
   display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: -8%;
-}
-
-#search-box {
-  height: 25px;
-  width: 180px;
-  padding-left: 10px;;
-  justify-content: center;
-  margin-top: -5%;
 }
 
 #main-grid {

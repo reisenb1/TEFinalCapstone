@@ -1,7 +1,7 @@
 <template>
   <div id="study-session-component">
     <div class="header-session"></div>
-    <h1>Deck Name Study Session</h1>
+    <h1>{{deck.deckName}} Study Session</h1>
     <div v-for="card in cards" v-bind:key="card.cardId">
       <div v-show="card.cardId == currentCardId">
 
@@ -66,7 +66,7 @@
 
 <script>
 import StudySessionService from "../services/StudySessionService";
-// import DeckService from "../services/DeckService";
+ import DeckService from "../services/DeckService";
 import CardService from "../services/CardService";
 
 export default {
@@ -74,6 +74,7 @@ export default {
     return {
       deckId: this.$route.params.deckId,
       cards: [],
+      deck: [],
       currentCardId: "",
       position: 0,
       showCorrectIncorrectForm: false,
@@ -99,6 +100,7 @@ export default {
   },
   created() {
     this.getCards();
+    this.getDecks();
     
   },
   methods: {
@@ -114,6 +116,19 @@ export default {
           if (error.response && error.response.status === 404) {
             alert("Deck cards not available.");
             this.$router.push({ name: "loggedInHome" });
+          }
+        });
+    },
+    getDecks() {
+      DeckService.getDeckById(this.$route.params.deckId)
+        .then((response) => {
+          this.deck = response.data;
+          this.isLoading = false;
+        })
+        .catch((error) => {
+          if (error.response && error.response.status === 404) {
+            alert("Deck cards not available.");
+            this.$router.push({ name: "Home" });
           }
         });
     },
