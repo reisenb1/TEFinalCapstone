@@ -225,7 +225,9 @@ body {
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
+  box-shadow: inset 0 0 5px #000000;
+  border-radius: 5px;
 }
 
 .text-center .form-sign-in2 {
