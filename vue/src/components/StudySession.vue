@@ -1,5 +1,6 @@
 <template>
   <div id="study-session-component">
+    <div class="header-session"></div>
     <h1>Deck Name Study Session</h1>
     <div v-for="card in cards" v-bind:key="card.cardId">
       <div v-show="card.cardId == currentCardId">
@@ -220,6 +221,11 @@ export default {
 </script>
 
 <style>
+
+.header-session {
+  margin-top: 100px;
+  
+}
 
 #cancelButton{
   align-self: right;

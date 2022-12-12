@@ -1,6 +1,7 @@
 <template>
   <div class="container-stats">
     <div class="card-study-session">
+      
       <h3>Deck ID</h3>
       <h3>Number Correct</h3>
       <h3>Number of Green</h3>
@@ -8,7 +9,15 @@
       <h3>Number of Red</h3>
       <h3>Confidence %</h3>
       <h3>Correct(%)</h3>
-
+    
+      
+      <!-- <h3>Deck Name</h3>
+      <h3>Unfamiliar Terms</h3>
+      <h3>Still Learning</h3>
+      <h3>Mastered Terms</h3>
+      <h3>Cards Correct</h3>
+      <h3>Percent Correct</h3>
+      <h3>Confidence Percentage</h3> -->
     </div>
 
 
@@ -118,11 +127,10 @@ export default {
   justify-content: space-evenly;
   /* margin: 10%; */
   margin-top: 0%;
-  border: 2px solid black;
   /* border-bottom: 1px solid black; */
   /* color: white; */
   background-color: rgba(255, 255, 255, 0.541);
-  border-top: none;
+  border-bottom: 1px solid black;
   font-weight: bold;
   align-items: center;
   padding: 5%;

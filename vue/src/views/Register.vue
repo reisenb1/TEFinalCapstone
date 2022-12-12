@@ -184,10 +184,10 @@ export default {
  .text-center2 .form-register {
   display: flex;
   flex-direction: column;
-  background-color: lavender;
   width: 500px;
+    background-color: #FFB5A7;
+  border: 15px solid #F8EDEB;
   padding: 25px;
-  border: 15px solid rgb(218, 107, 218);
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 
   border-radius: 5px;
@@ -216,19 +216,21 @@ export default {
 }
 
 #create-button {
- background-color: rgb(31, 51, 235, 0.6);
-  color: white;
+ background-color: #F9DCC4;
+  color: black;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
+  border-radius: 5px;
   width: 100%;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   transition-duration: 1s;
+
 }
 
 #create-button:hover {
-   background-color: rgb(31, 51, 235);
-  opacity: 0.8;
+   background-color: #F9DCC4;
+  opacity: 0.6;
 }
 </style>

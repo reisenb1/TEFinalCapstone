@@ -204,8 +204,8 @@ body {
 }
 
 #submit {
-  background-color: rgb(31, 51, 235, 0.6);
-  color: white;
+  background-color: #F9DCC4;
+  color: black;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
@@ -213,11 +213,12 @@ body {
   width: 100%;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition-duration: 1s;
+  border-radius: 5px;
 }
 
 #submit:hover {
-  background-color: rgb(31, 51, 235);
-  opacity: 0.8;
+  background-color: #F9DCC4;
+  opacity: 0.6;
 }
 
 .form-control2 {
@@ -230,10 +231,10 @@ body {
 .text-center .form-sign-in2 {
   display: flex;
   flex-direction: column;
-  background-color: lavender;
+  background-color: #FFB5A7;
+  border: 15px solid #F8EDEB;
   width: 500px;
   padding: 25px;
-  border: 15px solid rgb(218, 107, 218);
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
   margin-right: 75px;

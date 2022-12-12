@@ -1,11 +1,17 @@
 <template>
   <div class="resultsContainer">
+    <div class="header-results"></div>
     <h1>Deck Name Study Session Results</h1>
     <div class="button-header">
-      <router-link
+      <!-- <router-link
+        :to="{ name: 'Deck', params: { deckId: this.studySession.deckId } }"
+      > -->
+        
+          <router-link
         :to="{ name: 'Deck', params: { deckId: this.studySession.deckId } }"
       >
-        <button class="finishRetry">FINISH SESSION</button>
+          
+          <button class="finishRetry">FINISH SESSION </button>
       </router-link>
 
       <router-link
@@ -19,7 +25,7 @@
     </div>
 
     <div
-      class="card-results backgroundColorGreen"
+      class="card-results-main backgroundColorGreen"
       v-if="studySession.correctPercent >= 70"
     >
       <div>
@@ -33,7 +39,7 @@
     </div>
 
     <div
-      class="card-results backgroundColorYellow"
+      class="card-results-main backgroundColorYellow"
       v-if="
         studySession.correctPercent >= 50 && studySession.correctPercent < 70
       "
@@ -49,7 +55,7 @@
     </div>
 
     <div
-      class="card-results backgroundColorRed"
+      class="card-results-main backgroundColorRed"
       v-if="studySession.correctPercent < 50"
     >
       <div>
@@ -139,6 +145,10 @@ export default {
 </script>
 
 <style>
+.header-results {
+  height: 100px;
+}
+
 .card-results {
   display: grid;
   
@@ -152,6 +162,28 @@ export default {
   margin: 10px;
   background-color: white;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  /* margin-bottom: 50px; */
+  
+}
+
+.card-results-main {
+  display: flex;
+  
+  grid-template-areas:
+    "correct confidence-main";
+
+  grid-template-columns: 10fr 10fr;
+
+
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 40px;
+  margin: 10px;
+  background-color: white;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin-bottom: 50px;
+  border-radius: 10px;
+  
 }
 
 .front {
@@ -185,6 +217,8 @@ h1{
     "finishRetry finishRetry2";
     justify-content: space-between;
     align-items: center;
+
+    margin-bottom: 40px;
 }
 
 .finishRetry {
@@ -199,6 +233,8 @@ h1{
   border-radius: 10px;
   font-weight: bold;
   font-size: 150%;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+ 
 }
 
 .finishRetry2 {
@@ -213,6 +249,7 @@ h1{
   border-radius: 10px;
   font-weight: bold;
   font-size: 150%;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .backgroundColorGreen {
@@ -228,8 +265,9 @@ h1{
 }
 
 .backgroundColorRed {
-  background-color: red;
+  background-color:  rgba(255, 0, 0, 0.61);
   font-size: 24px;
   font-weight: bold;
+  
 }
 </style>
