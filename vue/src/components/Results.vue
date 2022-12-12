@@ -1,7 +1,7 @@
 <template>
   <div class="resultsContainer">
     <div class="header-results"></div>
-    <h1>Deck Name Study Session Results</h1>
+    <h1>{{deck.deckName}} Study Session Results</h1>
     <div class="button-header">
       <!-- <router-link
         :to="{ name: 'Deck', params: { deckId: this.studySession.deckId } }"
@@ -32,10 +32,10 @@
         You got {{ studySession.numberCorrect }}/{{
           studySession.numberOfCards
         }}
-        a percentage of
+        a percentage of:
         {{ studySession.correctPercent }}%
       </div>
-      <div>Confidence Score: {{ studySession.confidencePercent }}%</div>
+      <div>You have a confidence score of: {{ studySession.confidencePercent }}%</div>
     </div>
 
     <div
@@ -48,10 +48,10 @@
         You got {{ studySession.numberCorrect }}/{{
           studySession.numberOfCards
         }}
-        a percentage of
+        a percentage of:
         {{ studySession.correctPercent }}%
       </div>
-      <div>Confidence Score: {{ studySession.confidencePercent }}%</div>
+      <div>You have a confidence score of: {{ studySession.confidencePercent }}%</div>
     </div>
 
     <div
@@ -62,10 +62,10 @@
         You got {{ studySession.numberCorrect }}/{{
           studySession.numberOfCards
         }}
-        a percentage of
+        a percentage of:
         {{ studySession.correctPercent }}%
       </div>
-      <div>Confidence Score: {{ studySession.confidencePercent }}%</div>
+      <div>You have a confidence score of: {{ studySession.confidencePercent }}%</div>
     </div>
 
     <div class="card-results" v-for="card in cards" v-bind:key="card.cardId">
@@ -99,6 +99,7 @@
 <script>
 import CardService from "../services/CardService";
 import StudySession from "../services/StudySessionService";
+import DeckService from "../services/DeckService";
 
 export default {
   //    props:
@@ -107,6 +108,7 @@ export default {
       isLoading: true,
       cards: [],
       studySession: [],
+      deck: []
     };
   },
   methods: {
@@ -136,10 +138,24 @@ export default {
           }
         });
     },
+    getDecks() {
+      DeckService.getDeckById(this.$route.params.deckId)
+        .then((response) => {
+          this.deck = response.data;
+          this.isLoading = false;
+        })
+        .catch((error) => {
+          if (error.response && error.response.status === 404) {
+            alert("Deck cards not available.");
+            this.$router.push({ name: "Home" });
+          }
+        });
+    },
   },
   created() {
     this.getCards();
     this.getStudySession();
+    this.getDecks();
   },
 };
 </script>
@@ -177,11 +193,11 @@ export default {
 
   align-items: center;
   justify-content: space-evenly;
-  padding: 40px;
+  padding: 20px;
   margin: 10px;
   background-color: white;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   border-radius: 10px;
   
 }
@@ -217,38 +233,39 @@ h1{
     "finishRetry finishRetry2";
     justify-content: space-between;
     align-items: center;
+    margin: 10px;
 
     margin-bottom: 40px;
 }
 
 .finishRetry {
   background-color: #ffb5a7;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 30px;
+  align-items: center; */
+  padding: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
   border: none;
   border-radius: 10px;
   font-weight: bold;
-  font-size: 150%;
+  font-size: 100%;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
  
 }
 
 .finishRetry2 {
   background-color: #ffb5a7;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 30px;
+  align-items: center; */
+  padding: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
   border: none;
   border-radius: 10px;
   font-weight: bold;
-  font-size: 150%;
+  font-size: 100%;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 

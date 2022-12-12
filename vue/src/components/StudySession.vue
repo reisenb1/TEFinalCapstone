@@ -37,23 +37,23 @@
 
         
 
-        <div v-show="showCorrectIncorrectForm">
-          <button v-on:click.prevent="submitCorrectIncorrect('correct')">
+        <div id="candy" v-show="showCorrectIncorrectForm">
+          <button id="correct" v-on:click.prevent="submitCorrectIncorrect('correct')">
             Correct
           </button>
-          <button v-on:click.prevent="submitCorrectIncorrect('incorrect')">
+          <button id="incorrect" v-on:click.prevent="submitCorrectIncorrect('incorrect')">
             Incorrect
           </button>
         </div>
 
-        <div v-show="showConfidenceForm">
-          <button v-on:click.prevent="submitConfidence('green', card)">
+        <div id="moreButtons" v-show="showConfidenceForm">
+          <button id="nice" v-on:click.prevent="submitConfidence('green', card)">
             Yes I got this 100%
           </button>
-          <button v-on:click.prevent="submitConfidence('yellow', card)">
+          <button id="what" v-on:click.prevent="submitConfidence('yellow', card)">
             meh
           </button>
-          <button v-on:click.prevent="submitConfidence('red', card)">
+          <button id="nahSon" v-on:click.prevent="submitConfidence('red', card)">
             Yikes!!!
           </button>
         </div>
@@ -221,6 +221,113 @@ export default {
 </script>
 
 <style>
+#moreButtons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#nice {
+   align-self: right;
+  justify-self: right;
+  background-color:rgb(0, 255, 0, 0.6);
+  height: 30px;
+  width: 150px;
+  font-weight: bold;
+  font-size: small;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+#nice:hover {
+  background-color:rgb(0, 255, 0);
+  opacity: 1;
+}
+
+#what {
+   align-self: right;
+  justify-self: right;
+  background-color:rgba(255, 230, 0, 0.6);
+  height: 30px;
+  width: 150px;
+  font-weight: bold;
+  font-size:small;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+#what:hover {
+  background-color:rgba(255, 230, 0);
+  opacity: 1;
+}
+
+#nahSon {
+   align-self: right;
+  justify-self: right;
+  background-color:rgba(255, 0, 0, 0.6);
+  height: 30px;
+  width: 150px;
+  font-weight: bold;
+  font-size:small;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+#nahSon:hover {
+  background-color:rgba(255, 0, 0);
+  opacity: 1;
+}
+
+
+#correct {
+  align-self: right;
+  justify-self: right;
+  background-color:rgb(0, 255, 0, 0.6);
+  height: 40px;
+  width: 120px;
+  font-weight: bold;
+  font-size:medium;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+#incorrect {
+  align-self: right;
+  justify-self: right;
+  background-color: rgb(255, 0, 0, 0.6);
+  height: 40px;
+  width: 120px;
+  font-weight: bold;
+  font-size:medium;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+#correct:hover { 
+  background-color: #00b919;
+  opacity: 1;
+}
+
+#incorrect:hover {
+  background-color: rgb(255, 0, 0);
+  opacity: 1;
+}
+
+#candy {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
 
 .header-session {
   margin-top: 100px;

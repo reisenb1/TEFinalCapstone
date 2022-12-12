@@ -123,9 +123,9 @@ public class JdbcDeckDao implements DeckDao {
     }
 
     @Override
-    public List<Deck> getMySearchDecks(int userId, String search) {
-        String sql = "SELECT * FROM decks WHERE creator_id = ? AND deck_name LIKE ? OR deck_description LIKE ?;\n";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId, "%" + search + "%", "%" + search + "%" );
+    public List<Deck> getMySearchDecks(int creatorId, String search) {
+        String sql = "SELECT * FROM decks WHERE creator_id = ? AND deck_name iLIKE ? OR deck_description iLIKE ?;\n";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, creatorId, "%" + search + "%", "%" + search + "%" );
         List<Deck> mySearchedDecks = new ArrayList<>();
         while(results.next()) {
             mySearchedDecks.add(mapRowToDeck(results));

@@ -149,9 +149,9 @@ export default {
   margin: 8px 0;
   border: none;
   border: none;
-  border-bottom: 1px solid black;
-  
-
+  /* border-bottom: 1px solid black; */
+  border-radius: 5px;
+  box-shadow: inset 0 0 5px #000000;
 }
 
  .container {
