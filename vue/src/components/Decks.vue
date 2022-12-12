@@ -80,7 +80,10 @@ export default {
       );
     },
     retrieveMyDeck() {
-      DeckService.getMySearchedDecks(this.mySearchTerm).then((response) => {
+      DeckService.getMySearchedDecks(
+        this.$store.getters.user.id,
+        this.mySearchTerm
+      ).then((response) => {
         this.decks = response.data;
       });
     },
