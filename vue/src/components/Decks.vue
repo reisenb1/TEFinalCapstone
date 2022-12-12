@@ -103,22 +103,14 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-<<<<<<< HEAD
-}
-
-#mySearchBar {
-  display: flex;
-=======
-
 }
 
 #search-box {
-  display:flex;
+  display: flex;
   align-items: center;
   height: 30px;
   width: 200px;
   margin: auto;
->>>>>>> 0340315e777392927971dd4e070ae42dea9cd263
 }
 
 #mySearchTitle {
@@ -126,12 +118,7 @@ body {
   height: 30px;
   justify-content: center;
   align-items: center;
-<<<<<<< HEAD
-  margin-bottom: -1px;
-=======
   margin-bottom: 5px;
-  
->>>>>>> 0340315e777392927971dd4e070ae42dea9cd263
 }
 
 #main-grid {
