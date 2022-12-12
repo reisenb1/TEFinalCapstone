@@ -56,7 +56,7 @@ export default {
     return {
       isLoading: true,
       decks: [],
-      mySearchTerm: ""
+      mySearchTerm: "",
     };
   },
   created() {
@@ -103,22 +103,10 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-<<<<<<< HEAD
 }
 
 #mySearchBar {
   display: flex;
-=======
-
-}
-
-#search-box {
-  display:flex;
-  align-items: center;
-  height: 30px;
-  width: 200px;
-  margin: auto;
->>>>>>> 6a9c22edecf4877486990b209f269bad883eb364
 }
 
 #mySearchTitle {
@@ -127,9 +115,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: -1px;
-  
 }
-
 
 #main-grid {
   display: grid;
@@ -198,10 +184,6 @@ body {
   justify-content: space-around;
   margin-left: 70px;
   margin-top: 50px;
-<<<<<<< HEAD
-=======
-  
->>>>>>> 6a9c22edecf4877486990b209f269bad883eb364
 }
 
 #high-score {
