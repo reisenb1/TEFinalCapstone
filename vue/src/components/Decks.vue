@@ -1,18 +1,21 @@
 <template>
   <div id="main-grid" class="container1">
     <div class="scroll" id="sideNav">
-      <h1 id="h1">My Decks</h1>
 
       <div id="mySearchBar">
-        <h3 id="mySearchTitle">Search:</h3>
+        <!-- <h3 id="mySearchTitle">Search:</h3> -->
         <input
           id="search-box"
           type="text"
           v-on:keyup.enter="retrieveMyDeck"
-          placeholder="search my decks by name..."
+          placeholder="search my decks..."
           v-model="mySearchTerm"
         />
       </div>
+
+      <h1 id="h1">My Decks</h1>
+
+    
       <router-link :to="{ name: 'AddDeck' }"
         ><button id="addDeck">New Deck</button></router-link
       >
@@ -111,18 +114,23 @@ body {
 #search-box {
   display: flex;
   align-items: center;
-  height: 30px;
-  width: 200px;
+  height: 15px;
+  width: 120px;
   margin: auto;
+  margin-bottom: -5%;
 }
 
-#mySearchTitle {
+#h1 {
+  margin-bottom: -5px;
+}
+
+/* #mySearchTitle {
   display: flex;
   height: 30px;
   justify-content: center;
   align-items: center;
   margin-bottom: 5px;
-}
+} */
 
 #main-grid {
   display: grid;
