@@ -363,12 +363,12 @@ export default {
 }
 
 .submit{
-  background-color: teal;
+  background-color: #FFB5A7;
   width: 200px;
 }
 
 .cancel {
-  background-color: gray;
+  background-color: rgb(179, 179, 179);
   width: 200px;
 }
 

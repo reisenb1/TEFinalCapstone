@@ -1,7 +1,10 @@
 <template>
-  <div id="main-grid">
+  <!-- <div id="main-grid45"> -->
     <div class="container2">
+
+      
       <form v-on:submit.prevent="submitForm">
+        <div class="frontBackEdit">
         <div id="cardFront">
           <label for="front">Front:</label>
           <input id="text" type="text" name="front" v-model="card.front" />
@@ -11,13 +14,18 @@
           <label for="back">Back:</label>
           <input id="text" type="text" name="back" v-model="card.back" />
         </div>
+      </div>
 
+        <div id="newButtons2">
         <button class="submit" input type="submit">Submit</button>
 
-        <button class="cancel" v-on:click.prevent="cancelForm" type="cancel">Cancel</button>
+        <button class="cancel" v-on:click.prevent="cancelForm" type="cancel">
+          Cancel
+        </button>
+        </div>
       </form>
     </div>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -44,7 +52,7 @@ export default {
           deckId: this.deckId,
           front: this.card.front,
           back: this.card.back,
-          userId:this.$store.getters.user.id
+          userId: this.$store.getters.user.id,
         };
         CardService.addCard(newCard)
           .then((response) => {
@@ -64,7 +72,7 @@ export default {
           deckId: this.deckId,
           front: this.card.front,
           back: this.card.back,
-          userId:this.$store.getters.user.id
+          userId: this.$store.getters.user.id,
         };
         CardService.updateCard(newCard)
           .then((response) => {
@@ -104,25 +112,43 @@ export default {
 </script>
 
 <style>
+/* .container2 {
+  display: grid;
+
+  grid-template-areas: "cardFront  cardBack";
+
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+
+  align-items: center;
+} */
+
+.frontBackEdit{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
 #cardFront {
+  /* grid-area: cardFront; */
   display: flex;
   flex-direction: column;
   background-color: white;
   width: 400px;
   padding: 25px;
   border: none;
-  border-top: 20px solid red;
+  border-top: 20px solid #FFB5A7;
   /* border-top-color: lavender; */
   height: 200px;
 
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
-  margin-right: 50px;
-
-  grid-area: frontCard;
+  margin-right: 25px;
 }
 
 #cardBack {
+  /* grid-area: cardBack; */
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -130,13 +156,12 @@ export default {
   padding: 25px;
   border: none;
   border-top: 20px solid rgb(163, 160, 160);
-  margin-top: 20px;
+  /* margin-top: 20px; */
 
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   height: 200px;
 
-  margin-right: 50px;
-  grid-area: backCard;
+  margin-left: 25px;
 }
 
 #cardBack:after {
@@ -147,6 +172,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 #text {
@@ -155,44 +181,53 @@ export default {
 }
 
 .submit {
-  background-color: rgb(31, 51, 235, 0.6);
+  background-color: rgba(255, 255, 255);
   color: white;
+  /* border: 2px solid blue; */
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 25%;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  transition-duration: 1s;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition-duration: 1s; 
 }
 
 .cancel {
-  background-color: rgb(255, 0, 0, 0.6);
+  background-color: rgb(255, 255, 255);
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 25%;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition-duration: 1s;
   margin-left: 10px;
 }
 
 .submit:hover {
-  background-color: blue;
-  opacity: 1;
+  background-color: #FFB5A7;
+  opacity: 0.7;
 }
 
 .cancel:hover {
-  background-color:red;
+  background-color: rgb(143, 143, 143);
   opacity: 1;
 }
 
-.cancel, .submit {
+.cancel,
+.submit {
   margin-top: 15px;
   border-radius: 5px;
+  
 }
+
+#newButtons2 {
+  display: flex;
+  justify-content: center;
+
+  }
 
 /* #main-grid {
   display: grid;
