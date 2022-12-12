@@ -24,6 +24,7 @@
     <div class="cards-study-session" v-for="session in studySessions" v-bind:key="session.studySessionId">
       
       <div id="deck-name">
+          <img class="img-deck-stat" src="../images/cards.gif" alt="cards">
           {{deckNames[studySessions.indexOf(session)]}}
       </div>
     
@@ -49,10 +50,12 @@
 
       <div id="percent-correct">
         {{session.correctPercent}}%
+        <img v-show="session.correctPercent == 100" class="img-star-stat" src="../images/star.png" alt="star">
       </div>
 
       <div id="confidence-percent">
         {{session.confidencePercent}}%
+        <img v-show="session.confidencePercent == 100" class="img-star-stat" src="../images/star.png" alt="star">
       </div>
 
       
@@ -152,6 +155,12 @@ export default {
     height: 20px;
     margin-left: 5px;
 }
+
+.img-star-stat{
+    height: 40px;
+    margin-left: 10px;
+}
+
 .container-stats {
   /* background-color: rgb(90, 90, 226); */
   height: 50%;
@@ -215,6 +224,7 @@ export default {
     grid-area: deck-name;
     display: flex;
     justify-content: center;
+    align-items: center;
     
 }
 
@@ -249,12 +259,14 @@ export default {
     grid-area: percent-correct;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 #confidence-percent{
     grid-area: confidence-percent;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 
@@ -316,7 +328,11 @@ export default {
     text-align: center;
 }
 
-
+.img-deck-stat{
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
 
 
 
