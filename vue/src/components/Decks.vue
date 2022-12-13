@@ -40,7 +40,7 @@
     </div>
 
     <div id="home1">
-      <h1 id="greeting">Hello {{ this.$store.getters.user.username }}</h1>
+      <h1 id="greeting">Hello, {{ this.$store.getters.user.username }}!</h1>
 
       <div id="my-stats">
         <h2>My Stats</h2>
@@ -189,7 +189,7 @@ body {
   background-color: #fcb2a4;
   align-items: center;
   text-indent: 20px;
-  width: 80%;
+  width: 91%;
   border-radius: 10px;
 }
 
