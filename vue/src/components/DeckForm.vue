@@ -137,7 +137,7 @@ export default {
       deck: {
         deckName: "",
         deckDescription: "",
-        category:"",
+        category:"GENERAL",
         creatorId: this.$store.getters.user.id,
         accessible: true,
       },

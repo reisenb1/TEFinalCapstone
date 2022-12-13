@@ -21,7 +21,8 @@ public class Deck {
         ART,
         CELEBRITIES,
         ANIMALS,
-        BOARDGAMES, VEHICLES
+        BOARDGAMES,
+        VEHICLES
     }
 
     private int deckId;
