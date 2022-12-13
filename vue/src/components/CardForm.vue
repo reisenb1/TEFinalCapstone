@@ -6,12 +6,12 @@
       <form v-on:submit.prevent="submitForm">
         <div class="frontBackEdit">
         <div id="cardFront">
-          <label for="front">Front:</label>
+          <label for="front">Question:</label>
           <textarea id="text" type="text" name="back" v-model="card.front" class="cardText" />
         </div>
 
         <div id="cardBack">
-          <label for="back">Back:</label>
+          <label for="back">Answer:</label>
           <!-- <input id="text" type="text" name="back" v-model="card.back" class="cardText"/> -->
           <textarea id="text" type="text" name="back" v-model="card.back" class="cardText" />
         </div>
