@@ -1,6 +1,10 @@
 <template>
   <div id="study-session-component">
-    <div class="header-session"></div>
+<!--     
+    <div class="header-session"></div> -->
+    <div class="cancel-button-box">
+    <button id="cancelButton" v-on:click.prevent="goBackToDeckPage">Cancel Study Session</button>
+    </div>
     <h1>{{deck.deckName}} Study Session</h1>
     <div v-for="card in cards" v-bind:key="card.cardId">
       <div v-show="card.cardId == currentCardId">
@@ -50,19 +54,23 @@
 
         <div id="moreButtons" v-show="showConfidenceForm">
           <button id="nice" v-on:click.prevent="submitConfidence('green', card)">
-            Yes I got this 100%
+            <img class="smiley" src="../images/green-face.png" alt="green smiley">
+            <div>I feel confident</div> 
           </button>
           <button id="what" v-on:click.prevent="submitConfidence('yellow', card)">
-            meh
+            <img class="smiley" src="../images/yellow-face.png" alt="yellow smiley">
+            <div>I'm somewhat confident</div>
           </button>
+          
           <button id="nahSon" v-on:click.prevent="submitConfidence('red', card)">
-            Yikes!!!
+          <img class="smiley" src="../images/red-face.png" alt="red smiley">
+           <div>I need to study more</div>
           </button>
         </div>
       </div>
     </div>
 
-    <button id="cancelButton" v-on:click.prevent="goBackToDeckPage">Cancel Study Session</button>
+    
   </div>
 </template>
 
@@ -239,6 +247,10 @@ export default {
 
 <style>
 
+.smiley{
+  width: 50px;
+}
+
 .correctIncorrectImg{
   height: 20px;
   margin-right: 10px;
@@ -251,17 +263,20 @@ export default {
 }
 
 #nice {
-   align-self: right;
-  justify-self: right;
-  background-color:rgb(0, 255, 0, 0.6);
-  height: 30px;
-  width: 150px;
+ display: flex;
+  flex-direction: column;
+   align-items: center;
+  justify-content: center;
+  /* background-color:rgb(0, 255, 0, 0.6); */
+  height: 100px;
+  width: 200px;
   font-weight: bold;
-  font-size: small;
+  font-size: medium;
   border: none;
   border-radius: 5px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
+    background-color: white;
 }
 
 #nice:hover {
@@ -270,17 +285,20 @@ export default {
 }
 
 #what {
-   align-self: right;
-  justify-self: right;
-  background-color:rgba(255, 230, 0, 0.6);
-  height: 30px;
-  width: 150px;
+  display: flex;
+  flex-direction: column;
+   align-items: center;
+  justify-content: center;
+  /* background-color:rgba(255, 230, 0, 0.6); */
+  height: 100px;
+  width: 200px;
   font-weight: bold;
-  font-size:small;
+  font-size:medium;
   border: none;
   border-radius: 5px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
+    background-color: white;
 }
 
 #what:hover {
@@ -289,13 +307,16 @@ export default {
 }
 
 #nahSon {
-   align-self: right;
-  justify-self: right;
-  background-color:rgba(255, 0, 0, 0.6);
-  height: 30px;
-  width: 150px;
+  display: flex;
+  flex-direction: column;
+   align-items: center;
+  justify-content: center;
+  /* background-color:rgba(255, 0, 0, 0.6); */
+  background-color: white;
+  height: 100px;
+  width: 200px;
   font-weight: bold;
-  font-size:small;
+  font-size:medium;
   border: none;
   border-radius: 5px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -313,15 +334,17 @@ export default {
   align-items: center;
   justify-content: center;
   /* background-color:rgb(0, 255, 0, 0.3); */
-  height: 40px;
-  width: 120px;
+  height: 80px;
+  width: 200px;
   font-weight: bold;
   font-size:medium;
-  border: solid, 1px;
-  border-color: rgb(0,255,0);
-  border-radius: 5px;
+  border: none;
+  /* border: solid, 1px;
+  border-color: rgb(0,255,0); */
+  border-radius: 5px; 
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
+    background-color: white;
 }
 
 #incorrect {
@@ -329,15 +352,17 @@ export default {
   align-items: center;
   justify-content: center;
   /* background-color: rgb(255, 0, 0, 0.6); */
-  height: 40px;
-  width: 120px;
+  height: 80px;
+  width: 200px;
   font-weight: bold;
   font-size:medium;
-  border: solid, 1px;
+  /* border: solid, 1px; */
+  border: none;
   border-color: rgb(255,0,0);
   border-radius: 5px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
+    background-color: white;
 }
 
 #correct:hover { 
@@ -346,7 +371,7 @@ export default {
 }
 
 #incorrect:hover {
-  background-color: rgb(255, 0, 0);
+  background-color: rgb(248, 64, 64);
   opacity: 1;
 }
 
@@ -361,18 +386,25 @@ export default {
   
 }
 
+.cancel-button-box{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%
+}
+
 #cancelButton{
   align-self: right;
   justify-self: right;
-  background-color: #FFB5A7;
+  background-color: #F8EDE8;
   height: 50px;
   width: 250px;
   margin-top: 20px;
+  margin-right: 20px;
   font-weight: bold;
   font-size:medium;
   border: none;
   border-radius: 5px;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
 }
 
 #cancelButton:hover {
@@ -425,7 +457,7 @@ export default {
   width: 100%;
   height: 100%;
   /* line-height: 260px; */
-  color: white;
+  color: black;
   text-align: center;
 
   font-weight: bold;
