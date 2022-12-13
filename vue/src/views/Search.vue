@@ -124,8 +124,9 @@ export default {
 }
 
 #searchLinks:hover {
-  background-color: #fec89a;
-  opacity: 0.6;
+  background-color: #f8b172;
+  /* opacity: 0.6; */
+  border: solid black 3px;
 }
 
 #searchTitle {

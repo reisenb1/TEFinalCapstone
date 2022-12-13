@@ -347,8 +347,11 @@ div#sideNav {
 }
 
 #activeDeck:hover {
-  background-color: (#f3790e);
-  opacity: 0.7;
+  /* background-color: (#f3790e);
+  opacity: 0.7; */
+
+   background-color: #f8b172;
+  border: solid black 3px;
 }
 
 .deckName {

@@ -154,6 +154,7 @@ export default {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   margin-right: 25px;
+  border-radius: 10px;
 }
 
 #cardBack {
@@ -164,13 +165,14 @@ export default {
   width: 400px;
   padding: 25px;
   border: none;
-  border-top: 20px solid rgb(163, 160, 160);
+  border-top: 20px solid #FEC89A;
   /* margin-top: 20px; */
 
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   height: 200px;
 
   margin-left: 25px;
+  border-radius: 10px;
 }
 
 #cardBack:after {
@@ -185,8 +187,9 @@ export default {
 }
 
 #text {
+  margin-top: 20px;
   border: none;
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
 }
 
 .submit {
