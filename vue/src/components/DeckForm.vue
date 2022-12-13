@@ -41,10 +41,10 @@
     </form>   
   </div>
 
-  <div id="or" v-show="deck.deckId == 0">OR</div>
+  <div id="or" v-show="add">OR</div>
 
 
-    <div v-show="deck.deckId == 0">
+    <div v-show="add">
 
      
       <form  id="add-deck-form" class="container-random" v-on:submit.prevent="submitForm">
@@ -124,6 +124,7 @@ export default {
   },
   created(){
     if(this.deckId != 0){
+      this.add = false;
       DeckService.getDeckById(this.deckId)
         .then( response => {
           this.deck = response.data;
@@ -145,6 +146,7 @@ export default {
         creatorId: this.$store.getters.user.id,
         accessible: true,
       },
+      add: true
     };
   },
   methods: {
@@ -192,7 +194,11 @@ export default {
       this.deck.category = category;
     },
     cancelDeck() {
+      if(this.deckId == 0){
         this.$router.push({ name: 'loggedInHome' });
+      } else {
+        this.$router.push({ name: 'Deck', params: { deckId: this.deckId } })
+      }
     }
   },
 };
