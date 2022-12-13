@@ -1,4 +1,5 @@
 <template>
+<div class="both-options">
   <div class="container3">
     <form id="add-deck-form" v-on:submit.prevent="submitForm">
       <div>
@@ -37,9 +38,44 @@
       <button id="niceButton" type="submit">Save</button>
       <button id="niceButton" v-on:click.prevent="cancelDeck" type="cancel">Cancel</button>
       
-    </form>
+    </form>   
+  </div>
 
-   
+  <div>OR</div>
+
+
+    <div class="container-random">
+
+     
+      <form id="add-deck-form" v-on:submit.prevent="submitForm">
+
+         <h2>Select a category to generate a random deck!</h2> 
+
+      <input type="radio" id="general" name="category" value="GENERAL" v-on:click="setCategory('GENERAL')">
+      <label for="general">General</label>
+
+      <input type="radio" id="nature" name="category" value="NATURE" v-on:click="setCategory('NATURE')">
+      <label for="nature">Nature</label>
+      
+      <input type="radio" id="computers" name="category" value="COMPUTERS" v-on:click="setCategory('COMPUTERS')">
+      <label for="computers">Computers</label>
+
+      <!-- <input type="radio" id="math" name="category" value="MATH" v-on:click="setCategory('MATH')">
+      <label for="math">Math</label> -->
+
+      <input type="radio" id="mythology" name="category" value="MYTHOLOGY" v-on:click="setCategory('MYTHOLOGY')">
+      <label for="mythology">Mythology</label>
+
+      <input type="radio" id="sports" name="category" value="SPORTS" v-on:click="setCategory('SPORTS')">
+      <label for="sports">Sports</label>
+
+      <button id="niceButton" type="submit">Save</button>
+      <button id="niceButton" v-on:click.prevent="cancelDeck" type="cancel">Cancel</button>
+
+      </form> 
+    
+    </div>
+
   </div>
 </template>
 
@@ -68,8 +104,9 @@ export default {
       deck: {
         deckName: "",
         deckDescription: "",
+        category:"",
         creatorId: this.$store.getters.user.id,
-        accessible: false,
+        accessible: true,
       },
     };
   },
@@ -113,6 +150,10 @@ export default {
           })
       }
     },
+
+    setCategory(category){
+      this.deck.category = category;
+    },
     cancelDeck() {
         this.$router.push({ name: 'loggedInHome' });
     }
@@ -124,12 +165,27 @@ export default {
 }
 
 <style scoped>
+
+.both-options{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .container3 {
   display: flex;
   justify-content: center;
   margin-top: 100px;
   background-color: #F8EDEB;
+}
 
+.container-random {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  background-color: #F8EDEB;
 }
 
 #add-deck-form {

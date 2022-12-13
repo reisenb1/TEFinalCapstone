@@ -68,7 +68,7 @@ public class DeckController {
 
     @RequestMapping(path = "/decks", method = RequestMethod.POST)
     public Deck createDeck(@RequestBody Deck deck, @RequestParam(defaultValue = "10") int numberCards) {
-        if(deck.getDeckName() == null){
+        if(deck.getDeckName().length() == 0){
             deck.setDeckName(deck.getCategory().toString());
             Deck createdDeck = deckDao.createDeck(deck);
             createdDeck = apiDeckService.addQuestions(createdDeck,numberCards);
