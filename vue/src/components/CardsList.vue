@@ -22,12 +22,6 @@
 
     </div>
 
-    <div class="card-header">
-      <div class="front">Term</div>
-      <div class="back">Definition</div>
-
-    </div>
-
     <div class="add-card">
 <!-- 
     <h3 id="cards-terms" class="cards-label">Terms</h3>
@@ -40,12 +34,12 @@
 
           <div class="card-form-cards">
           <div class="add-form" >
-            <label for="front">Term</label>
+            <label for="front">Question</label>
             <input id="text" type="text" name="front" v-model="card.front" />
           </div>
 
           <div class="add-form">
-            <label for="back">Definition</label>
+            <label for="back">Answer</label>
             <input id="text" type="text" name="back" v-model="card.back" />
           </div>
           </div>
@@ -58,6 +52,12 @@
           </div>
         </form>
       </div>
+
+    </div>
+
+    <div class="card-header">
+      <div class="front">Question</div>
+      <div class="back">Answer</div>
 
     </div>
 
