@@ -63,8 +63,8 @@
       <!-- <input type="radio" id="math" name="category" value="MATH" v-on:click="setCategory('MATH')">
       <label for="math">Math</label> -->
 
-      <input type="radio" id="mythology" name="category" value="MYTHOLOGY" v-on:click="setCategory('MYTHOLOGY')">
-      <label for="mythology">Mythology</label>
+      <input type="radio" id="boardGames" name="category" value="BOARDGAMES" v-on:click="setCategory('BOARDGAMES')">
+      <label for="boardGames">Board Games</label>
 
       <input type="radio" id="sports" name="category" value="SPORTS" v-on:click="setCategory('SPORTS')">
       <label for="sports">Sports</label>

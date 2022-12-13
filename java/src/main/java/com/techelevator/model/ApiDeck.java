@@ -20,7 +20,7 @@ public class ApiDeck {
             Map.entry(Deck.Category.BOOKS, 10),
             Map.entry(Deck.Category.FILM, 11),
             Map.entry(Deck.Category.MUSIC, 12),
-            Map.entry(Deck.Category.MUSICALS, 13),
+            Map.entry(Deck.Category.BOARDGAMES, 16),
             Map.entry(Deck.Category.TELEVISION, 14),
             Map.entry(Deck.Category.GEOGRAPHY, 22),
             Map.entry(Deck.Category.HISTORY, 23),
