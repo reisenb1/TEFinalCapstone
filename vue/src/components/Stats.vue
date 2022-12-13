@@ -141,8 +141,9 @@ export default {
         .then((response) => {
           this.studySessions = response.data;
           this.isLoading = false;
-          this.setDeckNames();
+          
           this.reverseOrderSessions();
+          this.setDeckNames();
         })
         .catch((error) => {
           if (error.response && error.response.status === 404) {
@@ -178,6 +179,7 @@ export default {
             .then(response => {
                 // this.studySessions[i].push(response.data.deckName);
                 this.deckNames.push(response.data.deckName)
+                // this.deckNames.push(response.data)
             })
             .catch(error => {
                 console.log(error);

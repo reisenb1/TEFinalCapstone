@@ -223,6 +223,8 @@ export default {
   background-color: white;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   font-weight: bold;
+  border-radius: 10px;
+
 }
 
 .card-header{
@@ -349,6 +351,7 @@ export default {
 
 .add-card{
   grid-area: add-card;
+
 }
 
 .cards-label{
@@ -361,6 +364,7 @@ export default {
 .add-card-image{
   max-height: 50px;
   padding: 10px;
+
 }
 
 .add-card-bottom{
@@ -413,12 +417,14 @@ export default {
 
 .imgggg{
   width: 50%;
+  
 }
   
 .edit-delete{
   background-color: white;
   border-style: none;
   opacity: 75%;
+
 }
 
 .cards-list-footer{
