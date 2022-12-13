@@ -124,8 +124,7 @@ body {
 }
 
 #h1 {
-  margin-bottom: -5px;
-
+  margin: 35px 0px -5px 0px;
 }
 
 /* #mySearchTitle {
@@ -258,18 +257,17 @@ div#sideNav {
 }
 
 #addDeck {
-  color: #6b6967;
+  background-color: #fcb2a4;
+  color: black;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin: 40px 0px 35px 10px;
   border: none;
   cursor: pointer;
   height: 40px;
   width: 40%;
   box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition-duration: 1s;
-  margin-left: 10px;
   text-decoration: none;
-  margin-top: 20px;
   border-radius: 10px;
   /* background-color: rgb(#F8EDE8, 0.6); */
 }
