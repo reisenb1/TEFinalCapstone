@@ -9,10 +9,10 @@
       > -->
         
           <router-link
-        :to="{ name: 'Deck', params: { deckId: this.studySession.deckId } }"
+        :to="{ name: 'loggedInHome' }"
       >
           
-          <button class="finishRetry">FINISH SESSION </button>
+          <button class="finishRetry">Finish Session </button>
       </router-link>
 
       <router-link
@@ -21,7 +21,7 @@
           params: { deckId: this.studySession.deckId },
         }"
       >
-        <button class="finishRetry2">TRY AGAIN!!</button>
+        <button class="finishRetry2">Try Again</button>
       </router-link>
     </div>
     <h1>{{deck.deckName}} Study Session Results</h1>
@@ -30,14 +30,20 @@
       class="card-results-main backgroundColorGreen"
       v-if="studySession.correctPercent >= 70"
     >
-      <div>
+      <!-- <div>
         You got {{ studySession.numberCorrect }}/{{
           studySession.numberOfCards
         }}
         a percentage of:
         {{ studySession.correctPercent }}%
+      </div> -->
+      <div>
+        You got {{ studySession.numberCorrect }}/{{
+          studySession.numberOfCards
+        }} correct
       </div>
-      <div>You have a confidence score of: {{ studySession.confidencePercent }}%</div>
+      <!-- <div>You have a confidence score of: {{ studySession.confidencePercent }}%</div> -->
+       <div>Your confidence score is {{ studySession.confidencePercent }}%</div>
     </div>
 
     <div
@@ -49,11 +55,10 @@
       <div>
         You got {{ studySession.numberCorrect }}/{{
           studySession.numberOfCards
-        }}
-        a percentage of:
-        {{ studySession.correctPercent }}%
+        }} correct
+     
       </div>
-      <div>You have a confidence score of: {{ studySession.confidencePercent }}%</div>
+      <div>Your confidence score is {{ studySession.confidencePercent }}%</div>
     </div>
 
     <div
@@ -63,11 +68,11 @@
       <div>
         You got {{ studySession.numberCorrect }}/{{
           studySession.numberOfCards
-        }}
-        a percentage of:
-        {{ studySession.correctPercent }}%
+        }} correct
+
+    
       </div>
-      <div>You have a confidence score of: {{ studySession.confidencePercent }}%</div>
+      <div>Your confidence score is {{ studySession.confidencePercent }}%</div>
     </div>
 
     <div class="card-results" v-for="card in cards" v-bind:key="card.cardId">
@@ -181,6 +186,7 @@ export default {
   background-color: white;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   /* margin-bottom: 50px; */
+  border-radius: 10px;
   
 }
 
@@ -241,7 +247,7 @@ h1{
 }
 
 .finishRetry {
-  background-color: #ffb5a7;
+  background-color: white;
   /* display: flex;
   justify-content: center;
   align-items: center; */
@@ -253,11 +259,12 @@ h1{
   font-weight: bold;
   font-size: 100%;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  width:200px;
  
 }
 
 .finishRetry2 {
-  background-color: #ffb5a7;
+  background-color:white;
   /* display: flex;
   justify-content: center;
   align-items: center; */
@@ -269,6 +276,7 @@ h1{
   font-weight: bold;
   font-size: 100%;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  width: 200px;
 }
 
 .backgroundColorGreen {

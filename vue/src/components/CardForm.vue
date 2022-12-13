@@ -6,13 +6,14 @@
       <form v-on:submit.prevent="submitForm">
         <div class="frontBackEdit">
         <div id="cardFront">
-          <label for="front">Front:</label>
-          <input id="text" type="text" name="front" v-model="card.front" />
+          <label for="front">Question:</label>
+          <textarea id="text" type="text" name="back" v-model="card.front" class="cardText" />
         </div>
 
         <div id="cardBack">
-          <label for="back">Back:</label>
-          <input id="text" type="text" name="back" v-model="card.back" />
+          <label for="back">Answer:</label>
+          <!-- <input id="text" type="text" name="back" v-model="card.back" class="cardText"/> -->
+          <textarea id="text" type="text" name="back" v-model="card.back" class="cardText" />
         </div>
       </div>
 
@@ -123,6 +124,14 @@ export default {
   align-items: center;
 } */
 
+.cardText {
+  inline-size: 390px;
+  /* overflow-wrap: break-word; */
+  white-space: wrap;
+  height: 200px;
+  resize: none;
+}
+
 .frontBackEdit{
   display: flex;
   justify-content: center;
@@ -145,6 +154,7 @@ export default {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   margin-right: 25px;
+  border-radius: 10px;
 }
 
 #cardBack {
@@ -155,13 +165,14 @@ export default {
   width: 400px;
   padding: 25px;
   border: none;
-  border-top: 20px solid rgb(163, 160, 160);
+  border-top: 20px solid #FEC89A;
   /* margin-top: 20px; */
 
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   height: 200px;
 
   margin-left: 25px;
+  border-radius: 10px;
 }
 
 #cardBack:after {
@@ -176,8 +187,9 @@ export default {
 }
 
 #text {
+  margin-top: 20px;
   border: none;
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
 }
 
 .submit {

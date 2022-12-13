@@ -41,66 +41,70 @@
     </form>   
   </div>
 
-  <div>OR</div>
+  <div id="or" v-show="add">OR</div>
 
 
-    <div class="container-random">
+    <div v-show="add">
 
      
-      <form  v-on:submit.prevent="submitForm">
+      <form  id="add-deck-form" class="container-random" v-on:submit.prevent="submitForm">
 
-         <h2>Select a category to generate a random deck!</h2> 
+         <label for="category">Select a category to generate a random deck!</label> 
 
-      <input type="radio" id="general" name="category" value="GENERAL" v-on:click="setCategory('GENERAL')">
-      <label for="general">General</label>
+         <select name="category" id="category-selector"  v-model="deck.category">
 
-      <input type="radio" id="nature" name="category" value="NATURE" v-on:click="setCategory('NATURE')">
-      <label for="nature">Nature</label>
+      <option id="general" name="category" value="GENERAL" v-on:click="setCategory('GENERAL')">General</option>
+      <!-- <label for="general">General</label> -->
+
+      <option id="nature" name="category" value="NATURE" v-on:click="setCategory('NATURE')">Nature</option>
+      <!-- <label for="nature">Nature</label> -->
       
-      <input type="radio" id="computers" name="category" value="COMPUTERS" v-on:click="setCategory('COMPUTERS')">
-      <label for="computers">Computers</label>
+      <option id="computers" name="category" value="COMPUTERS" v-on:click="setCategory('COMPUTERS')">Computers</option>
+      <!-- <label for="computers">Computers</label> -->
 
       <!-- <input type="radio" id="math" name="category" value="MATH" v-on:click="setCategory('MATH')">
       <label for="math">Math</label> -->
 
-      <input type="radio" id="boardGames" name="category" value="BOARDGAMES" v-on:click="setCategory('BOARDGAMES')">
-      <label for="boardGames">Board Games</label>
+      <option id="boardGames" name="category" value="BOARDGAMES" v-on:click="setCategory('BOARDGAMES')">Board Games</option>
+      <!-- <label for="boardGames">Board Games</label> -->
 
-      <input type="radio" id="sports" name="category" value="SPORTS" v-on:click="setCategory('SPORTS')">
-      <label for="sports">Sports</label>
+      <option id="sports" name="category" value="SPORTS" v-on:click="setCategory('SPORTS')">Sports</option>
+      <!-- <label for="sports">Sports</label> -->
 
-      <input type="radio" id="books" name="category" value="BOOKS" v-on:click="setCategory('BOOKS')">
-      <label for="books">Books</label>
+      <option id="books" name="category" value="BOOKS" v-on:click="setCategory('BOOKS')">Books</option>
+      <!-- <label for="books">Books</label> -->
 
-      <input type="radio" id="film" name="category" value="FILM" v-on:click="setCategory('FILM')">
-      <label for="film">Film</label>
+      <option id="film" name="category" value="FILM" v-on:click="setCategory('FILM')">Film</option>
+      <!-- <label for="film">Film</label> -->
 
-      <input type="radio" id="music" name="category" value="MUSIC" v-on:click="setCategory('MUSIC')">
-      <label for="music">Music</label>
+      <option id="music" name="category" value="MUSIC" v-on:click="setCategory('MUSIC')">Music</option>
+      <!-- <label for="music">Music</label> -->
 
-      <input type="radio" id="musicals" name="category" value="MUSICALS" v-on:click="setCategory('MUSICALS')">
-      <label for="musicals">Musicals</label>
+      <option id="musicals" name="category" value="MUSICALS" v-on:click="setCategory('MUSICALS')">Musicals</option>
+      <!-- <label for="musicals">Musicals</label> -->
 
-      <input type="radio" id="television" name="category" value="TELEVISION" v-on:click="setCategory('TELEVISION')">
-      <label for="television">Television</label>
+      <option id="television" name="category" value="TELEVISION" v-on:click="setCategory('TELEVISION')">Television</option>
+      <!-- <label for="television">Television</label> -->
 
-      <input type="radio" id="geography" name="category" value="GEOGRAPHY" v-on:click="setCategory('GEOGRAPHY')">
-      <label for="geography">Geography</label>
+      <option id="geography" name="category" value="GEOGRAPHY" v-on:click="setCategory('GEOGRAPHY')">Geography</option>
+      <!-- <label for="geography">Geography</label> -->
 
-      <input type="radio" id="history" name="category" value="HISTORY" v-on:click="setCategory('HISTORY')">
-      <label for="history">History</label>
+      <option id="history" name="category" value="HISTORY" v-on:click="setCategory('HISTORY')">History</option>
+      <!-- <label for="history">History</label> -->
 
-      <input type="radio" id="art" name="category" value="ART" v-on:click="setCategory('ART')">
-      <label for="art">Art</label>
+      <option id="art" name="category" value="ART" v-on:click="setCategory('ART')">Art</option>
+      <!-- <label for="art">Art</label> -->
 
-      <input type="radio" id="celebrities" name="category" value="CELEBRITIES" v-on:click="setCategory('CELEBRITIES')">
-      <label for="celerities">celebrities</label>
+      <option id="celebrities" name="category" value="CELEBRITIES" v-on:click="setCategory('CELEBRITIES')">Celebrities</option>
+      <!-- <label for="celerities">celebrities</label> -->
 
-      <input type="radio" id="animals" name="category" value="ANIMALS" v-on:click="setCategory('ANIMALS')">
-      <label for="animals">Animals</label>
+      <option id="animals" name="category" value="ANIMALS" v-on:click="setCategory('ANIMALS')">Animals</option>
+      <!-- <label for="animals">Animals</label> -->
 
-      <input type="radio" id="vehicles" name="category" value="VEHICLES" v-on:click="setCategory('VEHICLES')">
-      <label for="vehicles">Vehicles</label>
+      <option id="vehicles" name="category" value="VEHICLES" v-on:click="setCategory('VEHICLES')">Vehicles</option>
+      <!-- <label for="vehicles">Vehicles</label> -->
+
+      </select>
 
       <button id="niceButton" type="submit">Save</button>
       <button id="niceButton" v-on:click.prevent="cancelDeck" type="cancel">Cancel</button>
@@ -120,6 +124,7 @@ export default {
   },
   created(){
     if(this.deckId != 0){
+      this.add = false;
       DeckService.getDeckById(this.deckId)
         .then( response => {
           this.deck = response.data;
@@ -141,6 +146,7 @@ export default {
         creatorId: this.$store.getters.user.id,
         accessible: true,
       },
+      add: true
     };
   },
   methods: {
@@ -188,7 +194,11 @@ export default {
       this.deck.category = category;
     },
     cancelDeck() {
+      if(this.deckId == 0){
         this.$router.push({ name: 'loggedInHome' });
+      } else {
+        this.$router.push({ name: 'Deck', params: { deckId: this.deckId } })
+      }
     }
   },
 };
@@ -198,6 +208,17 @@ export default {
 }
 
 <style scoped>
+
+#category-selector{
+  width: 80%;
+  height: 10%;
+  border-radius: 5px;
+
+  -webkit-box-shadow:inset 0 0 3px #000;
+       -moz-box-shadow:inset 0 0 3px #000;
+            box-shadow:inset 0 0 3px #000;
+  
+}
 
 .both-options{
   display: flex;
@@ -256,6 +277,7 @@ export default {
   font-weight: bold;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   background-color: #f7c2b9;
+  width: 100%;
   
   
 }
@@ -272,5 +294,13 @@ input.checkbox {
   /* height: 30px; */
   transform: scale(2);
   margin-left: 10px;
+}
+
+#or{
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 200%;
+  font-weight: bold;
+
 }
 </style>

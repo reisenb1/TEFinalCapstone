@@ -22,12 +22,6 @@
 
     </div>
 
-    <div class="card-header">
-      <div class="front">Term</div>
-      <div class="back">Definition</div>
-
-    </div>
-
     <div class="add-card">
 <!-- 
     <h3 id="cards-terms" class="cards-label">Terms</h3>
@@ -40,13 +34,15 @@
 
           <div class="card-form-cards">
           <div class="add-form" >
-            <label for="front">Term</label>
-            <input id="text" type="text" name="front" v-model="card.front" />
+            <label for="front">Question:</label>
+            <!-- <input id="text" type="text" name="front" v-model="card.front" /> -->
+            <textarea id="text" class="cardText" type="text" name="front" v-model="card.front" />
           </div>
 
           <div class="add-form">
-            <label for="back">Definition</label>
-            <input id="text" type="text" name="back" v-model="card.back" />
+            <label for="back">Answer:</label>
+            <!-- <input id="text" type="text" name="back" v-model="card.back" /> -->
+            <textarea id="text" class="cardText" type="text" name="back" v-model="card.back" />
           </div>
           </div>
 
@@ -58,6 +54,12 @@
           </div>
         </form>
       </div>
+
+    </div>
+
+    <div class="card-header">
+      <div class="front">Question</div>
+      <div class="back">Answer</div>
 
     </div>
 
@@ -223,6 +225,8 @@ export default {
   background-color: white;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   font-weight: bold;
+  border-radius: 10px;
+
 }
 
 .card-header{
@@ -349,6 +353,7 @@ export default {
 
 .add-card{
   grid-area: add-card;
+
 }
 
 .cards-label{
@@ -361,6 +366,7 @@ export default {
 .add-card-image{
   max-height: 50px;
   padding: 10px;
+
 }
 
 .add-card-bottom{
@@ -371,14 +377,42 @@ export default {
 }
 
 .add-form{
-  align-items: center;
+  /* align-items: center;
   border-style: solid;
   border-color:rgb(223, 223, 223);
   height: 200px;
   width: 400px;
   padding: 40px;
   margin: 10px;
+  background-color: white; */
+
+
+  display: flex;
+  flex-direction: column;
   background-color: white;
+  width: 400px;
+  padding: 25px;
+  border: none;
+  /* border-top: 20px solid #FFB5A7; */
+  /* border-top-color: lavender; */
+  height: 200px;
+
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  margin-right: 25px;
+  border-radius: 10px; 
+  
+}
+
+#text {
+  margin-top: 20px;
+  border: none;
+  /* border-bottom: 1px solid black; */
+}
+
+.card-form{
+  margin-bottom:50px;
+  margin-top: 50px;
 }
 
 .card-form-cards{
@@ -413,12 +447,14 @@ export default {
 
 .imgggg{
   width: 50%;
+  
 }
   
 .edit-delete{
   background-color: white;
   border-style: none;
   opacity: 75%;
+
 }
 
 .cards-list-footer{

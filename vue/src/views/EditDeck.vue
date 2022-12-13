@@ -1,5 +1,6 @@
 <template>
   <div>
+       <div class="header"></div>
       <h1>Edit Deck</h1>
       <deck-form v-bind:deckId="parseInt($route.params.deckId)"></deck-form>
   </div>
