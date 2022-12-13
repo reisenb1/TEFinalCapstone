@@ -22,12 +22,6 @@
 
     </div>
 
-    <div class="card-header">
-      <div class="front">Question</div>
-      <div class="back">Answer</div>
-
-    </div>
-
     <div class="add-card">
 <!-- 
     <h3 id="cards-terms" class="cards-label">Terms</h3>
@@ -58,6 +52,12 @@
           </div>
         </form>
       </div>
+
+    </div>
+
+    <div class="card-header">
+      <div class="front">Question</div>
+      <div class="back">Answer</div>
 
     </div>
 
