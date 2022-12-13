@@ -15,9 +15,12 @@
 
       <h1 id="h1">My Decks</h1>
 
+      <router-link :to="{ name: 'AddDeck' }"
+        ><button id="createNewDeck" v-show="decks.length == 0">Create Deck</button></router-link
+      >
     
       <router-link :to="{ name: 'AddDeck' }"
-        ><button id="addDeck">New Deck</button></router-link
+        ><button id="addDeck" v-show="decks.length > 0">New Deck</button></router-link
       >
 
       <div class="decks">
@@ -40,7 +43,7 @@
     </div>
 
     <div id="home1">
-      <h1 id="greeting">Hello {{ this.$store.getters.user.username }}</h1>
+      <h1 id="greeting">Hello, {{ this.$store.getters.user.username }}!</h1>
 
       <div id="my-stats">
         <h2>My Stats</h2>
@@ -189,7 +192,7 @@ body {
   background-color: #fcb2a4;
   align-items: center;
   text-indent: 20px;
-  width: 80%;
+  width: 91%;
   border-radius: 10px;
 }
 
@@ -232,6 +235,26 @@ div#sideNav {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+#createNewDeck {
+  background-color: #fcb2a4;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  height: 20%;
+  width: 80%;
+  box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition-duration: 1s;
+  margin-left: 10px;
+  text-decoration: none;
+  margin-top: 80%;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 250%;
+  /* background-color: rgb(#F8EDE8, 0.6); */
 }
 
 #addDeck {
