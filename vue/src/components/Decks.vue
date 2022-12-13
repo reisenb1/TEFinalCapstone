@@ -193,6 +193,7 @@ body {
   text-indent: 20px;
   width: 91%;
   border-radius: 10px;
+  box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 #confidence {

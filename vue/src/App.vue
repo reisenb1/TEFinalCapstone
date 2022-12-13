@@ -22,7 +22,7 @@
 
       <router-link
         class="header-bar-font"
-        style="text-decoration: none; color: black"
+        style="text-decoration: none; color: black;"
         v-bind:to="{ name: 'loggedInHome' }"
         v-show="$store.getters.user.id > 0"
         >My Stats</router-link
@@ -164,7 +164,7 @@ header {
   /* height: 100%; */
 
   left: 0;
-  position: static;
+  /* position: static; */
   /* top: 40px; */
 
   /* removed 
