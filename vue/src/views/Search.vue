@@ -1,5 +1,7 @@
 <template>
   <div id="searchPage">
+      <div id="header-search"></div>
+
     <div id="search">
       <h2 id="searchTitle">Search:</h2>
       <input
@@ -13,23 +15,26 @@
 
     <div id="searchResults">
       <div id="searchLinks" v-bind:key="deck.deckId" v-for="deck in this.decks">
+        
         <div id="firstLine">
-          <div v-bind:to="{ name: 'Deck', params: { deckId: deck.deckId } }">
+          <!-- <div v-bind:to="{ name: 'Deck', params: { deckId: deck.deckId } }">
             Deck ID: {{ deck.deckId }}
-          </div>
-          <router-link
+          </div> -->
+          <img id="search-img" src="../images/cards.gif" alt="" />
+          <router-link id="deckNameId"
             v-bind:to="{ name: 'Deck', params: { deckId: deck.deckId } }"
           >
             {{ deck.deckName }}
           </router-link>
-          <div v-bind:to="{ name: 'Deck', params: { deckId: deck.deckId } }">
+          <!-- <div v-bind:to="{ name: 'Deck', params: { deckId: deck.deckId } }">
             Creator ID: {{ deck.creatorId }}
-          </div>
+          </div> -->
         </div>
         <div id="secondLine">
           <div v-bind:to="{ name: 'Deck', params: { deckId: deck.deckId } }">
             Description: {{ deck.deckDescription }}
           </div>
+          
         </div>
       </div>
     </div>
@@ -70,14 +75,42 @@ export default {
 <style>
 #firstLine {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  align-content: center;
+  /* margin-right: 25px; */
 }
+
+#firstLine img {
+  margin-right: 30px;
+}
+
 #searchResults {
-  /* display: flex; */
-  /* justify-content: center; */
-}
-#searchLinks {
   display: flex;
+  justify-content: center;
+  /* width: 1800px; */
+  flex-wrap: wrap;
+}
+
+#searchLinks {
+  box-sizing: border-box;
+  width: 300px;
+  height: 200px;
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: #fec89a;
+  padding: 10px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* flex-direction: column; */
+  justify-content: space-between;
+  margin-top: 50px;
+  text-decoration: none;
+  /* text-transform: uppercase; */
+
+  /* display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 60vw;
@@ -87,7 +120,12 @@ export default {
   border-style: solid;
   border-width: thin;
   padding: 3px;
-  border-radius: 5px;
+  border-radius: 5px; */
+}
+
+#searchLinks:hover {
+  background-color: #fec89a;
+  opacity: 0.6;
 }
 
 #searchTitle {
@@ -113,5 +151,21 @@ export default {
   border-radius: 15px;
   height: 35px;
   padding-left: 10px;
+}
+
+#header-search {
+  height: 50px;
+}
+
+#search-img {
+  height: 60px;
+  display: flex;
+}
+
+#deckNameId {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  text-transform:capitalize;
 }
 </style>
