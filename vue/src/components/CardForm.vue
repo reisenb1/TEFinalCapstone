@@ -7,12 +7,13 @@
         <div class="frontBackEdit">
         <div id="cardFront">
           <label for="front">Front:</label>
-          <input id="text" type="text" name="front" v-model="card.front" />
+          <textarea id="text" type="text" name="back" v-model="card.front" class="cardText" />
         </div>
 
         <div id="cardBack">
           <label for="back">Back:</label>
-          <input id="text" type="text" name="back" v-model="card.back" />
+          <!-- <input id="text" type="text" name="back" v-model="card.back" class="cardText"/> -->
+          <textarea id="text" type="text" name="back" v-model="card.back" class="cardText" />
         </div>
       </div>
 
@@ -122,6 +123,14 @@ export default {
 
   align-items: center;
 } */
+
+.cardText {
+  inline-size: 390px;
+  /* overflow-wrap: break-word; */
+  white-space: wrap;
+  height: 200px;
+  resize: none;
+}
 
 .frontBackEdit{
   display: flex;
