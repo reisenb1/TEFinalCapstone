@@ -9,6 +9,17 @@ public class Card {
     private int userId;
     private int confidence;
 
+    public Card() {}
+
+    public Card(  String question, String answer){
+
+
+        this.front = question;
+        this.back = answer;
+
+    }
+
+
     public int getUserId() {
         return userId;
     }

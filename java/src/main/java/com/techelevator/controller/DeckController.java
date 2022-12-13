@@ -1,9 +1,12 @@
 package com.techelevator.controller;
 
 
+import com.techelevator.dao.CardDao;
 import com.techelevator.dao.DeckDao;
 import com.techelevator.dao.JdbcDeckDao;
+import com.techelevator.model.Card;
 import com.techelevator.model.Deck;
+import com.techelevator.services.ApiDeckService;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -15,9 +18,13 @@ import java.util.List;
 public class DeckController {
 
     private DeckDao deckDao;
+    private ApiDeckService apiDeckService;
+    private CardDao cardDao;
 
-    public DeckController(DeckDao deckDao) {
+    public DeckController(DeckDao deckDao, ApiDeckService apiDeckService, CardDao cardDao) {
         this.deckDao = deckDao;
+        this.apiDeckService = apiDeckService;
+        this.cardDao = cardDao;
     }
 
     @RequestMapping(path = "/{userId}/decks", method = RequestMethod.GET)
@@ -58,9 +65,25 @@ public class DeckController {
         return deckDao.getDeck(deckId);
     };
 
+
     @RequestMapping(path = "/decks", method = RequestMethod.POST)
-    public Deck createDeck(@RequestBody Deck deck) {
-        return deckDao.createDeck(deck);
+    public Deck createDeck(@RequestBody Deck deck, @RequestParam(defaultValue = "10") int numberCards) {
+        if(deck.getDeckName() == null){
+            deck.setDeckName(deck.getCategory().toString());
+            Deck createdDeck = deckDao.createDeck(deck);
+            createdDeck = apiDeckService.addQuestions(createdDeck,numberCards);
+
+            for(Card card : createdDeck.getQuestions()) {
+                card.setUserId(createdDeck.getCreatorId());
+                card.setDeckId(createdDeck.getDeckId());
+                cardDao.createCard(card);
+            }
+
+            return createdDeck;
+
+        } else {
+            return deckDao.createDeck(deck);
+        }
     }
 
     @RequestMapping(path = "/decks/{deckId}", method = RequestMethod.PUT)

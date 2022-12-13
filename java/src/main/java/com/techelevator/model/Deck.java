@@ -4,11 +4,42 @@ import java.util.List;
 
 public class Deck {
 
+    public enum Category {
+        GENERAL,
+        NATURE,
+        COMPUTERS,
+        MATH,
+        MYTHOLOGY,
+        SPORTS
+    }
+
     private int deckId;
     private String deckName;
     private String deckDescription;
     private int creatorId;
     private boolean accessible;
+
+    private Category category;
+
+    public List<Card> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<Card> questions) {
+        this.questions = questions;
+    }
+
+    private List<Card> questions;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+
 
 
     public int getDeckId() {
