@@ -10,13 +10,13 @@
       </div>
 
       <!--   removed in order to move v-show to div  
-    <div id="signInLink">
+      <div id="signInLink">
       <router-link
         v-bind:to="{ name: 'login' }"
         v-show="$store.state.token == ''"
         >Sign In</router-link
       >
-    </div> -->
+      </div> -->
 
       <!-- added to move v-show from router-link to div -->
       <div id="signInLink" v-show="$store.state.token == ''">
@@ -30,9 +30,22 @@
       <div id="categories">
         <h1>Categories</h1>
         <div id="categoriesContainer">
-          <div id="category" v-bind:key="tag.tagId" v-for="tag in this.tags">
-            {{ tag.tagName }}
-          </div>
+          <div class="category">General</div>
+          <div class="category">Nature</div>
+          <div class="category">Computers</div>
+          <div class="category">Mythology</div>
+          <div class="category">Sports</div>
+          <div class="category">Books</div>
+          <div class="category">Film</div>
+          <div class="category">Music</div>
+          <div class="category">Musicals</div>
+          <div class="category">Television</div>
+          <div class="category">Geography</div>
+          <div class="category">History</div>
+          <div class="category">Art</div>
+          <div class="category">Celebrities</div>
+          <div class="category">Animals</div>
+          <div class="category">Vehicles</div>
         </div>
       </div>
 
@@ -99,7 +112,7 @@ export default {
   flex-wrap: wrap;
   gap: 20px;
   margin-bottom: 20px;
-  max-width: 60%;
+  max-width: 55%;
 }
 main {
   /* display: flex;
@@ -129,13 +142,13 @@ p {
   border-radius: 6px;
 }
 
-#category {
+.category {
   border: 5px;
   border-style: solid;
-  border-color: #fec89a;
+  border-color: #f9dcc4;
   border-radius: 8px;
   font-size: 25px;
-  background-color: #f9dcc4;
+  background-color: #fec89a;
   padding: 10px;
 }
 
@@ -150,11 +163,11 @@ p {
   flex-direction: column;
   color: white;
   scroll-behavior: smooth;
-  background-color: #fcd5ce;
+  background-color: rgb(252, 213, 206, 0.9);
   /* height: 750px; */
   flex-basis: 25%;
   width: 100%;
-  opacity: 95%;
+  /* opacity: 95%; */
 }
 
 #about {
