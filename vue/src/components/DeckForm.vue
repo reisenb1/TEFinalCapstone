@@ -47,7 +47,7 @@
     <div class="container-random">
 
      
-      <form id="add-deck-form" v-on:submit.prevent="submitForm">
+      <form  v-on:submit.prevent="submitForm">
 
          <h2>Select a category to generate a random deck!</h2> 
 
@@ -68,6 +68,39 @@
 
       <input type="radio" id="sports" name="category" value="SPORTS" v-on:click="setCategory('SPORTS')">
       <label for="sports">Sports</label>
+
+      <input type="radio" id="books" name="category" value="BOOKS" v-on:click="setCategory('BOOKS')">
+      <label for="books">Books</label>
+
+      <input type="radio" id="film" name="category" value="FILM" v-on:click="setCategory('FILM')">
+      <label for="film">Film</label>
+
+      <input type="radio" id="music" name="category" value="MUSIC" v-on:click="setCategory('MUSIC')">
+      <label for="music">Music</label>
+
+      <input type="radio" id="musicals" name="category" value="MUSICALS" v-on:click="setCategory('MUSICALS')">
+      <label for="musicals">Musicals</label>
+
+      <input type="radio" id="television" name="category" value="TELEVISION" v-on:click="setCategory('TELEVISION')">
+      <label for="television">Television</label>
+
+      <input type="radio" id="geography" name="category" value="GEOGRAPHY" v-on:click="setCategory('GEOGRAPHY')">
+      <label for="geography">Geography</label>
+
+      <input type="radio" id="history" name="category" value="HISTORY" v-on:click="setCategory('HISTORY')">
+      <label for="history">History</label>
+
+      <input type="radio" id="art" name="category" value="ART" v-on:click="setCategory('ART')">
+      <label for="art">Art</label>
+
+      <input type="radio" id="celebrities" name="category" value="CELEBRITIES" v-on:click="setCategory('CELEBRITIES')">
+      <label for="celerities">celebrities</label>
+
+      <input type="radio" id="animals" name="category" value="ANIMALS" v-on:click="setCategory('ANIMALS')">
+      <label for="animals">Animals</label>
+
+      <input type="radio" id="vehicles" name="category" value="VEHICLES" v-on:click="setCategory('VEHICLES')">
+      <label for="vehicles">Vehicles</label>
 
       <button id="niceButton" type="submit">Save</button>
       <button id="niceButton" v-on:click.prevent="cancelDeck" type="cancel">Cancel</button>

@@ -10,7 +10,18 @@ public class Deck {
         COMPUTERS,
         MATH,
         MYTHOLOGY,
-        SPORTS
+        SPORTS,
+        BOOKS,
+        FILM,
+        MUSIC,
+        MUSICALS,
+        TELEVISION,
+        GEOGRAPHY,
+        HISTORY,
+        ART,
+        CELEBRITIES,
+        ANIMALS,
+        VEHICLES
     }
 
     private int deckId;
