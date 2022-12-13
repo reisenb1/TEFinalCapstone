@@ -19,6 +19,13 @@
         <img class="add-card-image" src="../images/black-plus-sign.png" alt="Add Card">
       </button>
       </div>
+
+    </div>
+
+    <div class="card-header">
+      <div class="front">Term</div>
+      <div class="back">Definition</div>
+
     </div>
 
     <div class="add-card">
@@ -47,7 +54,7 @@
           <div class="form-buttons">
           <button class="submit" input type="submit">Add Card</button>
 
-          <button class="cancel" v-on:click.prevent="cancelForm" type="cancel">Nvm I changed my mind</button>
+          <button class="cancel" v-on:click.prevent="cancelForm" type="cancel">Cancel</button>
           </div>
         </form>
       </div>
@@ -89,7 +96,7 @@
         </router-link>
       </div> -->
 
-
+    <div class="cards-list-footer"></div>
 
   </div>
 </template>
@@ -216,6 +223,28 @@ export default {
   background-color: white;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   font-weight: bold;
+}
+
+.card-header{
+   display: grid;
+  
+  grid-template-areas:
+    "front back confidence edit"
+    "front back confidence delete";
+
+  grid-template-columns: 10fr 10fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+
+
+  align-items: center;
+
+  padding-left: 40px;
+  padding-right: 40px;
+  margin: 10px;
+  /* box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
+  font-weight: bold;
+  font-size: 150%;
+  text-decoration: underline;
 }
 
 .front{
@@ -363,9 +392,15 @@ export default {
 }
 
 .submit{
-  background-color: #FFB5A7;
+  background-color: #f79986;
   width: 200px;
+  color: black;
+  /* border: solid #f79986 2px; */
 }
+
+/* .submit-cards-list:hover{
+  background-color: #f79986;
+} */
 
 .cancel {
   background-color: rgb(179, 179, 179);
@@ -384,6 +419,10 @@ export default {
   background-color: white;
   border-style: none;
   opacity: 75%;
+}
+
+.cards-list-footer{
+  height: 150px;
 }
 
 </style>
