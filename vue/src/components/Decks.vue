@@ -42,6 +42,8 @@
       <!-- <router-link :to="{ name: 'AddDeck' }"><button id="addDeck" >New Deck</button></router-link> -->
     </div>
 
+    <a id="top" href="#"><img src="../images/white-double-arrow.png" alt=""></a>
+
     <div id="home1">
       <h1 id="greeting">Hello, {{ this.$store.getters.user.username }}!</h1>
 
@@ -364,5 +366,33 @@ div#sideNav {
 img {
   height: 50%;
   margin-top: 20px;
+}
+
+#top {
+  /* display: none; */
+  position: fixed;
+  bottom: 20px;
+  right: 47.5%;
+  z-index: 99;
+  /* border: 2px solid black; */
+  outline: none;
+  /* background-color: #ffb676; */
+  color: black;
+  cursor: pointer;
+  /* padding: 15px; */
+  /* border-radius: 10px; */
+  /* font-size: 10px; */
+  font-weight: bold;
+  opacity: 0.6;
+  height: 100px;
+  /* width: 60px; */
+  /* transition-delay: 1s; */
+  /* box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
+}
+
+#top:hover {
+  /* background-color: #ffb676; */
+  opacity: 1;
+  
 }
 </style>

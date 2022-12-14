@@ -13,6 +13,9 @@
       />
     </div>
 
+    <!-- used to scroll to top -->
+    <!-- <a id="top" href="#"><img src="../images/white-double-arrow.png" alt=""></a> -->
+
     <div id="searchResults">
       <div id="searchLinks" v-bind:key="deck.deckId" v-for="deck in this.decks">
         
@@ -138,6 +141,7 @@ export default {
 #searchPage {
   display: flex;
   /* justify-content: center; */
+  
 }
 
 #search {
@@ -169,4 +173,32 @@ export default {
   color: black;
   text-transform:capitalize;
 }
+
+/* #top {
+  /* display: none; */
+  /* position: fixed;
+  bottom: 20px;
+  right: 47.5%;
+  z-index: 99;
+  border: 2px solid black;
+  outline: none;
+  background-color: #ffb676;
+  color: black;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: bold;
+  opacity: 0.4;
+  height: 100px;
+  width: 60px;
+  transition-delay: 1s;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+} */
+
+/* #top:hover {
+  background-color: #ffb676;
+  opacity: 0.8;
+  
+}  */
 </style>
