@@ -180,13 +180,13 @@ export default {
 #title-page {
   font-weight: bold;
   color: ivory;
-  text-shadow: 0 0 10px black;
-  margin-top: 50px;
+  text-shadow: 0 0 20px black;
+  padding-bottom: 200px;
 }
 
-#used-to-push-page-down {
-  /* top: 60px; */
-}
+/* #used-to-push-page-down {
+  top: 60px;
+} */
 
 #main-logo {
   height: 200px;
@@ -275,10 +275,11 @@ h2 h3 {
   display: flex;
   align-items: center;
   flex-direction: column;
-  color: white;
+  color: ivory;
   scroll-behavior: smooth;
-  background-color: rgb(253, 227, 222, 0.9);
+  background-color: rgb(255, 140, 119, 0.8);
   height: 750px;
+  padding-top: 60px;
   /* flex-basis: 50%; */
   width: 100%;
   /* opacity: 95%; */
