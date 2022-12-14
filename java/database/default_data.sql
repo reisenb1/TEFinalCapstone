@@ -9,7 +9,7 @@ INSERT INTO public.users VALUES (6, 'Eric', '$2a$10$f6oz7q409WPF0ZeLG7SIBO8.jeyZ
 INSERT INTO public.users VALUES (7, 'Ying', '$2a$10$62TkY6hOVHOrOwUko0eTsO1eQ4GrFvPii26N/aQXJeyzcJutvtx/a', 'ROLE_USER');
 
 
-INSERT INTO public.decks VALUES (48, 'Ethiopian Busses', 'A history of the transportation vehicle in Ethiopia', true, 7);
+INSERT INTO public.decks VALUES (48, 'Ethiopian Fried Chicken', 'A history of buttery fried chicken exported from Ethiopia', true, 7);
 INSERT INTO public.decks VALUES (2, 'Basic Coding Questions', 'Beginner computer coding questions', true, 3);
 INSERT INTO public.decks VALUES (3, 'Roman Empire ', 'History about the great Roman Empire', true, 3);
 INSERT INTO public.decks VALUES (4, 'Disney Movies', 'Disney films and culture', true, 3);
@@ -57,7 +57,7 @@ INSERT INTO public.decks VALUES (8, 'Foreign Musicals', 'How other countries put
 INSERT INTO public.decks VALUES (9, 'Diversity on Broadway', 'The history of race-blind castings in musicals', true, 3);
 INSERT INTO public.decks VALUES (18, 'National Parks', 'Historic parks and pre-historic plants still found in nature', true, 7);
 INSERT INTO public.decks VALUES (23, 'West African History', 'History of Benin, Cape Verde, Gambia, Ghana, Guinea, Ivory Coast', true, 4);
-INSERT INTO public.decks VALUES (52, 'TELEVISION', '', true, 4);
+INSERT INTO public.decks VALUES (52, 'Modern T.V.', 'Drama and soap operas from 2010s television', true, 4);
 INSERT INTO public.decks VALUES (1, 'Pop Culture', 'Pop culture about famous contemporary books!', true, 3);
 INSERT INTO public.decks VALUES (28, 'Fantasy Novels', 'High fantasy books from medieval times', true, 3);
 INSERT INTO public.decks VALUES (39, 'Internet Websites', 'Questions about Google, YouTube and other general sites', true, 3);
