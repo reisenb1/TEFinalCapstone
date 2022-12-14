@@ -4,7 +4,10 @@
     <div class="view">
       <!-- <img src="../images/study-photo.jpg" /> -->
       <div id="firstTextArea">
-        <div class="newNew">
+         <h1 id="title-page">YEGET</h1> 
+
+
+        <!-- <div class="newNew">
           <div id="hello1">
             <h2>Hello!</h2>
           </div>
@@ -24,11 +27,11 @@
             </p>
           </div>
 
-          <!-- <img id="main-logo" src="..\images\cards.gif" /> -->
+          <img id="main-logo" src="..\images\cards.gif" />
           <div>
             <p id="quote">"Ye get cards, you get it??"</p>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <!-- removed in order to move v-show to div  
@@ -174,33 +177,15 @@ export default {
 </script>
 
 <style scoped>
-#quote {
-  display: flex;
-  justify-content: left;
-  padding-left: 45%;
-}
-
-#desc123 {
-  display: flex;
-  justify-content: left;
-  flex-direction: column;
-  padding-left: 25%;
-}
-
-#hello1 {
-  display: flex;
-  justify-content: left;
-  padding-left: 57%;
-}
-
-#h3graph {
-  display: flex;
-  justify-content: left;
-  padding-left: 25%;
+#title-page {
+  font-weight: bold;
+  color: ivory;
+  text-shadow: 0 0 10px black;
+  margin-top: 50px;
 }
 
 #used-to-push-page-down {
-  top: 60px;
+  /* top: 60px; */
 }
 
 #main-logo {
@@ -277,11 +262,13 @@ h2 h3 {
 #firstTextArea {
   /* margin: auto; */
   /* color: white; */
-  height: 800px;
-  /* display: flex;
+  height: 950px;
+  display: flex;
   align-items: center;
-  justify-content: left;
-  flex-direction: column; */
+  justify-content: center;
+  flex-direction: column;
+  font-size: 100px;
+
 }
 
 #categories {
