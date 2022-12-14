@@ -64,7 +64,7 @@
 
           <div id="yeget-promo">
             <!-- <p id="different">What makes YEGET different?</p>  -->
-            <h3>Our exclusive algorithm that provides you with valuable insight into your knowledge - a unique confidence score that assess how well you really know your facts!</h3>
+            <p id="whatMakes">Our exclusive algorithm provides you with valuable insight into your knowledge<br> - a unique <b>confidence score</b> that assesses how well you really know your facts!</p>
             <h3>Join millions of others by 
               
               <router-link :to="{name: 'register'}">creating an account</router-link> 
@@ -140,7 +140,7 @@
 
         </div>
 
-        <a id="top" href="#">Back to top</a>
+        <a id="top" href="#"><img src="../images/white-double-arrow.png" alt=""></a>
       </div>
 
 
@@ -253,6 +253,7 @@ export default {
   data() {
     return {
       tags: [],
+      showUp: false
     };
   },
   created() {
@@ -269,6 +270,10 @@ export default {
 </script>
 
 <style scoped>
+
+#whatMakes {
+  font-size: 24px;
+}
 
 #yeget-promo{
   display: flex;
@@ -446,7 +451,7 @@ h2 h3 {
   color: white;
   background-color: #ffb5a7;
   /* height: 500px; */
-  flex-basis: 700px;
+  flex-basis: 900px;
   /* align-items: center; */
   /* flex-direction: row; */
   width: 100%;
@@ -473,24 +478,30 @@ h1 {
 }
 
 #top {
+  /* display: none; */
   position: fixed;
   bottom: 20px;
-  right: 30px;
+  right: 47.5%;
   z-index: 99;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   outline: none;
-  background-color: #ffb676;
+  /* background-color: #ffb676; */
   color: black;
   cursor: pointer;
-  padding: 15px;
-  border-radius: 10px;
-  font-size: 10px;
+  /* padding: 15px; */
+  /* border-radius: 10px; */
+  /* font-size: 10px; */
   font-weight: bold;
-  opacity: 0.8;
+  opacity: 0.4;
+  height: 100px;
+  /* width: 60px; */
+  /* transition-delay: 1s; */
+  /* box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
 }
 
 #top:hover {
-  background-color: #ffb676;
-  opacity: 1;
+  /* background-color: #ffb676; */
+  opacity: 0.8;
+  
 }
 </style>

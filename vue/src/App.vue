@@ -38,16 +38,17 @@
       &nbsp;|&nbsp;<a
         class="header-bar-font"
         style="text-decoration: none; color: black"
+        href="/#about"
+        >About</a
+      >
+      &nbsp;|&nbsp;<a
+        class="header-bar-font"
+        style="text-decoration: none; color: black"
         href="/#categories"
         >Categories</a
       >
       <!-- &nbsp;|&nbsp;<router-link style="text-decoration: none; color: white" v-bind:to="{ name: '' }">Categories</router-link> -->
-      &nbsp;|&nbsp;<a
-        class="header-bar-font"
-        style="text-decoration: none; color: black"
-        href="/#about"
-        >About</a
-      >
+      
       &nbsp;|&nbsp;
       <router-link
         class="header-bar-font"
