@@ -4,7 +4,8 @@
     <div class="view">
       <!-- <img src="../images/study-photo.jpg" /> -->
       <div id="firstTextArea">
-         <h1 id="title-page">YEGET</h1> 
+         <h1 id="title-page">YEGET </h1> 
+         <!-- <img id="logo-photo" src="../images/cards.gif" /> -->
 
 
         <!-- <div class="newNew">
@@ -52,6 +53,46 @@
         >
       </div>
       <hr />
+
+      <div id="about">
+        <h1 id="about-section-title">About</h1>
+
+        <div class="about-desc">
+        <ul>
+          Team Members:
+          <li>
+            Ying Huang: Digimon player extraordinare. When it comes to
+            ping-pong, let him beat himself.
+          </li>
+          <li>
+            Thi Pham: Color guard FTW. We are glad she made it to the end
+            without getting kicked out.
+          </li>
+          <li>
+            Emily Hamilton: Don't let her go hungry or you'll regret it. She is
+            also a velociraptor.
+          </li>
+          <li>
+            Geoffrey Jones: Will smoke you on the basketball court. Has said
+            sorry 5000 times since the beginning of cohort.
+          </li>
+          <li>
+            Eric Reisenbuckler: We don't know why he did this program when he
+            used to be an aerospace engineer at Boeing...
+          </li>
+        </ul>
+        
+
+        <div id="img-div">
+        <img src="../images/Amber-Bitmoji.png">
+        </div>
+
+        </div>
+
+        <a id="top" href="#">Back to top</a>
+      </div>
+
+
       <div id="categories">
         <h1>Categories</h1>
         <div id="categoriesContainer">
@@ -121,7 +162,7 @@
         </div>
       </div>
 
-      <div id="about">
+      <!-- <div id="about">
         <h1>About</h1>
         <ul>
           Team Members:
@@ -148,7 +189,7 @@
         </ul>
 
         <a id="top" href="#">Back to top</a>
-      </div>
+      </div> -->
     </div>
   </main>
 </template>
@@ -177,12 +218,34 @@ export default {
 </script>
 
 <style scoped>
+/* #img-div {
+  display: flex;
+  
+} */
+
+.about-desc {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  
+}
+
+
 #title-page {
   font-weight: bold;
   color: ivory;
   text-shadow: 0 0 20px black;
   padding-bottom: 200px;
+  /*use for logo next to the YEGET
+  /* margin-right: -50px; */
 }
+
+/* #logo-photo {
+  padding-bottom: 120px;
+  height: 250px;
+  
+} */
 
 /* #used-to-push-page-down {
   top: 60px;
@@ -266,7 +329,7 @@ h2 h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  /* flex-direction: column; */
   font-size: 100px;
 
 }
@@ -286,15 +349,21 @@ h2 h3 {
 }
 
 #about {
-  display: flex;
+  /* display: flex; */
   color: white;
   background-color: #ffb5a7;
   /* height: 500px; */
-  flex-basis: 500px;
-  align-items: center;
-  flex-direction: column;
+  flex-basis: 700px;
+  /* align-items: center; */
+  /* flex-direction: row; */
   width: 100%;
+  padding-top: 60px;
 }
+
+/* #about-section-title {
+  display: flex;
+
+} */
 
 .view {
   display: flex;

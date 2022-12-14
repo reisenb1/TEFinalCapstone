@@ -321,7 +321,7 @@ export default {
   border-style: solid;
   border-width: 1px;
   opacity: 75%;
-
+  border-radius: 10px;
 }
 
 .header-bottom:hover{
@@ -349,6 +349,7 @@ export default {
 
 .study-session-link:hover{
   background-color: #f79986;
+  
 }
 
 .add-card{
@@ -374,6 +375,7 @@ export default {
   justify-content: flex-end;
   margin: 15px;
   background-color: white;
+  
 }
 
 .add-form{

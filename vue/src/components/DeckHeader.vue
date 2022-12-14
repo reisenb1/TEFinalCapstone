@@ -63,6 +63,11 @@ export default {
 .edit{
     
     height: 30px;
+    
+}
+
+.button-deck {
+    border-radius: 5px;
 }
 
 .button-deck{
