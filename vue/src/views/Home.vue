@@ -3,28 +3,35 @@
     <div id="used-to-push-page-down"></div>
     <div class="view">
       <!-- <img src="../images/study-photo.jpg" /> -->
-      <div class="newNew" id="firstTextArea">
-        <div id="hello1">
-        <h2>Hello!</h2>
-        </div>
+      <div id="firstTextArea">
+        <div class="newNew">
+          <div id="hello1">
+            <h2>Hello!</h2>
+          </div>
 
-        <div id="h3graph">
-        <h3>Test your knowledge with flashcards from YEGET!</h3>
-        </div>
+          <div id="h3graph">
+            <h3>Test your knowledge with flashcards from YEGET!</h3>
+          </div>
 
-        <div id="desc123">
-        <p>The best place to increase intelligence and have fun with a little trivia. <br>
-        Yeget is the best, most comfortable place that allows you to let loose, <br>
-        and own your friends with useless knowledge and facts. Get right with YEGET!</p>
-        </div>
+          <div id="desc123">
+            <p>
+              The best place to increase intelligence and have fun with a little
+              trivia. <br />
+              Yeget is the best, most comfortable place that allows you to let
+              loose, <br />
+              and own your friends with useless knowledge and facts. Get right
+              with YEGET!
+            </p>
+          </div>
 
-        <!-- <img id="main-logo" src="..\images\cards.gif" /> -->
-        <div>
-        <p id="quote">"Ye get cards, you get it??"</p>
+          <!-- <img id="main-logo" src="..\images\cards.gif" /> -->
+          <div>
+            <p id="quote">"Ye get cards, you get it??"</p>
+          </div>
         </div>
       </div>
 
-        <!-- removed in order to move v-show to div  
+      <!-- removed in order to move v-show to div  
       <div id="signInLink">
       <router-link
         v-bind:to="{ name: 'login' }"
@@ -45,69 +52,68 @@
       <div id="categories">
         <h1>Categories</h1>
         <div id="categoriesContainer">
-
           <router-link id="noUnder" :to="{ name: 'Search' }">
-          <div class="category">General</div>
+            <div class="category">General</div>
           </router-link>
 
           <router-link id="noUnder" :to="{ name: 'Search' }">
-          <div class="category">Nature</div>
+            <div class="category">Nature</div>
           </router-link>
 
           <router-link id="noUnder" :to="{ name: 'Search' }">
-          <div class="category">Computers</div>
+            <div class="category">Computers</div>
           </router-link>
 
           <router-link id="noUnder" :to="{ name: 'Search' }">
-          <div class="category">Mythology</div>
+            <div class="category">Mythology</div>
           </router-link>
 
           <router-link id="noUnder" :to="{ name: 'Search' }">
-          <div class="category">Sports</div>
+            <div class="category">Sports</div>
           </router-link>
 
           <router-link id="noUnder" :to="{ name: 'Search' }">
-          <div class="category">Books</div>
+            <div class="category">Books</div>
           </router-link>
 
           <router-link id="noUnder" :to="{ name: 'Search' }">
-          <div class="category">Film</div>
+            <div class="category">Film</div>
           </router-link>
 
           <router-link id="noUnder" :to="{ name: 'Search' }">
-          <div class="category">Music</div>
+            <div class="category">Music</div>
           </router-link>
 
           <router-link id="noUnder" :to="{ name: 'Search' }">
-          <div class="category">Board Games</div>
+            <div class="category">Board Games</div>
           </router-link>
 
           <router-link id="noUnder" :to="{ name: 'Search' }">
-          <div class="category">Television</div>
+            <div class="category">Television</div>
           </router-link>
 
           <router-link id="noUnder" :to="{ name: 'Search' }">
-          <div class="category">Geography</div>
+            <div class="category">Geography</div>
           </router-link>
 
           <router-link id="noUnder" :to="{ name: 'Search' }">
-          <div class="category">History</div>
+            <div class="category">History</div>
           </router-link>
 
           <router-link id="noUnder" :to="{ name: 'Search' }">
-          <div class="category">Art</div>
+            <div class="category">Art</div>
           </router-link>
 
           <router-link id="noUnder" :to="{ name: 'Search' }">
-          <div class="category">Celebrities</div>
+            <div class="category">Celebrities</div>
           </router-link>
 
           <router-link id="noUnder" :to="{ name: 'Search' }">
-          <div class="category">Animals</div>
+            <div class="category">Animals</div>
           </router-link>
 
           <router-link id="noUnder" :to="{ name: 'Search' }">
-          <div class="category">Vehicles</div>
+            <div class="category">Vehicles</div>
           </router-link>
         </div>
       </div>
@@ -188,13 +194,13 @@ export default {
 }
 
 #h3graph {
-   display: flex;
+  display: flex;
   justify-content: left;
   padding-left: 25%;
 }
 
 #used-to-push-page-down {
-   top: 60px;
+  top: 60px;
 }
 
 #main-logo {
@@ -210,8 +216,8 @@ export default {
   gap: 20px;
   margin-bottom: 20px;
   max-width: 40%;
-   text-decoration: none;
-   height: 70%;
+  text-decoration: none;
+  height: 70%;
 }
 
 main {
@@ -221,7 +227,7 @@ main {
   color: ivory; */
   /* background-color: cadetblue; */
   background-image: url("../images/study-photo.jpg");
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
@@ -261,12 +267,11 @@ h2 h3 {
   width: 120px;
   align-items: center;
   color: black;
-   text-decoration: none;
+  text-decoration: none;
 }
 
 .category:hover {
   box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
 
 #firstTextArea {
@@ -279,20 +284,6 @@ h2 h3 {
   flex-direction: column; */
 }
 
-.newNew {
-  /* display: flex;
-  justify-content: center; */
-  /* align-items: center; */
-  /* flex-wrap: wrap; */
-  /* flex-direction: column; */
-  color: ivory;
-  width: 30%;
-  /* border: 2px solid black; */
-  margin-left: 10%;
-  padding-right: 7%;
-  font-weight: bold;
-} 
-
 #categories {
   display: flex;
   align-items: center;
@@ -304,7 +295,6 @@ h2 h3 {
   /* flex-basis: 50%; */
   width: 100%;
   /* opacity: 95%; */
-
 }
 
 #about {
@@ -333,21 +323,20 @@ h1 {
 }
 
 #top {
-   
   position: fixed;
-  bottom: 20px; 
-  right: 30px; 
+  bottom: 20px;
+  right: 30px;
   z-index: 99;
   border: 2px solid black;
   outline: none;
   background-color: #ffb676;
-  color: white;
-  cursor: pointer; 
-  padding: 15px; 
-  border-radius: 10px; 
+  color: black;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
   font-size: 10px;
   font-weight: bold;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 #top:hover {
