@@ -30,6 +30,7 @@ public class JdbcCardDaoTest extends BaseDaoTests{
     public void createCard() {
         CardDao cardDao = new JdbcCardDao(new JdbcTemplate(dataSource));
         Card card = new Card();
+        card.setUserId(1);
         card.setDeckId(1);
         card.setFront("example");
         card.setBack("testing");

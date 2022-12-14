@@ -43,9 +43,9 @@ import java.util.List;
 
     @Override
     public Card createCard(Card card) {
-        String sql = "INSERT INTO cards(deck_id, front, back, user_id)\n" +
-                     "VALUES(?, ?, ?, ?) RETURNING card_id;";
-        Integer cardId = jdbcTemplate.queryForObject(sql, Integer.class, card.getDeckId(),card.getFront(),card.getBack(),card.getUserId());
+        String sql = "INSERT INTO cards(deck_id, front, back, user_id, confidence)\n" +
+                     "VALUES(?, ?, ?, ?, ?) RETURNING card_id;";
+        Integer cardId = jdbcTemplate.queryForObject(sql, Integer.class, card.getDeckId(),card.getFront(),card.getBack(),card.getUserId(), card.getConfidence());
         card.setCardId(cardId);
         return card;
     }
