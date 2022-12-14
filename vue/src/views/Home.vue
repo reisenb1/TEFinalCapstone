@@ -84,7 +84,8 @@
         
 
         <div id="img-div">
-        <img src="../images/Amber-Bitmoji.png">
+        <img src="../images/Amber-Bitmoji.png" />
+        <img src="../images/Ying-bitmoji-removebg-preview.png" />
         </div>
 
         </div>
@@ -308,7 +309,7 @@ h2 h3 {
   border-style: solid;
   border-color: #f9dcc4;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 17px;
   background-color: #fec89a;
   padding: 10px;
   height: 50px;
