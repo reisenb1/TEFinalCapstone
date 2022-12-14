@@ -45,20 +45,42 @@
       </div> -->
 
       <!-- added to move v-show from router-link to div -->
-      <div id="signInLink" v-show="$store.state.token == ''">
+      <!-- <div id="signInLink" v-show="$store.state.token == ''">
         <router-link
           style="text-decoration: none; color: white"
           v-bind:to="{ name: 'login' }"
           >Sign In</router-link
         >
-      </div>
+      </div> -->
       <hr />
 
       <div id="about">
-        <h1 id="about-section-title">About</h1>
+        <!-- <h1 id="about-section-title">About</h1> -->
+         <h1 id="about-section-title" class="different">What makes YEGET different?</h1>
+
 
         <div class="about-desc">
-        <ul>
+          
+
+          <div id="yeget-promo">
+            <!-- <p id="different">What makes YEGET different?</p>  -->
+            <h3>Our exclusive algorithm that provides you with valuable insight into your knowledge - a unique confidence score that assess how well you really know your facts!</h3>
+            <h3>Join millions of others by 
+              
+              <router-link :to="{name: 'register'}">creating an account</router-link> 
+              
+              
+              and getting started today!</h3>
+            <h4>Already have an account? 
+              
+              <router-link :to="{name: 'login'}">Click here to log in</router-link>
+              
+              </h4>
+          </div>
+
+
+
+        <!-- <ul>
           Team Members:
           <li>
             Ying Huang: Digimon player extraordinare. When it comes to
@@ -80,12 +102,40 @@
             Eric Reisenbuckler: We don't know why he did this program when he
             used to be an aerospace engineer at Boeing...
           </li>
-        </ul>
+        </ul> -->
         
 
         <div id="img-div">
-        <img src="../images/Amber-Bitmoji.png" />
-        <img src="../images/Ying-bitmoji-removebg-preview.png" />
+          <div id="Amber">
+            <img class="imgggggg" src="../images/Amber-Bitmoji.png" />
+            <h3 class="h3">Amber</h3>
+          </div>
+
+          <div>
+            <img class="imgggggg" src="../images/Ying-bitmoji-removebg-preview.png" />
+            <h3 class="h3">Ying</h3>
+          </div>
+
+          <div>
+            <img class="imgggggg" src="../images/Emily-bitmoji-removebg-preview.png" />
+            <h3 class="h3">Emily</h3>
+          </div>
+
+          <div>
+            <img class="imgggggg" src="../images/Geoff-bitmoji.png" alt="">
+            <h3 class="h3">Geoff</h3>
+          </div>
+
+          <div>
+            <img class="imgggggg" src="../images/AnhThi-bitomji.png" alt="">
+            <h3 class="h3">Thi</h3>
+          </div>
+
+          <div>
+            <img class="imgggggg" src="../images/Eric-bitmoji.png" alt="">
+            <h3 class="h3">Eric</h3>
+          </div>
+
         </div>
 
         </div>
@@ -219,17 +269,59 @@ export default {
 </script>
 
 <style scoped>
-/* #img-div {
+
+#yeget-promo{
   display: flex;
-  
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  margin-bottom: 100px;
+  width: 60%;
+}
+
+.h3{
+
+  display: flex;
+  justify-content: center;
+  margin-top: -20px;
+  color: black;
+
+}
+
+
+#img-div{
+  display: flex;
+  justify-content: center;
+}
+
+
+/* #Amber {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+
 } */
+
+.imgggggg {
+  height: 200px;
+  
+}
 
 .about-desc {
   display: flex;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   
+}
+
+.different{
+  font-weight: bold;
+  font-size: 36px;
+  text-decoration: underline;
+  color: black;
 }
 
 
