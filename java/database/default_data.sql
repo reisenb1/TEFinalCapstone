@@ -1,12 +1,12 @@
 BEGIN TRANSACTION;
 
-INSERT INTO public.users VALUES (1, 'user', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_USER');
-INSERT INTO public.users VALUES (2, 'admin', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_ADMIN');
-INSERT INTO public.users VALUES (3, 'Geoffrey', '$2a$10$dFqXQmRjK5XBfssMHg6S2u3xYmZStcv3UqQuvEP.iNhJrs5WBXG/2', 'ROLE_USER');
-INSERT INTO public.users VALUES (4, 'Anhthi', '$2a$10$MCFuuI8j95dmfTuCpBOsx.MjO8SY43fbVe9aLW.Z2A50A2TgKBlha', 'ROLE_USER');
-INSERT INTO public.users VALUES (5, 'Emily', '$2a$10$IuEfNGXJozxPeaMc3fbdbO/4acSCAuOEPWxg7LKwhOj2wy572QUHq', 'ROLE_USER');
-INSERT INTO public.users VALUES (6, 'Eric', '$2a$10$f6oz7q409WPF0ZeLG7SIBO8.jeyZJuJBGEc53NU0ORJM/TB8K2JmW', 'ROLE_USER');
-INSERT INTO public.users VALUES (7, 'Ying', '$2a$10$62TkY6hOVHOrOwUko0eTsO1eQ4GrFvPii26N/aQXJeyzcJutvtx/a', 'ROLE_USER');
+INSERT INTO public.users(username,password_hash,role) VALUES ('user', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_USER');
+INSERT INTO public.users(username,password_hash,role) VALUES ('admin', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_ADMIN');
+INSERT INTO public.users(username,password_hash,role) VALUES ('Geoffrey', '$2a$10$dFqXQmRjK5XBfssMHg6S2u3xYmZStcv3UqQuvEP.iNhJrs5WBXG/2', 'ROLE_USER');
+INSERT INTO public.users(username,password_hash,role) VALUES ('Anhthi', '$2a$10$MCFuuI8j95dmfTuCpBOsx.MjO8SY43fbVe9aLW.Z2A50A2TgKBlha', 'ROLE_USER');
+INSERT INTO public.users(username,password_hash,role) VALUES ('Emily', '$2a$10$IuEfNGXJozxPeaMc3fbdbO/4acSCAuOEPWxg7LKwhOj2wy572QUHq', 'ROLE_USER');
+INSERT INTO public.users(username,password_hash,role) VALUES ('Eric', '$2a$10$f6oz7q409WPF0ZeLG7SIBO8.jeyZJuJBGEc53NU0ORJM/TB8K2JmW', 'ROLE_USER');
+INSERT INTO public.users(username,password_hash,role) VALUES ('Ying', '$2a$10$62TkY6hOVHOrOwUko0eTsO1eQ4GrFvPii26N/aQXJeyzcJutvtx/a', 'ROLE_USER');
 
 
 INSERT INTO public.decks VALUES (48, 'Ethiopian Fried Chicken', 'A history of buttery fried chicken exported from Ethiopia', true, 7);
