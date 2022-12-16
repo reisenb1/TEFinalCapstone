@@ -4,7 +4,10 @@
     <div class="view">
       <!-- <img src="../images/study-photo.jpg" /> -->
       <div id="firstTextArea">
+        <div class="almost-there">
          <h1 id="title-page">YEGET </h1> 
+         <h6 id="digital-cards">The #1 Digital Flashcards</h6>
+        </div>
          <!-- <img id="logo-photo" src="../images/cards.gif" /> -->
 
 
@@ -270,6 +273,22 @@ export default {
 </script>
 
 <style scoped>
+.almost-there {
+  margin-bottom: 200px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#digital-cards {
+  font-size: 45px;
+  color: ivory;
+  /* bottom: -150px; */
+  margin-top: -130px;
+  text-shadow: 0 0 20px black;
+
+}
 
 #whatMakes {
   font-size: 24px;
@@ -334,7 +353,7 @@ export default {
   font-weight: bold;
   color: ivory;
   text-shadow: 0 0 20px black;
-  padding-bottom: 200px;
+  /* padding-bottom: 100px; */
   /*use for logo next to the YEGET
   /* margin-right: -50px; */
 }
@@ -427,8 +446,9 @@ h2 h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* flex-direction: column; */
+  flex-direction: column;
   font-size: 100px;
+  
 
 }
 
