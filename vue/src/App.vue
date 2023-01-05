@@ -15,7 +15,7 @@
           id="homeLogo"
           v-bind:to="{ name: 'home' }"
         >
-          <img id="logoHeaderBar" src=".\images\cards.gif" />
+          <img id="logoHeaderBar" src="./images/cards.gif" />
           <h2>YEGET</h2>
         </router-link>
       </div>
